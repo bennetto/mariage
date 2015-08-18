@@ -34,7 +34,7 @@ function bulle(_positionX,_positionY,_maxMove,temps){
     div.style.height = "50px";
     div.style.width = "50px";
     div.style.borderRadius = "50px";
-    div.style.WebkitTransition = '-webkit-transform '+tempsTransition+'s linear';
+    div.style.WebkitTransition = '-webkit-transform '+tempsTransition+'s ease-in-out';
     div.style.left = position.x+'px';
     div.style.marginTop = position.y+'px';
 
@@ -85,10 +85,6 @@ window.onload = function(){
     for(var i=0;i<bulles.length;i++){
       bulleContainer.appendChild(bulles[i].getElement());
     }
-
-
-    
-
 
 
     var start = null;

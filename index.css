@@ -17,6 +17,12 @@ body{
     border-radius: 0px 0px 200px 200px;
     right: 0;
     left: 0;
+    transition:width 1s,height 1s;
+}
+.titre:hover{
+  height: 150px;
+ width: 300px;
+ border-radius: 0px 0px 300px 300px;
 }
 
 .titre p{
