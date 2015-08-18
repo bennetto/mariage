@@ -57,8 +57,6 @@ function bulle(_positionX,_positionY,_maxMove,temps){
         setTimeout(function(){
             window.requestAnimationFrame(refresh,div);
         },tempsTransition*1000-200);
-      //  div.style.marginTop =  (getValueInCss(div.style.marginTop)+0.1)+"px";
-      //  div.style.marginLeft =  (getValueInCss(div.style.marginLeft)+0.1)+"px";
     };
     window.requestAnimationFrame(refresh,div);
 
