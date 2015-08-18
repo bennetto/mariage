@@ -30,11 +30,12 @@ function bulle(_positionX,_positionY,_maxMove,temps){
 
     div.style.position = "absolute";
     div.style.backgroundColor = "turquoise";
+    
     div.style.height = "50px";
     div.style.width = "50px";
     div.style.borderRadius = "50px";
     div.style.WebkitTransition = '-webkit-transform '+tempsTransition+'s linear';
-    div.style.marginLeft = position.x+'px';
+    div.style.left = position.x+'px';
     div.style.marginTop = position.y+'px';
 
     var refresh = function(){
@@ -74,9 +75,12 @@ window.onload = function(){
     var bulleContainer = document.getElementById("bulleContainer");
 
       var bulles = [];
-     bulles.push(new bulle(window.innerWidth/3,window.innerHeight/2,100,8));
+     bulles.push(new bulle(window.innerWidth/3,window.innerHeight/1.2,90,8));
      bulles.push(new bulle(window.innerWidth/5,window.innerHeight/4,100,10));
-     bulles.push(new bulle(window.innerWidth/1.3,window.innerHeight/4,100,12));
+     bulles.push(new bulle(window.innerWidth/1.3,window.innerHeight/9,130,12));
+     bulles.push(new bulle(window.innerWidth/1.7,window.innerHeight/1.5,110,11));
+     bulles.push(new bulle(window.innerWidth/4,window.innerHeight/3,190,7));
+     bulles.push(new bulle(window.innerWidth/2,window.innerHeight/2,150,9));
 
     for(var i=0;i<bulles.length;i++){
       bulleContainer.appendChild(bulles[i].getElement());
