@@ -16,6 +16,8 @@ function bulle(_positionX,_positionY,_maxMove,temps){
     var self = this;
     var div = document.createElement("div");
     
+    var size = 70;
+    
     var position = {};
     position.x= _positionX;
     position.y= _positionY;
@@ -31,29 +33,33 @@ function bulle(_positionX,_positionY,_maxMove,temps){
     div.style.position = "absolute";
     div.style.backgroundColor = "turquoise";
     
-    div.style.height = "50px";
-    div.style.width = "50px";
-    div.style.borderRadius = "50px";
-    div.style.WebkitTransition = '-webkit-transform '+tempsTransition+'s ease-in-out';
+    div.style.height = size+"px";
+    div.style.width = size+"px";
+    div.style.borderRadius = size+"px";
+    div.style.WebkitTransition = '-webkit-transform '+tempsTransition+'s ease-in-out,right '+1+'s ease-in-out,left '+1+'s ease-in-out';
     div.style.left = position.x+'px';
     div.style.marginTop = position.y+'px';
 
+
     var refresh = function(){
 
+        //calculate move on X
         move.x = (Math.ceil(Math.random()*maxMove*2)-maxMove);
         if(move.x<0)
             move.x=0;
         else if(move.x>window.innerWidth)
             move.x = window.innerWidth;
-            
+         //calculate move on y   
         move.y = (Math.ceil(Math.random()*maxMove*2)-maxMove);
         if(move.y<0)
             move.y=0;
         else if(move.y>window.innerHeight)
             move.y = window.innerHeight;
-            
+        
+        //write move    
         div.style.WebkitTransform = 'translate('+move.x+'px,'+move.y+'px)';
 
+        //add event next move
         setTimeout(function(){
             window.requestAnimationFrame(refresh,div);
         },tempsTransition*1000-200);
@@ -61,6 +67,7 @@ function bulle(_positionX,_positionY,_maxMove,temps){
     window.requestAnimationFrame(refresh,div);
 
 
+/*Public Function*/
     this.getElement = function(){
         return div;
     };
