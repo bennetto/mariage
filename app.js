@@ -14,10 +14,10 @@ function getValueInCss(style){
 function bulle(_positionX,_positionY,_maxMove,temps){
 
     var self = this;
-    var div = document.createElement("div");
+    var container = document.createElement("div");
     
     var size = 70;
-    
+    var scale = 1;
     var position = {};
     position.x= _positionX;
     position.y= _positionY;
@@ -28,49 +28,103 @@ function bulle(_positionX,_positionY,_maxMove,temps){
     
     var maxMove = _maxMove; 
 
-    var tempsTransition = temps; // en second
+    var tempsTransitionBulle = temps; // en second
 
-    div.style.position = "absolute";
-    div.style.backgroundColor = "turquoise";
-    
-    div.style.height = size+"px";
-    div.style.width = size+"px";
-    div.style.borderRadius = size+"px";
-    div.style.WebkitTransition = '-webkit-transform '+tempsTransition+'s ease-in-out,right '+1+'s ease-in-out,left '+1+'s ease-in-out';
-    div.style.left = position.x+'px';
-    div.style.marginTop = position.y+'px';
+    var bulleMode = true;
+    //content little
+    var littleContent = document.createElement("div");
+    littleContent.className = "littleContent";
+    var image = document.createElement("img");
+    littleContent.appendChild(image);
+    var text = document.createElement("p");
+    littleContent.appendChild(text);
+
+    this.setImage = function(source){
+        image.src = source;
+    };
+    this.setTitre = function(_titre){
+        text.src = _titre;
+    };
+
+    //BigContent
+    var bigContent = document.createElement("div").className = "bigContent";
+
+    //Container
+    container.style.position = "absolute";
+    container.style.backgroundColor = "turquoise";
+
+    container.style.height = size+"px";
+    container.style.width = size+"px";
+    container.style.borderRadius = size+"px";
+
+    container.style.left = position.x+'px';
+    container.style.marginTop = position.y+'px';
+
+    var changeTempsTransform = function(tmp){
+
+        container.style.WebkitTransition = '-webkit-transform '+tmp+'s ease-in-out,right '+1+'s ease-in-out,left '+1+'s ease-in-out';
+    };
+    changeTempsTransform(tempsTransitionBulle);
+
+    container.addEventListener('click',function(){
+        bulleMode = !bulleMode;
+        if(bulleMode){
+            changeTempsTransform(1);
+            scale = 1;
+            setTimeout(function() {
+                changeTempsTransform(tempsTransitionBulle);
+            },1000);
+        }else{
+            changeTempsTransform(1);
+            scale = 10;
+        }
+        refresh();
+    });
+
+
 
 
     var refresh = function(){
-
-        //calculate move on X
-        move.x = (Math.ceil(Math.random()*maxMove*2)-maxMove);
-        if(move.x<0)
-            move.x=0;
-        else if(move.x>window.innerWidth)
-            move.x = window.innerWidth;
-         //calculate move on y   
-        move.y = (Math.ceil(Math.random()*maxMove*2)-maxMove);
-        if(move.y<0)
-            move.y=0;
-        else if(move.y>window.innerHeight)
-            move.y = window.innerHeight;
-        
-        //write move    
-        div.style.WebkitTransform = 'translate('+move.x+'px,'+move.y+'px)';
+        if(bulleMode) {
+            //calculate move on X
+            move.x = (Math.ceil(Math.random() * maxMove * 2) - maxMove);
+            if (move.x < 0)
+                move.x = 0;
+            else if (move.x > window.innerWidth)
+                move.x = window.innerWidth;
+            //calculate move on y
+            move.y = (Math.ceil(Math.random() * maxMove * 2) - maxMove);
+            if (move.y < 0)
+                move.y = 0;
+            else if (move.y > window.innerHeight)
+                move.y = window.innerHeight;
+        }
+        //write move
+        container.style.WebkitTransform = 'translate(' + move.x + 'px,' + move.y + 'px) scale('+scale+')';
 
         //add event next move
-        setTimeout(function(){
-            window.requestAnimationFrame(refresh,div);
-        },tempsTransition*1000-200);
+
+
     };
-    window.requestAnimationFrame(refresh,div);
+
+    var autoRefresh = function() {
+        refresh();
+        setTimeout(function(){
+            window.requestAnimationFrame(autoRefresh,container);
+        },tempsTransitionBulle*1000-200);
+    };
+    autoRefresh();
+
+    window.requestAnimationFrame(refresh,container);
 
 
 /*Public Function*/
     this.getElement = function(){
-        return div;
+        return container;
     };
+
+
+
 
 }
 
