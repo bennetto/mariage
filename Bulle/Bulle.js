@@ -1,42 +1,26 @@
 
-function bulle(_positionX,_positionY,_maxMove,temps){
+function bulle(param){
 
     var self = this;
     var container = document.createElement("div");
-    container.className="bulle"
+    container.className="bulle";
+
     var size = 70;
     var sizeBig =600;
     var scale = 1;
     var position = {};
-    position.x= _positionX;
-    position.y= _positionY;
+    position.x= param._positionX;
+    position.y= param._positionY;
 
     var move = {};
     move.x = 0;
     move.y=0;
 
-    var maxMove = _maxMove;
+    var maxMove = param._maxMove;
 
-    var tempsTransitionBulle = temps; // en second
+    var tempsTransitionBulle = param.temps; // en second
 
     var bulleMode = true;
-    //content little
-    var littleContent = document.createElement("div");
-    littleContent.className = "littleContent";
-    var image = document.createElement("img");
-    littleContent.appendChild(image);
-    var text = document.createElement("p");
-    littleContent.appendChild(text);
-
-    this.setImage = function(source){
-        image.src = source;
-    };
-    this.setTitre = function(_titre){
-        text.innerHTML = _titre;
-    };
-
-    //BigContent
-    var bigContent = document.createElement("div").className = "bigContent";
 
     //Container
     container.style.position = "absolute";
@@ -49,7 +33,7 @@ function bulle(_positionX,_positionY,_maxMove,temps){
     container.style.left = position.x+'px';
     container.style.top = position.y+'px';
 
-    container.appendChild(littleContent);
+
 
     var changeTempsTransform = function(tmp){
 
@@ -81,9 +65,6 @@ function bulle(_positionX,_positionY,_maxMove,temps){
         refresh();
     });
 
-
-
-
     var refresh = function(){
         if(bulleMode) {
             //calculate move on X
@@ -104,10 +85,7 @@ function bulle(_positionX,_positionY,_maxMove,temps){
         }
         //write move
 
-
         //add event next move
-
-
     };
 
     var autoRefresh = function() {
@@ -125,4 +103,6 @@ function bulle(_positionX,_positionY,_maxMove,temps){
     this.getElement = function(){
         return container;
     };
+
+
 }
