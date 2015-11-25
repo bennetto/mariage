@@ -1,12 +1,14 @@
 
 function bulle(param){
 
+    /* Variable*/
     var self = this;
+
     var container = document.createElement("div");
     container.className="bulle";
-
+    container.style.backgroundColor = "turquoise";
+    container.style.position = "absolute";
     var size = 70;
-    var sizeBig =600;
     var scale = 1;
     var position = {};
     position.x= param._positionX;
@@ -17,56 +19,22 @@ function bulle(param){
     move.y=0;
 
     var maxMove = param._maxMove;
-
     var tempsTransitionBulle = param.temps; // en second
-
-    var bulleMode = true;
-
-    //Container
-    container.style.position = "absolute";
-    container.style.backgroundColor = "turquoise";
-
-    container.style.height = size+"px";
-    container.style.width = size+"px";
-    container.style.borderRadius = size+"px";
-
-    container.style.left = position.x+'px';
-    container.style.top = position.y+'px';
+    var bulleMustMove = true;
 
 
 
+
+    /*Private function */
     var changeTempsTransform = function(tmp){
 
         container.style.WebkitTransition = '-webkit-transform '+tmp+'s ease-in-out,left '+1+'s ease-in-out,top '+1+'s ease-in-out,height '+1+'s ease-in-out,width '+1+'s ease-in-out,border-radius '+1+'s ease-in-out';
     };
-    changeTempsTransform(tempsTransitionBulle);
 
-    container.addEventListener('click',function(){
-        bulleMode = !bulleMode;
-        if(bulleMode){
-            container.style.height = size+"px";
-            container.style.width = size+"px";
-            container.style.borderRadius = size+"px";
-
-            container.style.left = position.x - size/2+'px';
-            container.style.top = position.y - size/2+'px';
-
-
-        }else{
-            sizeBig = window.innerHeight-200;
-
-            container.style.height = sizeBig+"px";
-            container.style.width = sizeBig+"px";
-            container.style.borderRadius = sizeBig+"px";
-
-            container.style.left = (window.innerWidth -sizeBig) /2+'px';
-            container.style.top = (window.innerHeight - sizeBig)/2+'px';
-        }
-        refresh();
-    });
 
     var refresh = function(){
-        if(bulleMode) {
+
+        if(bulleMustMove) {
             //calculate move on X
             move.x = (Math.ceil(Math.random() * maxMove * 2) - maxMove);
             if (move.x < 0)
@@ -104,5 +72,35 @@ function bulle(param){
         return container;
     };
 
+    this.refresh = function(){
+        refresh();
+    };
+
+    this.setSize = function(_size){
+        size = _size;
+
+        container.style.height = size+"px";
+        container.style.width = size+"px";
+        container.style.borderRadius = size+"px";
+
+        container.style.left = position.x - size/2+'px';
+        container.style.top = position.y - size/2+'px';
+    };
+
+    this.setPosition = function(_position){
+        position  = _position;
+
+    };
+
+    this.hasMove = function(_bulleMustMove){
+        bulleMustMove = _bulleMustMove;
+    };
+
+
+
+    /* Initialization*/
+    this.setPosition(position);
+    this.setSize(size);
+    changeTempsTransform(tempsTransitionBulle);
 
 }
