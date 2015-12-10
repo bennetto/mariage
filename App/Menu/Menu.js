@@ -39,8 +39,8 @@ function Menu(param) {
             .set(contentMainBulle,{y:maxHeight/2-250})
 
             /*init main centent menu*/
-            .set(textBen,{y:320})
-            .set(textJu,{y:100})
+            .set(textBen,TextBen.centerPosition)
+            .set(textJu,TextJu.centerPosition)
             .set(imageBague,{y:150})
 
 
@@ -65,23 +65,22 @@ function Menu(param) {
 
         var width = window.innerWidth;
 
-        var hMiddle = 150;
+        var hMiddle = 120;
         var ratio = 1-width/1920;
-        var hcote =  100+ (ratio*50);
+        var hcote =  80+ (ratio*20);
 
         var offset =  ((Math.pow(hMiddle-hcote,2) + Math.pow(width/2,2) )/(2*(hMiddle-hcote )))-hMiddle;
 
         var tl = new TimelineLite();
 
-        tl.to(bulleMenu,3,{x:0,y:0,ease: Power2.easeOut})
-            .to(bulleMenu,3,{width:"100%",ease: Power2.easeOut},"-=3")
-            .to(ellipse1,3,{attr:{cy:-offset,ry:offset+hMiddle,rx:offset+hMiddle},ease: Power2.easeInOut},"-=3")
+        tl.to(ellipse1,3,{attr:{cy:-offset,ry:offset+hMiddle,rx:offset+hMiddle},ease: Power2.easeInOut},"-=3")
             .to(ellipse2,3,{attr:{cy:-offset,ry:offset,rx:offset},ease: Power2.easeInOut},"-=3")
+
             /* Content main bulle */
             .to(contentMainBulle,3,{y:0,ease: Power2.easeInOut},"-=3")
-            .to(textJu,3,{fontSize:40,y:10,x:-60,ease: Power2.easeInOut},"-=3")
-            .to(textBen,3,{fontSize:40,y:100,ease: Power2.easeInOut},"-=3")
-        .to(imageBague,3,{y:-30,x:60,height:100,width:100,ease: Power2.easeInOut},"-=3");
+            .to(textJu,3,fusionParam(TextJu.menuPosition,{ease: Power2.easeInOut}),"-=3")
+            .to(textBen,3,fusionParam(TextBen.menuPosition,{ease: Power2.easeInOut}),"-=3")
+            .to(imageBague,3,fusionParam(ImageBague.menuPosition,{ease: Power2.easeInOut}),"-=3");
 
     };
 
@@ -93,10 +92,10 @@ function Menu(param) {
         tl.to(ellipse1,3,{attr:{cy:maxHeight/2,rx:237.5,ry:250},ease: Power2.easeOut})
             .to(ellipse2,3,{attr:{cy:maxHeight/2,rx:235,ry:225},ease: Power2.easeOut},"-=3")
             /* Content main bulle */
-            .to(contentMainBulle,3,{y:maxHeight/2-250,fontSize:30,ease: Power2.easeInOut},"-=3")
-            .to(textJu,3,{fontSize:70,y:100,ease: Power2.easeInOut},"-=3")
-            .to(textBen,3,{fontSize:70,y:320,ease: Power2.easeInOut},"-=3")
-        .to(imageBague,3,{y:150,x:0,height:200,width:200,ease: Power2.easeInOut},"-=3");
+            .to(contentMainBulle,3,{y:maxHeight/2-250,ease: Power2.easeInOut},"-=3")
+            .to(textJu,3,fusionParam(TextJu.centerPosition,{ease: Power2.easeInOut}),"-=3")
+            .to(textBen,3,fusionParam(TextBen.centerPosition,{ease: Power2.easeInOut}),"-=3")
+            .to(imageBague,3,fusionParam(ImageBague.centerPosition,{ease: Power2.easeInOut}),"-=3");
     };
 
     this.getElement = function(){
@@ -107,4 +106,28 @@ function Menu(param) {
 
     /* Function privé */
 
+
+
+    /*element */
+    var TextJu = {};
+    TextJu.centerPosition = {fontSize:70,x:0,y:100};
+    TextJu.menuPosition = {fontSize:40,y:10,x:-50};
+
+    var TextBen = {};
+    TextBen.centerPosition = {fontSize:70,y:280};
+    TextBen.menuPosition = {fontSize:40,y:60};
+
+    var ImageBague = {};
+    ImageBague.centerPosition = {y:150,x:0,height:200,width:200};
+    ImageBague.menuPosition = {y:-10,x:50,height:100,width:100};
+
+
+    function fusionParam(param,param2){
+        var paramTotal = JSON.parse(JSON.stringify((param)));
+        for (var attrname in param2) { paramTotal[attrname] = param2[attrname]; }
+        return paramTotal;
+    }
+
 }
+
+
