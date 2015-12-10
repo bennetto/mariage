@@ -23,6 +23,8 @@
 
 }
 
+
+
 .menu .contour-main-bulle{
     position: absolute;
     display: block;
@@ -39,11 +41,9 @@
 }
 .menu .text-ju{
     color: #028c7e ;
-    font-size: 70px;
 
     position: absolute;
     display: block;
-
 
     left: 0;
     right: 0;
@@ -52,11 +52,9 @@
 
 .menu .text-ben{
     color: #724823 ;
-    font-size: 70px;
 
     position: absolute;
     display: block;
-
 
     left: 0;
     right: 0;
@@ -72,8 +70,21 @@
     left: 0;
     right: 0;
 
-
     margin: auto;
+}
 
+.menu .content-menu-secret{
+    color: #724823 ;
+    position: fixed;
+    height: 200px;
+    width: 300px;
+    right: 0;
+}
+
+.menu .content-menu-contact{
+    color: #028c7e ;
+    position: fixed;
+    height: 200px;
+    width: 300px;
 
 }
