@@ -19,7 +19,7 @@ function Menu(param) {
     /* Function pulic */
     this.init = function(){
         self.firtsAnimate();
-        bulleMenu.onclick = self.AnimateToMenu;
+        bulleMenu.onclick = click;
     };
 
     this.firtsAnimate = function(){
@@ -39,7 +39,18 @@ function Menu(param) {
     };
 
     var modeFullscrenne = true;
-    var tl;
+
+    var click = function(){
+
+        if(modeFullscrenne)
+        {
+            self.AnimateToMenu();
+        }else{
+            self.AnimateToFullScreen();
+        };
+        modeFullscrenne = !modeFullscrenne;
+
+    };
     this.AnimateToMenu = function(){
 
         var width = window.innerWidth;
@@ -53,9 +64,8 @@ function Menu(param) {
 
         var maxHeight = window.innerHeight*1;
 
-        if(modeFullscrenne)
-        {
-            tl = new TimelineLite();
+
+        var tl = new TimelineLite();
 
         tl.
             to(bulleMenu,3,{x:0,y:0,ease: Power2.easeOut})
@@ -63,11 +73,21 @@ function Menu(param) {
             .to(ellipse1,3,{attr:{cy:-offset,ry:offset+hMiddle,rx:offset+hMiddle},ease: Power2.easeInOut},"-=3")
             .to(ellipse2,3,{attr:{cy:-offset,ry:offset,rx:offset},ease: Power2.easeInOut},"-=3");
 
-        }else{
-            tl.reverse();
-        }
 
-        modeFullscrenne = !modeFullscrenne;
+
+
+    };
+
+    this.AnimateToFullScreen= function(){
+        var maxHeight = window.innerHeight;
+
+
+        var tl = new TimelineLite();
+
+        tl.to(ellipse1,3,{attr:{cy:maxHeight/2,rx:237.5,ry:250},ease: Power2.easeOut})
+            .to(ellipse2,3,{attr:{cy:maxHeight/2,rx:235,ry:225},ease: Power2.easeOut},"-=3")
+
+
     };
 
     this.getElement = function(){
