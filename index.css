@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Segoe Script";
+    src: url('Assets/Fonts/segoesc.ttf');
+}
+
+
 html{
     font-family:Segoe Script;
     overflow: hidden;
@@ -15,3 +21,16 @@ body{
 
 }
 
+.workspace{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.workspace-content{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

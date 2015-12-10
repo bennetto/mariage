@@ -1,3 +1,81 @@
-.Menu p{
-    font-family: Dosis;
+.menu p{
+
+}
+
+.menu .main-bulle{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.menu .content-main-bulle {
+    height: 500px;
+    width: 500px;
+    position: fixed;
+    margin: auto;
+    border-radius: 250px 250px 250px 250px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+
+}
+
+.menu .contour-main-bulle{
+    position: absolute;
+    display: block;
+
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+
+
+}
+.menu .text-ju{
+    color: #028c7e ;
+    font-size: 70px;
+
+    position: absolute;
+    display: block;
+
+    top:100px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.menu .text-ben{
+    color: #724823 ;
+    font-size: 70px;
+
+    position: absolute;
+    display: block;
+
+    bottom:100px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.menu .image-bagues{
+    height: 200px;
+    width: 200px;
+
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    margin: auto;
+
+
 }

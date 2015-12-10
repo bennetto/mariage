@@ -5,14 +5,18 @@ function Navigation(param) {
 
     /* Page */
     var menu = new Menu();
-
+    var workspace = document.getElementById("workspace");
 
 
     var init = function(){
+        var menuEl = menu.getElement();
+        workspace.appendChild(menuEl);
 
-
+        menu.init();
 
     };
 
 
+
+    init();
 }

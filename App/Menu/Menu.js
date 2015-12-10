@@ -6,15 +6,68 @@ function Menu(param) {
     /* Récupération du template html */
     var importHtml = document.querySelector('#menu-file');
     var element = importHtml.import.querySelector('.menu').cloneNode(true);
+    
+    var bulleMenu = element.querySelector(".main-bulle");
+    var ellipse1 = bulleMenu.getElementsByTagName("svg")[0].getElementsByTagName("ellipse")[0];
+    var ellipse2 = bulleMenu.getElementsByTagName("svg")[0].getElementsByTagName("ellipse")[1];
 
-    /* IHM */
 
+
+        /* IHM */
 
 
     /* Function pulic */
     this.init = function(){
+        self.firtsAnimate();
+        bulleMenu.onclick = self.AnimateToMenu;
+    };
+
+    this.firtsAnimate = function(){
+
+        var maxHeight = window.innerHeight;
+        var centerHeight = maxHeight/2-250;
+
+        var tl = new TimelineLite();
+
+        tl .set(ellipse1,{attr:{cy:maxHeight/2}})
+            .set(ellipse2,{attr:{cy:maxHeight/2}})
+            .set(bulleMenu,{x:0,y:-maxHeight,scale:0,opacity:0,ease: Power2.easeOut})
+            .to(bulleMenu,3,{x:0,y:0,scale:1,opacity:1,ease: Power2.easeOut})
 
 
+
+    };
+
+    var modeFullscrenne = true;
+    var tl;
+    this.AnimateToMenu = function(){
+
+        var width = window.innerWidth;
+
+        var hMiddle = 150;
+        var ratio = 1-width/1920;
+        var hcote =  100+ (ratio*50);
+
+
+        var offset =  ((Math.pow(hMiddle-hcote,2) + Math.pow(width/2,2) )/(2*(hMiddle-hcote )))-hMiddle;
+
+        var maxHeight = window.innerHeight*1;
+
+        if(modeFullscrenne)
+        {
+            tl = new TimelineLite();
+
+        tl.
+            to(bulleMenu,3,{x:0,y:0,ease: Power2.easeOut})
+            .to(bulleMenu,3,{width:"100%",ease: Power2.easeOut},"-=3")
+            .to(ellipse1,3,{attr:{cy:-offset,ry:offset+hMiddle,rx:offset+hMiddle},ease: Power2.easeInOut},"-=3")
+            .to(ellipse2,3,{attr:{cy:-offset,ry:offset,rx:offset},ease: Power2.easeInOut},"-=3");
+
+        }else{
+            tl.reverse();
+        }
+
+        modeFullscrenne = !modeFullscrenne;
     };
 
     this.getElement = function(){
