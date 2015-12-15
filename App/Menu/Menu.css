@@ -88,3 +88,20 @@
     width: 300px;
 
 }
+
+.menu .bulle-menu
+{
+    position:fixed;
+
+}
+
+.menu .bulle-menu .bulle-text
+{
+    display: table-cell;
+    vertical-align: middle;
+  padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 25px;
+}
+

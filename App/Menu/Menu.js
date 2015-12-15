@@ -22,6 +22,7 @@ function Menu(param) {
     var textSecret = contentMenuSecret.querySelector(".text-secret");
     var textContact = contentMenuContact.querySelector(".text-contact");
 
+    var workspaceBulle = element.querySelector(".workspace-bulle-menu");
     /* IHM */
 
 
@@ -29,6 +30,30 @@ function Menu(param) {
     this.init = function(){
         self.firtsAnimate();
         bulleMenu.onclick = click;
+
+        /* Jour j*/
+        var bMenu = new BulleMenu({text:"Jour J",size:200,background:"#028c7e",position:{x:200,y:200}});
+        workspaceBulle.appendChild(bMenu.getElement());
+        bMenu.animate();
+
+        /* vous + nous*/
+        var bMenu2 = new BulleMenu({text:"Vous + nous",size:200,background:"#028c7e",position:{x:600,y:600}});
+        workspaceBulle.appendChild(bMenu2.getElement());
+        bMenu2.animate();
+
+        /*Liste mariage*/
+        var bMenu3 = new BulleMenu({text:"Liste de mariage",size:200,background:"#724823",position:{x:200,y:600}});
+        workspaceBulle.appendChild(bMenu3.getElement());
+        bMenu3.animate();
+
+        /*les photos*/
+        var bMenu4 = new BulleMenu({text:"Les photos",size:200,background:"#724823",position:{x:600,y:200}});
+        workspaceBulle.appendChild(bMenu4.getElement());
+        bMenu4.animate();
+
+
+
+
     };
 
     this.firtsAnimate = function(){
@@ -159,5 +184,3 @@ function Menu(param) {
     }
 
 }
-
-
