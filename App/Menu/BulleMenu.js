@@ -6,8 +6,8 @@ function BulleMenu(param) {
     var bulleContainer = document.createElement('div');
     bulleContainer.className = "bulle-menu";
     bulleContainer.style.backgroundColor = param.background;
-    bulleContainer.style.top = param.position.x - param.size/2+"px";
-    bulleContainer.style.left = param.position.y- param.size/2+"px";
+    bulleContainer.style.top = param.position.y - param.size/2+"px";
+    bulleContainer.style.left = param.position.x- param.size/2+"px";
 
     bulleContainer.style.height = param.size+"px";
     bulleContainer.style.width = param.size+"px";
@@ -74,6 +74,14 @@ function BulleMenu(param) {
         }
     };
 
+    var animaterot = function() {
+        if(animateActivate) {
+            var rot = Math.random()*50-25;
+            var scale = Math.random()/5+0.8;
+            var tl = new TimelineLite();
+            tl.to(bulleContainer, 8+Math.random()*4, {css:{scale:scale, rotation:rot},ease: Sine.easeInOut, onComplete: animaterot} )
+        }
+    };
 
     /* public */
 
@@ -85,6 +93,27 @@ function BulleMenu(param) {
         animateActivate = true;
         animatey();
         animatex();
+        animaterot();
+    };
+
+    this.stopAnimate = function(){
+        animateActivate = false;
+    };
+
+    this.goToMenu = function(){
+
+    };
+
+    this.goTo = function(){
+
+    };
+
+    this.goToHome = function(){
+
+    };
+
+    this.refresh = function(){
+
     };
 
 

@@ -26,33 +26,50 @@ function Menu(param) {
     /* IHM */
 
 
+    var bMenuJour;
+    var bMenuVN;
+    var bMenuList;
+    var bMenuPhoto;
     /* Function pulic */
     this.init = function(){
         self.firtsAnimate();
-        bulleMenu.onclick = click;
+    //    bulleMenu.onclick = click;
+
+        var maxHeight = window.innerHeight;
+        var maxWidth = window.innerWidth;
 
         /* Jour j*/
-        var bMenu = new BulleMenu({text:"Jour J",size:200,background:"#028c7e",position:{x:200,y:200}});
-        workspaceBulle.appendChild(bMenu.getElement());
-        bMenu.animate();
+        bMenuJour = new BulleMenu({text:"Jour J",size:200,background:"#028c7e",position:{x:maxWidth/4,y:maxHeight/4}});
+        workspaceBulle.appendChild(bMenuJour.getElement());
+        bMenuJour.animate();
+        bMenuJour.onclick = function(){
+            clickMenu(bMenuJour);
+        };
+
 
         /* vous + nous*/
-        var bMenu2 = new BulleMenu({text:"Vous + nous",size:200,background:"#028c7e",position:{x:600,y:600}});
-        workspaceBulle.appendChild(bMenu2.getElement());
-        bMenu2.animate();
+        bMenuVN = new BulleMenu({text:"Vous + nous",size:200,background:"#028c7e",position:{x:3*maxWidth/4,y:3*maxHeight/4}});
+        workspaceBulle.appendChild(bMenuVN.getElement());
+        bMenuVN.animate();
+        bMenuVN.onclick = function(){
+            clickMenu(bMenuVN);
+        };
 
         /*Liste mariage*/
-        var bMenu3 = new BulleMenu({text:"Liste de mariage",size:200,background:"#724823",position:{x:200,y:600}});
-        workspaceBulle.appendChild(bMenu3.getElement());
-        bMenu3.animate();
+        bMenuList = new BulleMenu({text:"Liste de mariage",size:200,background:"#724823",position:{x:maxWidth/4,y:3*maxHeight/4}});
+        workspaceBulle.appendChild(bMenuList.getElement());
+        bMenuList.animate();
+        bMenuList.onclick = function(){
+            clickMenu(bMenuList);
+        };
 
         /*les photos*/
-        var bMenu4 = new BulleMenu({text:"Les photos",size:200,background:"#724823",position:{x:600,y:200}});
-        workspaceBulle.appendChild(bMenu4.getElement());
-        bMenu4.animate();
-
-
-
+        bMenuPhoto = new BulleMenu({text:"Les photos",size:200,background:"#724823",position:{x:3*maxWidth/4,y:maxHeight/4}});
+        workspaceBulle.appendChild(bMenuPhoto.getElement());
+        bMenuPhoto.animate();
+        bMenuPhoto.onclick = function(){
+            clickMenu(bMenuPhoto);
+        };
 
     };
 
@@ -87,7 +104,7 @@ function Menu(param) {
 
     var modeFullscrenne = true;
 
-    var click = function(){
+    var clickMenu = function(bMenu){
 
         if(modeFullscrenne)
         {
@@ -98,6 +115,9 @@ function Menu(param) {
         modeFullscrenne = !modeFullscrenne;
 
     };
+
+
+
     this.AnimateToMenu = function(){
 
         var width = window.innerWidth;
