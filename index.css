@@ -1,43 +1,36 @@
+@font-face {
+    font-family: "Segoe Script";
+    src: url('Assets/Fonts/segoesc.ttf');
+}
+
+
 html{
-  font-family:Dosis;
-  overflow: hidden;
+    font-family:Segoe Script;
+    overflow: hidden;
 }
 
 body{
-  margin:0;
+    margin:0;
 }
 
-.titre{
-    background-color: turquoise;
-    height: 100px;
-    width: 200px;
+#menu{
+
+}
+
+#background{
+
+}
+
+.workspace{
     position: fixed;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 0px 0px 200px 200px;
+    height: 100%;
+    width: 100%;
+}
+
+.workspace-content{
+    position: fixed;
+    top: 0;
+    bottom: 0;
     right: 0;
     left: 0;
-    transition:width 1s,height 1s;
-}
-.titre:hover{
-  height: 150px;
- width: 300px;
- border-radius: 0px 0px 300px 300px;
-}
-
-.titre p{
-  text-align: center;
-    color: Brown;
-    font-size: 20px;
-}
-.titre p.h1{
-    font-size: 40px;
-    margin-top:0px;
-    margin-bottom:5px;
-}
-
-.titre p.h2{
- font-size: 20px;
-    margin-top:5px;
-    margin-bottom:10px;
 }

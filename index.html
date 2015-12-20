@@ -3,20 +3,33 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Mariage Ben et Julie</title>
-    <link rel="stylesheet"  href="index.css">
-    <link rel="stylesheet"  href="Bulle.css">
-    <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
 
-    <script src="app.js" ></script>
-    <script src="Bulle/Bulle.js" ></script>
-    <script src="Bulle/Ben.js" ></script>
-    <script src="Bulle/Julie.js" ></script>
+    <!-- GASP -->
+    <script src="lib/GreenSock-ShockinglyGreen-js/src/minified/TweenMax.min.js"></script>
+    <script src="lib/GreenSock-ShockinglyGreen-js/src/minified/TimelineMax.min.js"></script>
+    <script src="lib/GreenSock-ShockinglyGreen-js/src/minified/TweenLite.min.js"></script>
+    <script src="lib/GreenSock-ShockinglyGreen-js/src/minified/TimelineLite.min.js"></script>
+
+    <!-- PLugins GASP-->
+    <script src="lib/GreenSock-ShockinglyGreen-js/src/minified/plugins/Physics2DPlugin.min.js"></script>
+    <script src="lib/GreenSock-ShockinglyGreen-js/src/minified/plugins/TextPlugin.min.js"></script>
+    <script src="lib/GreenSock-ShockinglyGreen-js/src/minified/plugins/AttrPlugin.min.js"></script>
+    <script src="lib/GreenSock-ShockinglyGreen-js/src/minified/plugins/CSSPlugin.min.js"></script>
+
+    <!-- Js  -->
+    <script src="app.js"></script>
+    <script src="App/Navigation/Navigation.js"></script>
+
+    <!-- Style-->
+    <link rel="stylesheet"  href="index.css">
+
+    <!-- Template -->
+    <link rel="import" id="menu-file" href="App/Menu/Menu.html">
+
+
 </head>
 <body>
-    <div class="titre">
-      <p class="h1">Mariage</p>
-      <p class="h2">Ben et Julie</p>
-    </div>
-    <div id="bulleContainer"></div>
+<div id="workspace">
+</div>
 </body>
 </html>

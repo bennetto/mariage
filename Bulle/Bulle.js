@@ -99,15 +99,15 @@ function bulle(_positionX,_positionY,_maxMove,temps){
             else if (move.y > window.innerHeight)
                 move.y = window.innerHeight;
             container.style.WebkitTransform = 'translate(' + move.x + 'px,' + move.y + 'px) scale('+scale+')';
+            container.style.zIndex = "";
+            
         }else{
             container.style.WebkitTransform = 'translate(' + 0 + 'px,' + 0 + 'px) scale('+scale+')';
+            container.style.zIndex = "1000";
+            
         }
         //write move
-
-
         //add event next move
-
-
     };
 
     var autoRefresh = function() {
