@@ -2,40 +2,27 @@ function BulleMenu(param) {
 
     /* private */
     var self = this;
+    var animateActivate =  true;
+    param.position = {x:0,y:0};
+    param.offsetPosition = {x:0,y:0};
 
+    /* construction de la  bulle */
     var bulleContainer = document.createElement('div');
     bulleContainer.className = "bulle-menu";
     bulleContainer.style.backgroundColor = param.background;
-    bulleContainer.style.top = param.position.y - param.size/2+"px";
-    bulleContainer.style.left = param.position.x- param.size/2+"px";
 
-    bulleContainer.style.height = param.size+"px";
-    bulleContainer.style.width = param.size+"px";
-    bulleContainer.style.borderRadius = param.size+"px";
 
     var text = document.createElement('p');
     text.className = "bulle-text";
     text.innerText = param.text;
-    text.style.height = param.size+"px";
-    text.style.width = param.size+"px";
+
     text.style.color = "white";
 
     bulleContainer.appendChild(text);
 
-    var position = param.position;
 
-    var animateActivate =  true;
-    var animate = function(){
-        if(animateActivate) {
 
-            var ry =  Math.random()*50;
-            var rx =   Math.random()*50;
-
-            var tl = new TimelineLite();
-            tl.to(bulleContainer, 3, {x:rx,y:ry,ease: Sine.easeIn, onComplete: animate} )
-        }
-    };
-
+ /* utils */
     var getRandomValue = function(old) {
         var minValue = -50;
         var maxValue = 50;
@@ -54,13 +41,25 @@ function BulleMenu(param) {
         return value;
     };
 
+
+    var getSize = function() {
+        return  param.size;
+    };
+    var getSizeScale = function() {
+        return  param.size*param.scale;
+    };
+    var getOffsetSize = function() {
+        return  getSize()-getSizeScale();
+    };
+
+
+    /* animation */
     var ryOld = 0;
     var animatey = function() {
         if(animateActivate) {
             var ry = getRandomValue(ryOld);
             ryOld = ry;
-            var tl = new TimelineLite();
-            tl.to(bulleContainer, 8+Math.random()*4, {y:ry,ease: Sine.easeInOut, onComplete: animatey} )
+            TweenLite.to(bulleContainer, 8+Math.random()*4, {y:ry,ease: Sine.easeInOut, onComplete: animatey} )
         }
     };
 
@@ -69,8 +68,7 @@ function BulleMenu(param) {
         if(animateActivate) {
             var rx = getRandomValue(ryOld);
             rxOld = rx;
-            var tl = new TimelineLite();
-            tl.to(bulleContainer, 8+Math.random()*4, {x:rx,ease: Sine.easeInOut, onComplete: animatex} )
+            TweenLite.to(bulleContainer, 8+Math.random()*4, {x:rx,ease: Sine.easeInOut, onComplete: animatex} )
         }
     };
 
@@ -78,8 +76,7 @@ function BulleMenu(param) {
         if(animateActivate) {
             var rot = Math.random()*50-25;
             var scale = Math.random()/5+0.8;
-            var tl = new TimelineLite();
-            tl.to(bulleContainer, 8+Math.random()*4, {css:{scale:scale, rotation:rot},ease: Sine.easeInOut, onComplete: animaterot} )
+            TweenLite.to(bulleContainer, 8+Math.random()*4, {css:{scale:scale, rotation:rot},ease: Sine.easeInOut, onComplete: animaterot} )
         }
     };
 
@@ -90,31 +87,124 @@ function BulleMenu(param) {
     };
 
     this.animate = function(){
-        animateActivate = true;
-        animatey();
-        animatex();
-        animaterot();
+
+        if(animateActivate = false)
+        {
+            animateActivate = true;
+            animatey();
+            animatex();
+            animaterot();
+        }else{
+            animateActivate = true;
+        }
     };
 
     this.stopAnimate = function(){
         animateActivate = false;
     };
 
-    this.goToMenu = function(){
+    this.goToInit = function(){
+        param.scale = 1;
+        param.offsetPosition = {x:0,y:0};
+        if(param.positionMenu == 1)
+        {
+            param.position = {x:-1/4,y:-1/4};
+        }else if(param.positionMenu == 2)
+        {
+            param.position = {x:5/4,y:5/4};
+        }else if(param.positionMenu == 3)
+        {
+            param.position = {x:-1/4,y:5/4};
+        }else if(param.positionMenu == 4)
+        {
+            param.position = {x:5/4,y:-1/4};
+        }
+        self.refresh();
 
+    };
+
+    this.goToMenu = function(){
+        param.scale =  0.6;
+        param.offsetPosition = {x:0,y: 100};
+
+        if(param.positionMenu == 1)
+        {
+            param.position = {x:3/10,y:0};
+        }else if(param.positionMenu == 2)
+        {
+            param.position = {x:4/10,y:0};
+        }else if(param.positionMenu == 3)
+        {
+            param.position = {x:6/10,y:0};
+        }else if(param.positionMenu == 4)
+        {
+            param.position = {x:7/10,y:0};
+        }
+        self.refresh(true);
+        self.stopAnimate();
     };
 
     this.goTo = function(){
-
+        param.scale = 0.8;
+        param.offsetPosition = {x:50+getSizeScale()/2,y:150+getSizeScale()/2};
+        param.position = {x:0,y:0};
+        self.refresh(true);
+        self.stopAnimate();
     };
 
     this.goToHome = function(){
+        param.scale = 1;
+        param.offsetPosition = {x:0,y:0};
+        if(param.positionMenu == 1)
+        {
+            param.position = {x:1/4,y:1/4};
+        }else if(param.positionMenu == 2)
+        {
+            param.position = {x:3/4,y:3/4};
+        }else if(param.positionMenu == 3)
+        {
+            param.position = {x:1/4,y:3/4};
+        }else if(param.positionMenu == 4)
+        {
+            param.position = {x:3/4,y:1/4};
+        }
+
+
+
+        self.refresh(true);
+        self.animate();
+
 
     };
 
-    this.refresh = function(){
 
+    this.refresh = function(withAnimate){
+
+        var maxHeight = window.innerHeight;
+        var maxWidth = window.innerWidth;
+
+        var positionX = param.position.x*maxWidth - getSize()/2 + param.offsetPosition.x;
+        var positionY =param.position.y*maxHeight - getSize()/2+ param.offsetPosition.y;
+
+        /* refresh bull container */
+        if(withAnimate != null && withAnimate) {
+            TweenLite.to(bulleContainer, 1 + Math.random() * 1, {
+                css: {top: positionY+"px", left: positionX+"px",scale:param.scale},
+                ease: Sine.easeOut
+            })
+        }else{
+            bulleContainer.style.top = positionY +"px";
+            bulleContainer.style.left = positionX+"px";
+
+        }
+
+        bulleContainer.style.height = param.size+"px";
+        bulleContainer.style.width = param.size+"px";
+        bulleContainer.style.borderRadius = param.size+"px";
+
+        /* refresh text */
+        text.style.height = param.size+"px";
+        text.style.width = param.size+"px";
     };
-
 
 }

@@ -32,51 +32,60 @@ function Menu(param) {
     var bMenuPhoto;
     /* Function pulic */
     this.init = function(){
-        self.firtsAnimate();
+
     //    bulleMenu.onclick = click;
 
-        var maxHeight = window.innerHeight;
-        var maxWidth = window.innerWidth;
+
+
+
+
+        /* vous + nous*/
+        bMenuVN = new BulleMenu({text:"Vous + nous",size:200,background:"#028c7e",positionMenu:1});
+        workspaceBulle.appendChild(bMenuVN.getElement());
+        bMenuVN.goToInit();
+        bMenuVN.getElement().onclick = function(){
+            clickMenu(bMenuVN);
+        };
 
         /* Jour j*/
-        bMenuJour = new BulleMenu({text:"Jour J",size:200,background:"#028c7e",position:{x:maxWidth/4,y:maxHeight/4}});
+        bMenuJour = new BulleMenu({text:"Jour J",size:200,background:"#028c7e",positionMenu:2});
         workspaceBulle.appendChild(bMenuJour.getElement());
-        bMenuJour.animate();
-        bMenuJour.onclick = function(){
+        bMenuJour.goToInit();
+        bMenuJour.getElement().onclick = function(){
             clickMenu(bMenuJour);
         };
 
 
-        /* vous + nous*/
-        bMenuVN = new BulleMenu({text:"Vous + nous",size:200,background:"#028c7e",position:{x:3*maxWidth/4,y:3*maxHeight/4}});
-        workspaceBulle.appendChild(bMenuVN.getElement());
-        bMenuVN.animate();
-        bMenuVN.onclick = function(){
-            clickMenu(bMenuVN);
-        };
-
         /*Liste mariage*/
-        bMenuList = new BulleMenu({text:"Liste de mariage",size:200,background:"#724823",position:{x:maxWidth/4,y:3*maxHeight/4}});
+        bMenuList = new BulleMenu({text:"Liste de mariage",size:200,background:"#724823",positionMenu:3});
         workspaceBulle.appendChild(bMenuList.getElement());
-        bMenuList.animate();
-        bMenuList.onclick = function(){
+        bMenuList.goToInit();
+        bMenuList.getElement().onclick = function(){
             clickMenu(bMenuList);
         };
 
         /*les photos*/
-        bMenuPhoto = new BulleMenu({text:"Les photos",size:200,background:"#724823",position:{x:3*maxWidth/4,y:maxHeight/4}});
+        bMenuPhoto = new BulleMenu({text:"Les photos",size:200,background:"#724823",positionMenu:4});
         workspaceBulle.appendChild(bMenuPhoto.getElement());
-        bMenuPhoto.animate();
-        bMenuPhoto.onclick = function(){
+        bMenuPhoto.goToInit();
+        bMenuPhoto.getElement().onclick = function(){
             clickMenu(bMenuPhoto);
         };
 
+
+        self.firtsAnimate();
     };
 
     this.firtsAnimate = function(){
 
         var maxHeight = window.innerHeight;
         var centerHeight = maxHeight/2-250;
+
+
+        bMenuJour.goToHome();
+        bMenuVN.goToHome();
+        bMenuList.goToHome();
+        bMenuPhoto.goToHome();
 
         var tl = new TimelineLite();
 
@@ -106,13 +115,33 @@ function Menu(param) {
 
     var clickMenu = function(bMenu){
 
+        bMenu.goTo();
+
+        if(bMenuJour != bMenu )
+        {
+            bMenuJour.goToMenu();
+        }
+        if(bMenuList != bMenu )
+        {
+            bMenuList.goToMenu();
+        }
+        if(bMenuPhoto != bMenu )
+        {
+            bMenuPhoto.goToMenu();
+        }
+        if(bMenuVN != bMenu )
+        {
+            bMenuVN.goToMenu();
+        }
+
         if(modeFullscrenne)
         {
             self.AnimateToMenu();
+            modeFullscrenne = false;
         }else{
-            self.AnimateToFullScreen();
+
         }
-        modeFullscrenne = !modeFullscrenne;
+
 
     };
 
