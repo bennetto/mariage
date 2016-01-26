@@ -8,5 +8,4 @@ window.onload = function() {
     GlobalNavigation = new Navigation();
 
 
-
 };

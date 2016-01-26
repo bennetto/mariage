@@ -2,7 +2,7 @@ function BulleMenu(param) {
 
     /* private */
     var self = this;
-    var animateActivate =  true;
+    var animateActivate =  false;
     param.position = {x:0,y:0};
     param.offsetPosition = {x:0,y:0};
 
@@ -88,7 +88,7 @@ function BulleMenu(param) {
 
     this.animate = function(){
 
-        if(animateActivate = false)
+        if(animateActivate == false)
         {
             animateActivate = true;
             animatey();
@@ -168,12 +168,8 @@ function BulleMenu(param) {
         {
             param.position = {x:3/4,y:1/4};
         }
-
-
-
         self.refresh(true);
         self.animate();
-
 
     };
 
@@ -206,5 +202,4 @@ function BulleMenu(param) {
         text.style.height = param.size+"px";
         text.style.width = param.size+"px";
     };
-
 }

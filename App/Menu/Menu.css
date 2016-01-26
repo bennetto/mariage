@@ -8,6 +8,7 @@
     bottom: 0;
     right: 0;
     left: 0;
+
 }
 
 .menu .content-main-bulle {
@@ -19,10 +20,15 @@
     right: 0;
     left: 0;
 
-
-
 }
 
+.menu.workspace-content{
+    background-image: url(../../Assets/svg/fond.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 50%;
+}
 
 
 .menu .contour-main-bulle{
@@ -76,22 +82,31 @@
 .menu .content-menu-secret{
     color: #724823 ;
     position: fixed;
-    height: 200px;
-    width: 300px;
+    height: 100px;
+    width: 2000px;
     right: 0;
 }
 
 .menu .content-menu-contact{
     color: #028c7e ;
     position: fixed;
-    height: 200px;
-    width: 300px;
+    height: 100px;
+    width: 200px;
 
+}
+
+.fleche-maron{
+margin-top: -20px;
+
+}
+.fleche-bleu{
+    margin-top: -20px;
 }
 
 .menu .bulle-menu
 {
     position:fixed;
+    cursor: pointer;
 
 }
 

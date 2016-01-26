@@ -3,7 +3,7 @@ function Menu(param) {
     /* Variable*/
     var self = this;
 
-    /* Récupération du template html */
+    /* RÃ©cupÃ©ration du template html */
     var importHtml = document.querySelector('#menu-file');
     var element = importHtml.import.querySelector('.menu').cloneNode(true);
     
@@ -34,10 +34,6 @@ function Menu(param) {
     this.init = function(){
 
     //    bulleMenu.onclick = click;
-
-
-
-
 
         /* vous + nous*/
         bMenuVN = new BulleMenu({text:"Vous + nous",size:200,background:"#028c7e",positionMenu:1});
@@ -94,10 +90,8 @@ function Menu(param) {
             .set(ellipse2,{attr:{cy:maxHeight/2}})
             .set(bulleMenu,{x:0,y:-maxHeight,scale:0,opacity:0,ease: Power2.easeOut})
             .set(contentMainBulle,{y:maxHeight/2-250})
-            .set(contentMenuSecret,{y:maxHeight-200})
-            .set(contentMenuContact,{y:maxHeight-200})
-
-
+            .set(contentMenuSecret,{y:maxHeight-100})
+            .set(contentMenuContact,{y:maxHeight-100})
 
             /*init main centent menu*/
             .set(textBen,TextBen.centerPosition)
@@ -189,8 +183,8 @@ function Menu(param) {
             .to(textBen,3,fusionParam(TextBen.centerPosition,{ease: Power2.easeInOut}),"-=3")
             .to(imageBague,3,fusionParam(ImageBague.centerPosition,{ease: Power2.easeInOut}),"-=3")
 
-            .to(contentMenuContact,3,{y:maxHeight-200,ease: Power2.easeInOut},"-=3")
-            .to(contentMenuSecret,3,{y:maxHeight-200,ease: Power2.easeInOut},"-=3")
+            .to(contentMenuContact,3,{y:maxHeight-100,ease: Power2.easeInOut},"-=3")
+            .to(contentMenuSecret,3,{y:maxHeight-100,ease: Power2.easeInOut},"-=3")
             .to(textContact,3,fusionParam(TextContact.centerPosition,{ease: Power2.easeInOut}),"-=3")
             .to(textSecret,3,fusionParam(TextSecret.centerPosition,{ease: Power2.easeInOut}),"-=3");
     };
@@ -201,7 +195,7 @@ function Menu(param) {
     };
 
 
-    /* Function privé */
+    /* Function privÃ© */
 
 
 
@@ -219,12 +213,12 @@ function Menu(param) {
     ImageBague.menuPosition = {y:-10,x:50,height:100,width:100};
 
     var TextSecret = {};
-    TextSecret.centerPosition = {fontSize:30};
-    TextSecret.menuPosition = {fontSize:20};
+    TextSecret.centerPosition = {fontSize:20};
+    TextSecret.menuPosition = {fontSize:15};
 
     var TextContact = {};
-    TextContact.centerPosition = {fontSize:30};
-    TextContact.menuPosition = {fontSize:20};
+    TextContact.centerPosition = {fontSize:20};
+    TextContact.menuPosition = {fontSize:15};
 
     function fusionParam(param,param2){
         var paramTotal = JSON.parse(JSON.stringify((param)));
