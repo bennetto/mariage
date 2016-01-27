@@ -101,6 +101,7 @@ function BulleMenu(param) {
 
     this.stopAnimate = function(){
         animateActivate = false;
+        TweenLite.to(bulleContainer, 1, {x:0,y:0,rotation:0,ease: Sine.easeInOut} )
     };
 
     this.goToInit = function(){
@@ -129,16 +130,16 @@ function BulleMenu(param) {
 
         if(param.positionMenu == 1)
         {
-            param.position = {x:3/10,y:0};
+            param.position = {x:2/10,y:0};
         }else if(param.positionMenu == 2)
         {
-            param.position = {x:4/10,y:0};
+            param.position = {x:3/10,y:0};
         }else if(param.positionMenu == 3)
         {
-            param.position = {x:6/10,y:0};
+            param.position = {x:7/10,y:0};
         }else if(param.positionMenu == 4)
         {
-            param.position = {x:7/10,y:0};
+            param.position = {x:8/10,y:0};
         }
         self.refresh(true);
         self.stopAnimate();

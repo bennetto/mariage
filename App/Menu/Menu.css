@@ -19,6 +19,7 @@
     margin: auto;
     right: 0;
     left: 0;
+    cursor: pointer;
 
 }
 
@@ -83,7 +84,7 @@
     color: #724823 ;
     position: fixed;
     height: 100px;
-    width: 2000px;
+    width: 200px;
     right: 0;
 }
 
@@ -119,4 +120,3 @@ margin-top: -20px;
     text-align: center;
     font-size: 25px;
 }
-

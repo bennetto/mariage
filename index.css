@@ -43,3 +43,12 @@ body{
     right: 0;
     left: 0;
 }
+
+
+.workspace-content-page{
+    position: fixed;
+    top: 150px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

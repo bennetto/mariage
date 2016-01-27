@@ -33,7 +33,11 @@ function Menu(param) {
     /* Function pulic */
     this.init = function(){
 
-    //    bulleMenu.onclick = click;
+        contentMainBulle.onclick = function(){
+            goToMainMenu();
+            GlobalNavigation.navigateTo();
+       };
+
 
         /* vous + nous*/
         bMenuVN = new BulleMenu({text:"Vous + nous",size:200,background:"#028c7e",positionMenu:1});
@@ -41,6 +45,7 @@ function Menu(param) {
         bMenuVN.goToInit();
         bMenuVN.getElement().onclick = function(){
             clickMenu(bMenuVN);
+            GlobalNavigation.navigateTo();
         };
 
         /* Jour j*/
@@ -49,6 +54,7 @@ function Menu(param) {
         bMenuJour.goToInit();
         bMenuJour.getElement().onclick = function(){
             clickMenu(bMenuJour);
+            GlobalNavigation.navigateTo(GlobalNavigation.Pages.jourJ);
         };
 
 
@@ -58,6 +64,7 @@ function Menu(param) {
         bMenuList.goToInit();
         bMenuList.getElement().onclick = function(){
             clickMenu(bMenuList);
+            GlobalNavigation.navigateTo();
         };
 
         /*les photos*/
@@ -66,6 +73,7 @@ function Menu(param) {
         bMenuPhoto.goToInit();
         bMenuPhoto.getElement().onclick = function(){
             clickMenu(bMenuPhoto);
+            GlobalNavigation.navigateTo();
         };
 
 
@@ -107,6 +115,20 @@ function Menu(param) {
 
     var modeFullscrenne = true;
 
+
+    var goToMainMenu = function(){
+        if(!modeFullscrenne)
+        {
+            bMenuJour.goToHome();
+            bMenuList.goToHome();
+            bMenuPhoto.goToHome();
+            bMenuVN.goToHome();
+
+            self.AnimateToFullScreen();
+            modeFullscrenne = true;
+        }
+    };
+
     var clickMenu = function(bMenu){
 
         bMenu.goTo();
@@ -132,10 +154,7 @@ function Menu(param) {
         {
             self.AnimateToMenu();
             modeFullscrenne = false;
-        }else{
-
         }
-
 
     };
 

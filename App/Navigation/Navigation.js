@@ -5,6 +5,12 @@ function Navigation(param) {
 
     /* Page */
     var menu = new Menu();
+
+    this.Pages = {
+
+        jourJ:new JourJ()
+    }
+
     var workspace = document.getElementById("workspace");
 
 
@@ -16,7 +22,22 @@ function Navigation(param) {
 
     };
 
+    var oldPage;
+    this.navigateTo = function(page){
 
+        if(oldPage) {
+            workspace.removeChild(oldPage);
+        }
+
+        if(page)
+        {
+            var pageElement = page.getElement();
+            workspace.appendChild(pageElement);
+            oldPage = pageElement;
+        }else{
+            oldPage = null;
+        }
+    };
 
     init();
 }
