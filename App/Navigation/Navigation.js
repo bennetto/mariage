@@ -9,7 +9,7 @@ function Navigation(param) {
     this.Pages = {
 
         jourJ:new JourJ()
-    }
+    };
 
     var workspace = document.getElementById("workspace");
 
