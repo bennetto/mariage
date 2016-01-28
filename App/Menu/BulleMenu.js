@@ -24,7 +24,6 @@ function BulleMenu(param) {
     bulleContainer.appendChild(text);
 
 
-
     /* public */
 
 

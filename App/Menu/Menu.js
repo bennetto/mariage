@@ -45,7 +45,10 @@ function Menu(param) {
         bMenuVN.goToInit();
         bMenuVN.getElement().onclick = function(){
             clickMenu(bMenuVN);
-            GlobalNavigation.navigateTo();
+            setTimeout(function(){
+                GlobalNavigation.navigateTo();
+            },400);
+
         };
 
         /* Jour j*/
@@ -54,7 +57,10 @@ function Menu(param) {
         bMenuJour.goToInit();
         bMenuJour.getElement().onclick = function(){
             clickMenu(bMenuJour);
-            GlobalNavigation.navigateTo(GlobalNavigation.Pages.jourJ);
+            setTimeout(function(){
+                GlobalNavigation.navigateTo(GlobalNavigation.Pages.jourJ);
+            },400);
+
         };
 
 
@@ -64,7 +70,10 @@ function Menu(param) {
         bMenuList.goToInit();
         bMenuList.getElement().onclick = function(){
             clickMenu(bMenuList);
-            GlobalNavigation.navigateTo();
+            setTimeout(function(){
+                GlobalNavigation.navigateTo();
+            },400);
+
         };
 
         /*les photos*/
@@ -73,7 +82,9 @@ function Menu(param) {
         bMenuPhoto.goToInit();
         bMenuPhoto.getElement().onclick = function(){
             clickMenu(bMenuPhoto);
-            GlobalNavigation.navigateTo();
+            setTimeout(function(){
+                GlobalNavigation.navigateTo();
+            },400);
         };
 
 
@@ -177,6 +188,7 @@ function Menu(param) {
 
             /* Content main bulle */
             .to(contentMainBulle,3,{y:0,ease: Power2.easeInOut},"-=3")
+            .to(contentMainBulle,3,{css:{height:150}},"-=3")
             .to(textJu,3,fusionParam(TextJu.menuPosition,{ease: Power2.easeInOut}),"-=3")
             .to(textBen,3,fusionParam(TextBen.menuPosition,{ease: Power2.easeInOut}),"-=3")
             .to(imageBague,3,fusionParam(ImageBague.menuPosition,{ease: Power2.easeInOut}),"-=3")
@@ -198,6 +210,7 @@ function Menu(param) {
             .to(ellipse2,3,{attr:{cy:maxHeight/2,rx:235,ry:225},ease: Power2.easeOut},"-=3")
             /* Content main bulle */
             .to(contentMainBulle,3,{y:maxHeight/2-250,ease: Power2.easeInOut},"-=3")
+            .to(contentMainBulle,3,{css:{height:500}},"-=3")
             .to(textJu,3,fusionParam(TextJu.centerPosition,{ease: Power2.easeInOut}),"-=3")
             .to(textBen,3,fusionParam(TextBen.centerPosition,{ease: Power2.easeInOut}),"-=3")
             .to(imageBague,3,fusionParam(ImageBague.centerPosition,{ease: Power2.easeInOut}),"-=3")

@@ -32,8 +32,10 @@ body{
 
 .workspace{
     position: fixed;
-    height: 100%;
-    width: 100%;
+    top: 150px;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .workspace-content{

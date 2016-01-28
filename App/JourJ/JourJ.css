@@ -1,0 +1,17 @@
+
+.bulle-day-step
+{
+    position:fixed;
+    cursor: pointer;
+
+}
+
+.bulle-day-step .bulle-text
+{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 25px;
+}

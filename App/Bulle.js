@@ -4,6 +4,8 @@ function Bulle(param){
     var self = this;
     var animateActivate =  false;
 
+    param.position = {x:0,y:0};
+    param.offsetPosition = {x:0,y:0};
     var bulleContainer = document.createElement('div');
 
 
@@ -90,7 +92,7 @@ function Bulle(param){
         TweenLite.to(bulleContainer, 1, {x:0,y:0,rotation:0,ease: Sine.easeInOut} )
     };
 
-    this.refresh = function(withAnimate){
+    this.refresh = function(withAnimate,callback){
 
         var maxHeight = window.innerHeight;
         var maxWidth = window.innerWidth;
@@ -102,8 +104,9 @@ function Bulle(param){
         if(withAnimate != null && withAnimate) {
             TweenLite.to(bulleContainer, 1 + Math.random() * 1, {
                 css: {top: positionY+"px", left: positionX+"px",scale:param.scale},
-                ease: Sine.easeOut
-            })
+                ease: Sine.easeOut,
+                onComplete:callback
+            });
         }else{
             bulleContainer.style.top = positionY +"px";
             bulleContainer.style.left = positionX+"px";

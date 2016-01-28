@@ -11,12 +11,13 @@ function Navigation(param) {
         jourJ:new JourJ()
     };
 
+    var body = document.getElementsByTagName("body")[0];
     var workspace = document.getElementById("workspace");
 
 
     var init = function(){
         var menuEl = menu.getElement();
-        workspace.appendChild(menuEl);
+        body.appendChild(menuEl);
 
         menu.init();
 
@@ -26,14 +27,13 @@ function Navigation(param) {
     this.navigateTo = function(page){
 
         if(oldPage) {
-            workspace.removeChild(oldPage);
+            oldPage.close();
         }
 
         if(page)
         {
-            var pageElement = page.getElement();
-            workspace.appendChild(pageElement);
-            oldPage = pageElement;
+            page.init();
+            oldPage = page;
         }else{
             oldPage = null;
         }
