@@ -50,7 +50,9 @@ function BulleDayStep(param) {
         param.scale = 1;
         param.offsetPosition = {x:0,y:0};
 
-        param.position = {x:param.positionLine/10,y:1/2};
+        var y = Math.random()*2/4 + 1/4;
+
+        param.position = {x:param.positionLine/10,y:y};
 
         self.refresh(true);
 
