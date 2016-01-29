@@ -48,7 +48,7 @@ function Menu(param) {
         bMenuVN.goToInit();
         bMenuVN.getElement().onclick = function(){
             clickMenu(bMenuVN);
-            GlobalNavigation.navigateTo();
+            GlobalNavigation.navigateTo(GlobalNavigation.Pages.vouNousPage);
 
         };
 
@@ -79,7 +79,8 @@ function Menu(param) {
         bMenuPhoto.goToInit();
         bMenuPhoto.getElement().onclick = function(){
             clickMenu(bMenuPhoto);
-            GlobalNavigation.navigateTo();
+            GlobalNavigation.navigateTo(GlobalNavigation.Pages.photoPage
+            );
         };
 
 

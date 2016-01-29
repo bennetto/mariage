@@ -1,4 +1,4 @@
-function ListeMariage(param) {
+function PhotoPage(param) {
 
     /* Variable*/
     var self = this;
@@ -8,7 +8,7 @@ function ListeMariage(param) {
     var bNoPage;
     this.init = function() {
         gbulles = [];
-        bNoPage = new BulleNoPage({text:"La liste de mariage arriveras plus tard. Quand on l'auras faite :D.",size:400,background:"#028c7e"});
+        bNoPage = new BulleNoPage({text:"Aprés le mariage il y auras ICI une zone de partage de photo.",size:400,background:"#028c7e"});
         workspace.appendChild(bNoPage.getElement());
         bNoPage.goToInit();
     };

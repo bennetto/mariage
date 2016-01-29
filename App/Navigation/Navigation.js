@@ -9,7 +9,9 @@ function Navigation(param) {
     this.Pages = {
 
         jourJ:new JourJ(),
-        listeMariage:new ListeMariage()
+        listeMariage:new ListeMariage(),
+        photoPage : new PhotoPage(),
+        vouNousPage : new VousNousPage()
     };
 
     var body = document.getElementsByTagName("body")[0];
