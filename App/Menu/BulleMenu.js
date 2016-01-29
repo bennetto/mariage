@@ -70,7 +70,7 @@ function BulleMenu(param) {
 
     this.goTo = function(){
         param.scale = 0.8;
-        param.offsetPosition = {x:50+self.getSizeScale()/2,y:150+self.getSizeScale()/2};
+        param.offsetPosition = {x:50+self.getSizeScale()/2,y:125+self.getSizeScale()/2};
         param.position = {x:0,y:0};
         self.refresh(true);
         self.stopAnimate();

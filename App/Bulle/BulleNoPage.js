@@ -1,4 +1,5 @@
-function BulleDayStep(param) {
+function BulleNoPage(param) {
+
 
     Bulle.call(this,param);
     /* private */
@@ -7,7 +8,7 @@ function BulleDayStep(param) {
     /* construction de la  bulle */
     var bulleContainer = self.getElement();
 
-    bulleContainer.className = "bulle-day-step";
+    bulleContainer.className = "bulle-no-page";
     bulleContainer.style.backgroundColor = param.background;
 
     var text = document.createElement('p');
@@ -15,7 +16,6 @@ function BulleDayStep(param) {
     text.innerText = param.text;
 
     text.style.color = "white";
-
 
     bulleContainer.appendChild(text);
 
@@ -25,10 +25,21 @@ function BulleDayStep(param) {
         param.scale = 1;
         param.offsetPosition = {x:0,y:0};
 
-        param.position = {x:param.positionLine/10,y:4/2};
+        param.position = {x:1/2,y:4/2};
 
         self.refresh();
-        self.goToTimeLine();
+        self.goToCenter();
+    };
+
+    this.goToCenter = function(){
+        param.scale = 1;
+        param.offsetPosition = {x:0,y:0};
+
+        param.position = {x:1/2,y:1/2};
+
+        self.refresh(true);
+
+        self.animate();
     };
 
     this.goToOut = function(callback){
@@ -36,25 +47,13 @@ function BulleDayStep(param) {
         param.scale = 1;
         param.offsetPosition = {x:0,y:0};
 
-        param.position = {x:param.positionLine/10,y:4/2};
+        param.position = {x:1/2,y:4/2};
 
         self.refresh(true,function(){
             self.stopAnimate();
             if(callback)
                 callback();
-            //workspace.removeChild(bulleContainer);
         });
-    };
-
-    this.goToTimeLine = function(){
-        param.scale = 1;
-        param.offsetPosition = {x:0,y:0};
-
-        param.position = {x:param.positionLine/10,y:1/2};
-
-        self.refresh(true);
-
-        self.animate();
     };
 
     this.refreshSpec = function()
@@ -64,5 +63,5 @@ function BulleDayStep(param) {
     }
 }
 
-BulleDayStep.prototype = Object.create(Bulle.prototype);
-BulleDayStep.prototype.constructor = Bulle;
+BulleNoPage.prototype = Object.create(Bulle.prototype);
+BulleNoPage.prototype.constructor = Bulle;

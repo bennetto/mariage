@@ -102,9 +102,9 @@ function Bulle(param){
 
         /* refresh bull container */
         if(withAnimate != null && withAnimate) {
-            TweenLite.to(bulleContainer, 1 + Math.random() * 1, {
+            TweenLite.to(bulleContainer, 1.5 + Math.random() * 1, {
                 css: {top: positionY+"px", left: positionX+"px",scale:param.scale},
-                ease: Sine.easeOut,
+                ease: Sine.easeInOut,
                 onComplete:callback
             });
         }else{

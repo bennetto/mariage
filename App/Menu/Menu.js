@@ -3,6 +3,9 @@ function Menu(param) {
     /* Variable*/
     var self = this;
 
+    var tempsAvantLancerLaPage = 1000;
+    var tempsEntrePage = 200;
+
     /* Récupération du template html */
     var importHtml = document.querySelector('#menu-file');
     var element = importHtml.import.querySelector('.menu').cloneNode(true);
@@ -45,9 +48,7 @@ function Menu(param) {
         bMenuVN.goToInit();
         bMenuVN.getElement().onclick = function(){
             clickMenu(bMenuVN);
-            setTimeout(function(){
-                GlobalNavigation.navigateTo();
-            },400);
+            GlobalNavigation.navigateTo();
 
         };
 
@@ -57,9 +58,7 @@ function Menu(param) {
         bMenuJour.goToInit();
         bMenuJour.getElement().onclick = function(){
             clickMenu(bMenuJour);
-            setTimeout(function(){
-                GlobalNavigation.navigateTo(GlobalNavigation.Pages.jourJ);
-            },400);
+            GlobalNavigation.navigateTo(GlobalNavigation.Pages.jourJ);
 
         };
 
@@ -70,9 +69,7 @@ function Menu(param) {
         bMenuList.goToInit();
         bMenuList.getElement().onclick = function(){
             clickMenu(bMenuList);
-            setTimeout(function(){
-                GlobalNavigation.navigateTo();
-            },400);
+            GlobalNavigation.navigateTo(GlobalNavigation.Pages.listeMariage);
 
         };
 
@@ -82,9 +79,7 @@ function Menu(param) {
         bMenuPhoto.goToInit();
         bMenuPhoto.getElement().onclick = function(){
             clickMenu(bMenuPhoto);
-            setTimeout(function(){
-                GlobalNavigation.navigateTo();
-            },400);
+            GlobalNavigation.navigateTo();
         };
 
 
@@ -147,24 +142,35 @@ function Menu(param) {
         if(bMenuJour != bMenu )
         {
             bMenuJour.goToMenu();
+        }else{
+
         }
+
         if(bMenuList != bMenu )
         {
             bMenuList.goToMenu();
+        }else{
+
         }
         if(bMenuPhoto != bMenu )
         {
             bMenuPhoto.goToMenu();
+        }else{
+
         }
         if(bMenuVN != bMenu )
         {
             bMenuVN.goToMenu();
+        }else{
+
         }
 
         if(modeFullscrenne)
         {
             self.AnimateToMenu();
             modeFullscrenne = false;
+        }else{
+
         }
 
     };

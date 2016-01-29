@@ -8,7 +8,8 @@ function Navigation(param) {
 
     this.Pages = {
 
-        jourJ:new JourJ()
+        jourJ:new JourJ(),
+        listeMariage:new ListeMariage()
     };
 
     var body = document.getElementsByTagName("body")[0];
@@ -24,7 +25,10 @@ function Navigation(param) {
     };
 
     var oldPage;
+ var timeOut;
     this.navigateTo = function(page){
+
+        clearTimeout(timeOut);
 
         if(oldPage) {
             oldPage.close();
@@ -32,12 +36,15 @@ function Navigation(param) {
 
         if(page)
         {
-            page.init();
+            timeOut =  setTimeout(function(){
+                page.init();
+            },500);
             oldPage = page;
         }else{
             oldPage = null;
         }
     };
+
 
     init();
 }

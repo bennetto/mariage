@@ -54,3 +54,22 @@ body{
     right: 0;
     left: 0;
 }
+
+
+
+.bulle-no-page
+{
+    position:fixed;
+    cursor: pointer;
+
+}
+
+.bulle-no-page .bulle-text
+{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 25px;
+}
