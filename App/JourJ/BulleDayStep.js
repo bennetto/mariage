@@ -82,7 +82,7 @@ function BulleDayStep(param) {
 
     var animateSpecRot = function() {
         if(self.animateActivate) {
-            var rot = Math.random()*50-25;
+            var rot = Math.random()*100-50;
             TweenLite.to(textHeure, 8+Math.random()*4, {css:{rotation:rot},ease: Sine.easeInOut, onComplete: animateSpecRot} )
         }
     };

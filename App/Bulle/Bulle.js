@@ -8,6 +8,9 @@ function Bulle(param){
     param.offsetPosition = {x:0,y:0};
     var bulleContainer = document.createElement('div');
 
+    var maxHeight = window.innerHeight;
+    var maxWidth = window.innerWidth;
+    var sizeScale;
 
     /* utils */
 
@@ -15,19 +18,19 @@ function Bulle(param){
         return  param.size;
     };
     this.getSizeScale = function() {
-        return  param.size*param.scale;
+        sizeScale = param.size*param.scale;
+        return  sizeScale;
     };
     this.getOffsetSize = function() {
         return  self.getSize()-self.getSizeScale();
     };
 
     this.getPosition= function(){
-        var maxHeight = window.innerHeight;
-        var maxWidth = window.innerWidth;
+        var gsTransform = bulleContainer._gsTransform;
+        if(gsTransform) {
 
-        if(bulleContainer._gsTransform) {
-            var positionX = param.position.x * maxWidth + bulleContainer._gsTransform.x;
-            var positionY = param.position.y * maxHeight + bulleContainer._gsTransform.y;
+            var positionX = sizeScale/2 + gsTransform.x + bulleContainer.offsetLeft;
+            var positionY =  sizeScale/2 + gsTransform.y + bulleContainer.offsetTop;
 
             return position = {
                 x: positionX,
@@ -120,8 +123,8 @@ function Bulle(param){
 
     this.refresh = function(withAnimate,callback){
 
-        var maxHeight = window.innerHeight;
-        var maxWidth = window.innerWidth;
+        maxHeight = window.innerHeight;
+        maxWidth = window.innerWidth;
 
         var positionX = param.position.x*maxWidth - self.getSize()/2 + param.offsetPosition.x;
         var positionY =param.position.y*maxHeight - self.getSize()/2+ param.offsetPosition.y;
@@ -143,6 +146,7 @@ function Bulle(param){
         bulleContainer.style.width = param.size+"px";
         bulleContainer.style.borderRadius = param.size+"px";
 
+        var s = self.getSizeScale();
         /* refresh spec */
         if(self.refreshSpec)
         {

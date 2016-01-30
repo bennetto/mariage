@@ -6,15 +6,16 @@ function JourJ(param) {
 /* public */
 
     var bulles = [];
+    var lines = [];
 
     this.init = function() {
-        gbulles = [];
+        bulles = [];
+        lines = [];
         var bMairie = new BulleDayStep({text:"Mairie",heure:"15h30",size:200,background:"#028c7e",positionLine:1});
         bulles.push(bMairie);
 
         var bEglise = new BulleDayStep({text:"Eglise",heure:"16h30",size:200,background:"#028c7e",positionLine:3});
         bulles.push(bEglise);
-
 
         var bVinHonneur = new BulleDayStep({text:"Vin d'honeur",heure:"18h30",size:200,background:"#028c7e",positionLine:5});
         bulles.push(bVinHonneur);
@@ -27,36 +28,47 @@ function JourJ(param) {
 
 
         var line1 = new Line(bMairie,bEglise,{size:3,color:"#028c7e"});
-        workspace.appendChild(line1.getElement());
-        line1.init();
+        lines.push(line1);
 
         var line2 = new Line(bEglise,bVinHonneur,{size:3,color:"#028c7e"});
-        workspace.appendChild(line2.getElement());
-        line2.init();
+        lines.push(line2);
 
         var line3 = new Line(bVinHonneur,bSoiree,{size:3,color:"#028c7e"});
-        workspace.appendChild(line3.getElement());
-        line3.init();
+        lines.push(line3);
 
         var line4 = new Line(bSoiree,bBrunch,{size:3,color:"#028c7e"});
-        workspace.appendChild(line4.getElement());
-        line4.init();
+        lines.push(line4);
 
+        lines.forEach(function(line){
+            workspace.appendChild(line.getElement());
+            line.init();
+        });
 
         bulles.forEach(function(bulle){
             workspace.appendChild(bulle.getElement());
             bulle.goToInit();
         });
+
     };
     this.close = function() {
 
         bulles.forEach(function(bulle){
             bulle.goToOut(function(){
-                for(var i= 0;i < workspace.children.length;i++)
+                for(var i=0;i < workspace.children.length;i++)
                 {
+
+                //remove bulle
                     if(workspace.children[i] == bulle.getElement()) {
                         workspace.removeChild(bulle.getElement());
                     }
+
+                //remove line
+                    lines.forEach(function(line) {
+                        if(workspace.children[i] == line.getElement()) {
+                            line.remove();
+                            workspace.removeChild(line.getElement());
+                        }
+                    });
                 }
             });
         });
