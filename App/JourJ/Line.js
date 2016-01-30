@@ -24,6 +24,8 @@ var self = this;
     path.setAttribute('stroke', param.color);
     path.setAttribute('stroke-width', param.size);
     path.setAttribute('fill', "none");
+    path.setAttribute("stroke-dasharray","20,10");
+    path.style.opacity = "0.2"
 
 
     element.appendChild(path);

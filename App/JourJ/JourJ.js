@@ -23,20 +23,20 @@ function JourJ(param) {
         var bSoiree = new BulleDayStep({text:"Soirée de mariage",heure:"23h30",size:200,background:"#028c7e",positionLine:7});
         bulles.push(bSoiree);
 
-        var bBrunch = new BulleDayStep({text:"Brunch",heure:"11h30",size:200,background:"#028c7e",positionLine:9});
+        var bBrunch = new BulleDayStep({text:"Brunch",heure:"11h30",size:200,background:"#724823",positionLine:9});
         bulles.push(bBrunch);
 
 
-        var line1 = new Line(bMairie,bEglise,{size:3,color:"#028c7e"});
+        var line1 = new Line(bMairie,bEglise,{size:5,color:"#028c7e"});
         lines.push(line1);
 
-        var line2 = new Line(bEglise,bVinHonneur,{size:3,color:"#028c7e"});
+        var line2 = new Line(bEglise,bVinHonneur,{size:5,color:"#028c7e"});
         lines.push(line2);
 
-        var line3 = new Line(bVinHonneur,bSoiree,{size:3,color:"#028c7e"});
+        var line3 = new Line(bVinHonneur,bSoiree,{size:5,color:"#028c7e"});
         lines.push(line3);
 
-        var line4 = new Line(bSoiree,bBrunch,{size:3,color:"#028c7e"});
+        var line4 = new Line(bSoiree,bBrunch,{size:5,color:"#028c7e"});
         lines.push(line4);
 
         lines.forEach(function(line){
