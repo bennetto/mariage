@@ -8,16 +8,31 @@ function BulleDayStep(param) {
     var bulleContainer = self.getElement();
 
     bulleContainer.className = "bulle-day-step";
-    bulleContainer.style.backgroundColor = param.background;
+
+
+    var bulleCenter = document.createElement('div');
+    bulleCenter.className = "bulle-day-step-center";
+    bulleCenter.style.backgroundColor = param.background;
+
+
+
 
     var text = document.createElement('p');
     text.className = "bulle-text";
     text.innerText = param.text;
 
     text.style.color = "white";
+    bulleCenter.appendChild(text);
+    bulleContainer.appendChild(bulleCenter);
+
+    var textHeure = document.createElement('p');
+    textHeure.className = "bulle-text-heure";
+    textHeure.innerText = param.heure;
+
+    textHeure.style.color = "black";
+    bulleContainer.appendChild(textHeure);
 
 
-    bulleContainer.appendChild(text);
 
     /* public */
     this.goToInit = function(){
@@ -57,18 +72,38 @@ function BulleDayStep(param) {
             y = Math.random()*2/4 + 0.30;
         }
 
-
         param.position = {x:param.positionLine/10,y:y};
 
         self.refresh(true);
 
-        self.animate();
+       self.animate();
     };
+
+
+    var animateSpecRot = function() {
+        if(self.animateActivate) {
+            var rot = Math.random()*50-25;
+            TweenLite.to(textHeure, 8+Math.random()*4, {css:{rotation:rot},ease: Sine.easeInOut, onComplete: animateSpecRot} )
+        }
+    };
+
+    this.animateSpec= function(){
+        animateSpecRot();
+    };
+
+
 
     this.refreshSpec = function()
     {
-        text.style.height = param.size+"px";
-        text.style.width = param.size+"px";
+        text.style.height = param.size-50+"px";
+        text.style.width = param.size-50+"px";
+
+        textHeure.style.height = param.size+"px";
+        textHeure.style.width = param.size+"px";
+
+        bulleCenter.style.height = param.size-50+"px";
+        bulleCenter.style.width = param.size-50+"px";
+        bulleCenter.style.borderRadius = param.size-50+"px";
     }
 }
 

@@ -2,7 +2,7 @@ function Bulle(param){
 
     /* private */
     var self = this;
-    var animateActivate =  false;
+    self.animateActivate =  false;
 
     param.position = {x:0,y:0};
     param.offsetPosition = {x:0,y:0};
@@ -19,6 +19,28 @@ function Bulle(param){
     };
     this.getOffsetSize = function() {
         return  self.getSize()-self.getSizeScale();
+    };
+
+    this.getPosition= function(){
+        var maxHeight = window.innerHeight;
+        var maxWidth = window.innerWidth;
+
+        if(bulleContainer._gsTransform) {
+            var positionX = param.position.x * maxWidth + bulleContainer._gsTransform.x;
+            var positionY = param.position.y * maxHeight + bulleContainer._gsTransform.y;
+
+            return position = {
+                x: positionX,
+                y: positionY
+            }
+        }
+        else{
+            return position = {
+                x:0,
+                y:0
+            }
+        }
+
     };
 
     var getRandomValue = function(old) {
@@ -43,7 +65,7 @@ function Bulle(param){
     /* animation */
     var ryOld = 0;
     var animatey = function() {
-        if(animateActivate) {
+        if(self.animateActivate) {
             var ry = getRandomValue(ryOld);
             ryOld = ry;
             TweenLite.to(bulleContainer, 8+Math.random()*4, {y:ry,ease: Sine.easeInOut, onComplete: animatey} )
@@ -52,7 +74,7 @@ function Bulle(param){
 
     var rxOld = 0;
     var animatex = function() {
-        if(animateActivate) {
+        if(self.animateActivate) {
             var rx = getRandomValue(ryOld);
             rxOld = rx;
             TweenLite.to(bulleContainer, 8+Math.random()*4, {x:rx,ease: Sine.easeInOut, onComplete: animatex} )
@@ -60,7 +82,7 @@ function Bulle(param){
     };
 
     var animaterot = function() {
-        if(animateActivate) {
+        if(self.animateActivate) {
             var rot = Math.random()*50-25;
             var scale = Math.random()/5+0.8;
             TweenLite.to(bulleContainer, 8+Math.random()*4, {css:{scale:scale, rotation:rot},ease: Sine.easeInOut, onComplete: animaterot} )
@@ -76,20 +98,24 @@ function Bulle(param){
 
     this.animate = function(){
 
-        if(animateActivate == false)
+        if(self.animateActivate == false)
         {
-            animateActivate = true;
+            self.animateActivate = true;
             animatey();
             animatex();
             animaterot();
+            if(self.animateSpec)
+                self.animateSpec();
+
         }else{
-            animateActivate = true;
+            self.animateActivate = true;
         }
     };
 
     this.stopAnimate = function(){
-        animateActivate = false;
+        self.animateActivate = false;
         TweenLite.to(bulleContainer, 1, {x:0,y:0,rotation:0,ease: Sine.easeInOut} )
+
     };
 
     this.refresh = function(withAnimate,callback){

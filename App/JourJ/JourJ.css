@@ -6,6 +6,16 @@
 
 }
 
+
+.bulle-day-step .bulle-day-step-center{
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .bulle-day-step .bulle-text
 {
     display: table-cell;
@@ -14,4 +24,11 @@
     padding-right: 10px;
     text-align: center;
     font-size: 25px;
+}
+
+
+.bulle-day-step .bulle-text-heure{
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
 }

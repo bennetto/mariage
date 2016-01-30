@@ -9,33 +9,44 @@ function JourJ(param) {
 
     this.init = function() {
         gbulles = [];
-        var bMairie = new BulleDayStep({text:"Mairie",size:150,background:"#028c7e",positionLine:1});
-        workspace.appendChild(bMairie.getElement());
-        bMairie.goToInit();
+        var bMairie = new BulleDayStep({text:"Mairie",heure:"15h30",size:200,background:"#028c7e",positionLine:1});
         bulles.push(bMairie);
 
-        var bEglise = new BulleDayStep({text:"Eglise",size:150,background:"#028c7e",positionLine:3});
-        workspace.appendChild(bEglise.getElement());
-        bEglise.goToInit();
+        var bEglise = new BulleDayStep({text:"Eglise",heure:"16h30",size:200,background:"#028c7e",positionLine:3});
         bulles.push(bEglise);
 
 
-        var bVinHonneur = new BulleDayStep({text:"Vin d'honeur",size:150,background:"#028c7e",positionLine:5});
-        workspace.appendChild(bVinHonneur.getElement());
-        bVinHonneur.goToInit();
+        var bVinHonneur = new BulleDayStep({text:"Vin d'honeur",heure:"18h30",size:200,background:"#028c7e",positionLine:5});
         bulles.push(bVinHonneur);
 
-        var bSoiree = new BulleDayStep({text:"Soirée de mariage",size:150,background:"#028c7e",positionLine:7});
-        workspace.appendChild(bSoiree.getElement());
-        bSoiree.goToInit();
+        var bSoiree = new BulleDayStep({text:"Soirée de mariage",heure:"23h30",size:200,background:"#028c7e",positionLine:7});
         bulles.push(bSoiree);
 
-        var bBrunch = new BulleDayStep({text:"Brunch",size:150,background:"#028c7e",positionLine:9});
-        workspace.appendChild(bBrunch.getElement());
-        bBrunch.goToInit();
+        var bBrunch = new BulleDayStep({text:"Brunch",heure:"11h30",size:200,background:"#028c7e",positionLine:9});
         bulles.push(bBrunch);
 
 
+        var line1 = new Line(bMairie,bEglise,{size:3,color:"#028c7e"});
+        workspace.appendChild(line1.getElement());
+        line1.init();
+
+        var line2 = new Line(bEglise,bVinHonneur,{size:3,color:"#028c7e"});
+        workspace.appendChild(line2.getElement());
+        line2.init();
+
+        var line3 = new Line(bVinHonneur,bSoiree,{size:3,color:"#028c7e"});
+        workspace.appendChild(line3.getElement());
+        line3.init();
+
+        var line4 = new Line(bSoiree,bBrunch,{size:3,color:"#028c7e"});
+        workspace.appendChild(line4.getElement());
+        line4.init();
+
+
+        bulles.forEach(function(bulle){
+            workspace.appendChild(bulle.getElement());
+            bulle.goToInit();
+        });
     };
     this.close = function() {
 
