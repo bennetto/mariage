@@ -70,8 +70,6 @@ function JourJ(param) {
         workspace.appendChild(aide);
 
 
-
-
     };
     this.close = function() {
 
@@ -102,7 +100,6 @@ function JourJ(param) {
                     if(workspace.children[i] == svgContainer) {
                         workspace.removeChild(svgContainer);
                     }
-
                 }
             });
         });

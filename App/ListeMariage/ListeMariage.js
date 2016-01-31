@@ -13,15 +13,15 @@ function ListeMariage(param) {
         bNoPage.goToInit();
     };
     this.close = function() {
-        var bulle = bNoPage;
-        bulle.goToOut(function(){
-            for(var i= 0;i < workspace.children.length;i++)
-            {
-                if(workspace.children[i] == bulle.getElement()) {
-                    workspace.removeChild(bulle.getElement());
+        if(bNoPage)
+            bNoPage.goToOut(function(){
+                for(var i= 0;i < workspace.children.length;i++)
+                {
+                    if(workspace.children[i] == bNoPage.getElement()) {
+                        workspace.removeChild(bNoPage.getElement());
+                    }
                 }
-            }
-        });
+            });
     };
 
     this.getElement = function(){
