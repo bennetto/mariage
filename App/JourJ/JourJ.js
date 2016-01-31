@@ -7,6 +7,7 @@ function JourJ(param) {
     var aide;
     var bulles = [];
     var lines = [];
+    var svgContainer;
 
     this.init = function() {
         bulles = [];
@@ -45,8 +46,14 @@ function JourJ(param) {
         var line5 = new Line(bDodo,bBrunch,{size:5,color:"#028c7e"});
         lines.push(line5);
 
+        svgContainer = document.createElementNS('http://www.w3.org/2000/svg','svg');
+        svgContainer.style.height = "100%";
+        svgContainer.style.width = "100%";
+        svgContainer.style.position = "absolute";
+        workspace.appendChild(svgContainer);
+
         lines.forEach(function(line){
-            workspace.appendChild(line.getElement());
+            svgContainer.appendChild(line.getElement());
             line.init();
         });
 
@@ -90,6 +97,12 @@ function JourJ(param) {
                             workspace.removeChild(line.getElement());
                         }
                     });
+
+                    //remove svgContainer
+                    if(workspace.children[i] == svgContainer) {
+                        workspace.removeChild(svgContainer);
+                    }
+
                 }
             });
         });

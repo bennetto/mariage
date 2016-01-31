@@ -4,10 +4,6 @@ var self = this;
 
 
 
-    var element = document.createElementNS('http://www.w3.org/2000/svg','svg');
-    element.style.height = "100%";
-    element.style.width = "100%";
-    element.style.position = "absolute";
 
 
 /*
@@ -28,7 +24,6 @@ var self = this;
     path.style.opacity = "0.2"
 
 
-    element.appendChild(path);
 
 
     function refresh() {
@@ -56,7 +51,7 @@ var self = this;
     };
 
     this.getElement = function(){
-       return element;
+       return path;
     };
 
 }
