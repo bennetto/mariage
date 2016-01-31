@@ -8,10 +8,10 @@ function Navigation(param) {
 
     this.Pages = {
 
-        jourJ:new JourJ(),
-        listeMariage:new ListeMariage(),
-        photoPage : new PhotoPage(),
-        vouNousPage : new VousNousPage()
+        jourJ: JourJ,
+        listeMariage:ListeMariage,
+        photoPage : PhotoPage,
+        vouNousPage : VousNousPage
     };
 
     var body = document.getElementsByTagName("body")[0];

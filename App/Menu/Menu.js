@@ -48,7 +48,7 @@ function Menu(param) {
         bMenuVN.goToInit();
         bMenuVN.getElement().onclick = function(){
             clickMenu(bMenuVN);
-            GlobalNavigation.navigateTo(GlobalNavigation.Pages.vouNousPage);
+            GlobalNavigation.navigateTo(new VousNousPage());
 
         };
 
@@ -58,7 +58,7 @@ function Menu(param) {
         bMenuJour.goToInit();
         bMenuJour.getElement().onclick = function(){
             clickMenu(bMenuJour);
-            GlobalNavigation.navigateTo(GlobalNavigation.Pages.jourJ);
+            GlobalNavigation.navigateTo(new JourJ());
 
         };
 
@@ -69,7 +69,7 @@ function Menu(param) {
         bMenuList.goToInit();
         bMenuList.getElement().onclick = function(){
             clickMenu(bMenuList);
-            GlobalNavigation.navigateTo(GlobalNavigation.Pages.listeMariage);
+            GlobalNavigation.navigateTo(new ListeMariage());
 
         };
 
@@ -79,7 +79,7 @@ function Menu(param) {
         bMenuPhoto.goToInit();
         bMenuPhoto.getElement().onclick = function(){
             clickMenu(bMenuPhoto);
-            GlobalNavigation.navigateTo(GlobalNavigation.Pages.photoPage
+            GlobalNavigation.navigateTo(new PhotoPage()
             );
         };
 
