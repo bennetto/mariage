@@ -21,14 +21,14 @@ var self = this;
     path.setAttribute('stroke-width', param.size);
     path.setAttribute('fill', "none");
     path.setAttribute("stroke-dasharray","20,10");
-    path.style.opacity = "0.2"
+    path.style.opacity = "0.2";
 
 
 
 
     function refresh() {
         if(activate) {
-            requestAnimationFrame(refresh);
+            window.requestAnimationFrame(refresh);
 
             var positionBulle1 = bulle1.getPosition();
             var positionBulle2 = bulle2.getPosition();
