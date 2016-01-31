@@ -3,7 +3,7 @@ function Navigation(param) {
     /* Variable*/
     var self = this;
 
-    /* Page */
+    /* Pages */
     var menu = new Menu();
 
     this.Pages = {
