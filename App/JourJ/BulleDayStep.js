@@ -40,7 +40,7 @@ function BulleDayStep(param) {
         param.scale = 1;
         param.offsetPosition = {x:0,y:0};
 
-        param.position = {x:param.positionLine/10,y:4/2};
+        param.position = {x:param.positionLine/12,y:4/2};
 
         self.refresh();
         self.goToTimeLine();
@@ -51,7 +51,7 @@ function BulleDayStep(param) {
         param.scale = 1;
         param.offsetPosition = {x:0,y:0};
 
-        param.position = {x:param.positionLine/10,y:4/2};
+        param.position = {x:param.positionLine/12,y:4/2};
 
         self.refresh(true,function(){
             self.stopAnimate();
@@ -72,7 +72,7 @@ function BulleDayStep(param) {
             y = Math.random()*2/4 + 0.30;
         }
 
-        param.position = {x:param.positionLine/10,y:y};
+        param.position = {x:param.positionLine/12,y:y};
 
         self.refresh(true);
 

@@ -14,7 +14,6 @@ function BulleMenu(param) {
     bulleContainer.className = "bulle-menu";
     bulleContainer.style.backgroundColor = param.background;
 
-
     var text = document.createElement('p');
     text.className = "bulle-text";
     text.innerText = param.text;
@@ -25,8 +24,6 @@ function BulleMenu(param) {
 
 
     /* public */
-
-
     this.goToInit = function(){
         param.scale = 1;
         param.offsetPosition = {x:0,y:0};
@@ -48,7 +45,7 @@ function BulleMenu(param) {
     };
 
     this.goToMenu = function(){
-        param.scale =  0.6;
+        param.scale =  0.5;
         param.offsetPosition = {x:0,y: 100};
 
         if(param.positionMenu == 1)
@@ -69,7 +66,7 @@ function BulleMenu(param) {
     };
 
     this.goTo = function(){
-        param.scale = 0.8;
+        param.scale = 0.6;
         param.offsetPosition = {x:50+self.getSizeScale()/2,y:125+self.getSizeScale()/2};
         param.position = {x:0,y:0};
         self.refresh(true);

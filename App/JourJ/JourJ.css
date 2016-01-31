@@ -32,3 +32,12 @@
     font-size: 20px;
     margin: 0;
 }
+
+
+.aide{
+    position: absolute;
+
+    width: 300px;
+    bottom: 20px;
+    left:20px;
+}

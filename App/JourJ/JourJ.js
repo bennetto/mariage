@@ -4,7 +4,7 @@ function JourJ(param) {
     var self = this;
 
 /* public */
-
+    var aide;
     var bulles = [];
     var lines = [];
 
@@ -23,7 +23,10 @@ function JourJ(param) {
         var bSoiree = new BulleDayStep({text:"Soirée de mariage",heure:"23h30",size:200,background:"#028c7e",positionLine:7});
         bulles.push(bSoiree);
 
-        var bBrunch = new BulleDayStep({text:"Brunch",heure:"11h30",size:200,background:"#724823",positionLine:9});
+        var bDodo = new BulleDayStep({text:"Dodo (Hotels)",heure:"Au plus tard :D",size:200,background:"#724823",positionLine:9});
+        bulles.push(bDodo);
+
+        var bBrunch = new BulleDayStep({text:"Brunch",heure:"11h30",size:200,background:"#724823",positionLine:11});
         bulles.push(bBrunch);
 
 
@@ -36,8 +39,11 @@ function JourJ(param) {
         var line3 = new Line(bVinHonneur,bSoiree,{size:5,color:"#028c7e"});
         lines.push(line3);
 
-        var line4 = new Line(bSoiree,bBrunch,{size:5,color:"#028c7e"});
+        var line4 = new Line(bSoiree,bDodo,{size:5,color:"#028c7e"});
         lines.push(line4);
+
+        var line5 = new Line(bDodo,bBrunch,{size:5,color:"#028c7e"});
+        lines.push(line5);
 
         lines.forEach(function(line){
             workspace.appendChild(line.getElement());
@@ -49,8 +55,23 @@ function JourJ(param) {
             bulle.goToInit();
         });
 
+
+
+        aide = document.createElement("div");
+        aide.className = "aide";
+        aide.innerText="Pour plus d'information cliquez sur une bulle";
+        workspace.appendChild(aide);
+
+
+
+
     };
     this.close = function() {
+
+        if(aide) {
+            workspace.removeChild(aide);
+            aide = null;
+        }
 
         bulles.forEach(function(bulle){
             bulle.goToOut(function(){

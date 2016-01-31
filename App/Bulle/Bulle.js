@@ -106,7 +106,7 @@ function Bulle(param){
             self.animateActivate = true;
             animatey();
             animatex();
-            animaterot();
+           // animaterot();
             if(self.animateSpec)
                 self.animateSpec();
 
