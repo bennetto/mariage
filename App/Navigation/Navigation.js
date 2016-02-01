@@ -1,3 +1,13 @@
+
+Element.prototype.appendBefore = function (element) {
+    element.parentNode.insertBefore(this, element);
+},false;
+
+Element.prototype.appendAfter = function (element) {
+    element.parentNode.insertBefore(this, element.nextSibling);
+},false;
+
+
 function Navigation(param) {
 
     /* Variable*/
@@ -20,7 +30,8 @@ function Navigation(param) {
 
     var init = function(){
         var menuEl = menu.getElement();
-        body.appendChild(menuEl);
+        menuEl.appendBefore(workspace);
+
 
         menu.init();
 

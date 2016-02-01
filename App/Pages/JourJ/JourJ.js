@@ -15,6 +15,7 @@ function JourJ(param) {
         var bMairie = new BulleDayStep({text:"Mairie",heure:"15h30",size:200,background:"#028c7e",positionLine:1});
         bulles.push(bMairie);
 
+
         var bEglise = new BulleDayStep({text:"Eglise",heure:"16h30",size:200,background:"#028c7e",positionLine:3});
         bulles.push(bEglise);
 
@@ -60,8 +61,8 @@ function JourJ(param) {
         bulles.forEach(function(bulle){
             workspace.appendChild(bulle.getElement());
             bulle.goToInit();
-        });
 
+        });
 
 
         aide = document.createElement("div");
@@ -70,7 +71,17 @@ function JourJ(param) {
         workspace.appendChild(aide);
 
 
+        bMairie.getElement().onclick = clickBulle;
+
     };
+
+
+    var clickBulle = function(){
+        var jDetail =  new JourJDetail();
+
+        jDetail.print();
+    };
+
     this.close = function() {
 
         if(aide) {

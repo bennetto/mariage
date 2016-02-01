@@ -1,0 +1,35 @@
+
+.JourJDetail-container{
+    position: absolute;
+    height:100%;
+    width: 100%;
+
+}
+
+.panel-maps{
+    position: absolute;
+    height:100%;
+    width: 60%;
+    background-color: #028c7e;
+    right:0;
+}
+
+.panel-description{
+    position: absolute;
+    height:100%;
+    width: 40%;
+    background-color: #724823;
+    left: 0;
+}
+
+.back-button{
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    height: 60px;
+    width: 60px;
+
+
+}
