@@ -22,6 +22,19 @@
     left: 0;
 }
 
+.panel-description .content-description{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+}
+
+.panel-description .title{
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
 .back-button{
 
     position: absolute;
@@ -30,6 +43,5 @@
 
     height: 60px;
     width: 60px;
-
 
 }

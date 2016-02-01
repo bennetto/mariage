@@ -16,8 +16,23 @@ function JourJDetail(param) {
 
 
     var callBackFct;
+
+
+
+    var constructHtml = function(){
+
+        var title = panelDescription.querySelector(".title");
+        title.innerText = param.nom;
+
+    };
+
     this.print = function(callback){
         callBackFct = callback;
+
+
+
+        constructHtml();
+
 
         workspace.appendChild(element);
 

@@ -14,22 +14,52 @@ function JourJ(param) {
         lines = [];
         var bMairie = new BulleDayStep({text:"Mairie",heure:"15h30",size:200,background:"#028c7e",positionLine:1});
         bulles.push(bMairie);
+        bMairie.getElement().onclick =  function() {
+            clickBulle({
+                    nom: "Mairie"
+                });
+        };
 
 
         var bEglise = new BulleDayStep({text:"Eglise",heure:"16h30",size:200,background:"#028c7e",positionLine:3});
         bulles.push(bEglise);
+        bEglise.getElement().onclick =  function() {
+            clickBulle({
+                nom: "Eglise"
+            });
+        };
 
         var bVinHonneur = new BulleDayStep({text:"Vin d'honeur",heure:"18h30",size:200,background:"#028c7e",positionLine:5});
         bulles.push(bVinHonneur);
+        bVinHonneur.getElement().onclick =  function() {
+            clickBulle({
+                nom: "Vin d'honneur"
+            });
+        };
 
         var bSoiree = new BulleDayStep({text:"Soirée de mariage",heure:"23h30",size:200,background:"#028c7e",positionLine:7});
         bulles.push(bSoiree);
+        bSoiree.getElement().onclick =  function() {
+            clickBulle({
+                nom: "Soirée de mariage"
+            });
+        };
 
         var bDodo = new BulleDayStep({text:"Dodo (Hotels)",heure:"Au plus tard :D",size:200,background:"#724823",positionLine:9});
         bulles.push(bDodo);
+        bDodo.getElement().onclick =  function() {
+            clickBulle({
+                nom: "Dodo (Hotels)"
+            });
+        };
 
         var bBrunch = new BulleDayStep({text:"Brunch",heure:"11h30",size:200,background:"#724823",positionLine:11});
         bulles.push(bBrunch);
+        bBrunch.getElement().onclick =  function() {
+            clickBulle({
+                nom: "Brunch"
+            });
+        };
 
 
         var line1 = new Line(bMairie,bEglise,{size:5,color:"#028c7e"});
@@ -71,13 +101,16 @@ function JourJ(param) {
         workspace.appendChild(aide);
 
 
-        bMairie.getElement().onclick = clickBulle;
+
+
+
+
 
     };
 
 
-    var clickBulle = function(){
-        var jDetail =  new JourJDetail();
+    var clickBulle = function(param){
+        var jDetail =  new JourJDetail(param);
 
         jDetail.print();
     };
