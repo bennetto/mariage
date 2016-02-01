@@ -73,3 +73,8 @@ body{
     text-align: center;
     font-size: 25px;
 }
+
+
+svg{
+    pointer-events: none;
+}
