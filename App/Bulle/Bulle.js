@@ -11,6 +11,7 @@ function Bulle(param){
     var maxHeight = window.innerHeight;
     var maxWidth = window.innerWidth;
     var sizeScale;
+    var miSizeScale;
 
     /* utils */
 
@@ -19,6 +20,7 @@ function Bulle(param){
     };
     this.getSizeScale = function() {
         sizeScale = param.size*param.scale;
+        miSizeScale = sizeScale/2;
         return  sizeScale;
     };
     this.getOffsetSize = function() {
@@ -29,8 +31,8 @@ function Bulle(param){
         var gsTransform = bulleContainer._gsTransform;
         if(gsTransform) {
 
-            var positionX = sizeScale/2 + gsTransform.x + bulleContainer.offsetLeft;
-            var positionY =  sizeScale/2 + gsTransform.y + bulleContainer.offsetTop;
+            var positionX = miSizeScale + gsTransform.x + bulleContainer.offsetLeft;
+            var positionY =  miSizeScale + gsTransform.y + bulleContainer.offsetTop;
 
             return position = {
                 x: positionX,
