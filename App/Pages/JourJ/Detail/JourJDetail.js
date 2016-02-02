@@ -40,7 +40,6 @@ function JourJDetail(param) {
     this.init = function(){
         elementInit = true;
 
-
         element.appendAfter(workspace);
 
         initMap();
@@ -52,12 +51,12 @@ function JourJDetail(param) {
         /* initialisation position */
         tInit .set(panelMaps,{x:width})
             .set(panelDescription,{x:-width});
-
     };
 
 
 
 
+    var marker;
     /* print or clos fct */
     var constructHtml = function(param){
 
@@ -71,7 +70,18 @@ function JourJDetail(param) {
             panelDescription.style.backgroundImage = "";
         }
 
-
+        if(marker)
+        {
+            marker.setMap(null);
+        }
+        if(param.latLng)
+        {
+            marker = new google.maps.Marker({
+                position: param.latLng,
+                map: map,
+                title: 'Mairie de Talant'
+            });
+        }
     };
 
 
@@ -106,6 +116,4 @@ function JourJDetail(param) {
     this.getElement = function(){
         return element;
     }
-
-
 }

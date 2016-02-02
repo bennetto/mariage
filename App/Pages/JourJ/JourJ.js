@@ -17,7 +17,8 @@ function JourJ(param) {
         bMairie.getElement().onclick =  function() {
             clickBulle({
                     nom: "Mairie",
-                image:"./Assets/Detail/Mairie_Talant.jpg"
+                image:"./Assets/Detail/Mairie_Talant.jpg",
+                latLng:{lat: 47.335986, lng: 5.005116}
                 });
         };
 
@@ -27,25 +28,33 @@ function JourJ(param) {
         bEglise.getElement().onclick =  function() {
             clickBulle({
                 nom: "Eglise",
-                image:"./Assets/Detail/EgliseTalant.jpg"
+                image:"./Assets/Detail/EgliseTalant.jpg",
+                latLng:{lat: 47.335742, lng: 5.003973}
             });
         };
+
+
 
         var bVinHonneur = new BulleDayStep({text:"Vin d'honeur",heure:"18h30",size:200,background:"#028c7e",positionLine:5});
         bulles.push(bVinHonneur);
         bVinHonneur.getElement().onclick =  function() {
             clickBulle({
                 nom: "Vin d'honneur",
-                image:"./Assets/Detail/PontDePany.jpg"
+                image:"./Assets/Detail/PontDePany.jpg",
+                latLng:{lat: 47.293900, lng: 4.810942}
+
             });
         };
+
+
 
         var bSoiree = new BulleDayStep({text:"Soirée de mariage",heure:"23h30",size:200,background:"#028c7e",positionLine:7});
         bulles.push(bSoiree);
         bSoiree.getElement().onclick =  function() {
             clickBulle({
                 nom: "Soirée de mariage",
-                image:"./Assets/Detail/PontDePany.jpg"
+                image:"./Assets/Detail/PontDePany.jpg",
+                latLng:{lat: 47.293900, lng: 4.810942}
             });
         };
 
@@ -63,7 +72,8 @@ function JourJ(param) {
         bBrunch.getElement().onclick =  function() {
             clickBulle({
                 nom: "Brunch",
-                image:"./Assets/Detail/PontDePany.jpg"
+                image:"./Assets/Detail/PontDePany.jpg",
+                latLng:{lat: 47.293900, lng: 4.810942}
             });
         };
 
