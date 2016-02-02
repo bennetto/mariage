@@ -1,5 +1,5 @@
 
-function JourJDetail(param) {
+function DescriptionMapPage(param) {
 
     /* Variable*/
     var self = this;
@@ -7,7 +7,7 @@ function JourJDetail(param) {
 
     /* Récupération du template html */
     var importHtml = document.querySelector('#jourJDetailHtml');
-    var element = importHtml.import.querySelector('.JourJDetail-container').cloneNode(true);
+    var element = importHtml.import.querySelector('.DescriptionMapPage-container').cloneNode(true);
 
     var panelMaps = element.querySelector('.panel-maps');
     var panelDescription = element.querySelector('.panel-description');
@@ -27,8 +27,7 @@ function JourJDetail(param) {
         mapGoogle.className="mapGoogle";
 
         map = new google.maps.Map(mapGoogle, {
-            center: {lat: 47.2991637, lng: 4.9291713},
-            zoom: 12,
+
             scrollwheel:true
         });
 
@@ -60,6 +59,10 @@ function JourJDetail(param) {
     /* print or clos fct */
     var constructHtml = function(param){
 
+
+        map.setCenter({lat: 47.2991637, lng: 4.9291713});
+        map.setZoom(12);
+
         var title = panelDescription.querySelector(".title");
         title.innerText = param.nom;
 
@@ -74,6 +77,7 @@ function JourJDetail(param) {
         {
             marker.setMap(null);
         }
+
         if(param.latLng)
         {
             marker = new google.maps.Marker({

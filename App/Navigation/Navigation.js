@@ -16,7 +16,7 @@ function Navigation(param) {
 
     /* Pages */
     var menu = new Menu();
-    descriptionMap = new JourJDetail();
+    descriptionMap = new DescriptionMapPage();
 
 
     this.Pages = {
