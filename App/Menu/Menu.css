@@ -20,7 +20,7 @@
     right: 0;
     left: 0;
     cursor: pointer;
-
+    pointer-events: visible;
 }
 
 .menu.workspace-content{
@@ -29,6 +29,7 @@
     background-size: cover;
     background-position-x: 50%;
     background-position-y: 50%;
+    pointer-events: none;
 }
 
 
@@ -55,6 +56,7 @@
     left: 0;
     right: 0;
     text-align: center;
+    pointer-events: visible;
 }
 
 .menu .text-ben{
@@ -66,6 +68,7 @@
     left: 0;
     right: 0;
     text-align: center;
+    pointer-events: visible;
 }
 
 .menu .image-bagues{
@@ -108,6 +111,7 @@ margin-top: -20px;
 {
     position:fixed;
     cursor: pointer;
+    pointer-events: visible;
 
 }
 

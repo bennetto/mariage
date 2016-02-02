@@ -110,9 +110,8 @@ function JourJ(param) {
 
 
     var clickBulle = function(param){
-        var jDetail =  new JourJDetail(param);
 
-        jDetail.print();
+        descriptionMap.print(param);
     };
 
     this.close = function() {

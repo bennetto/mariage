@@ -1,3 +1,4 @@
+
 function JourJDetail(param) {
 
     /* Variable*/
@@ -13,28 +14,36 @@ function JourJDetail(param) {
 
     var btnBack = element.querySelector(".back-button");
 
-
+    var elementInit = false;
 
     var callBackFct;
 
 
 
-    var constructHtml = function(){
+/* INIT */
+    function initMap() {
 
-        var title = panelDescription.querySelector(".title");
-        title.innerText = param.nom;
+        var mapGoogle = document.createElement("div");
+        mapGoogle.className="mapGoogle";
 
+        map = new google.maps.Map(mapGoogle, {
+            center: {lat: 47.2991637, lng: 4.9291713},
+            zoom: 12,
+            scrollwheel:true
+        });
+
+
+        panelMaps.appendChild(map.getDiv());
     };
 
-    this.print = function(callback){
-        callBackFct = callback;
+
+    this.init = function(){
+        elementInit = true;
 
 
+        element.appendAfter(workspace);
 
-        constructHtml();
-
-
-        workspace.appendChild(element);
+        initMap();
 
         var width = window.innerWidth;
 
@@ -44,6 +53,27 @@ function JourJDetail(param) {
         tInit .set(panelMaps,{x:width})
             .set(panelDescription,{x:-width});
 
+    };
+
+
+
+
+    /* print or clos fct */
+    var constructHtml = function(param){
+
+        var title = panelDescription.querySelector(".title");
+        title.innerText = param.nom;
+
+
+
+    };
+
+
+    this.print = function(param,callback){
+        callBackFct = callback;
+
+
+       constructHtml(param);
 
         var tl = new TimelineLite();
         tl .to(panelMaps,1,{x:0,ease: Power2.easeInOut},"-=1")
@@ -62,7 +92,6 @@ function JourJDetail(param) {
     btnBack.onclick = self.close;
 
     var endClose = function(){
-      workspace.removeChild(element);
         if(callBackFct)
             callBackFct();
 

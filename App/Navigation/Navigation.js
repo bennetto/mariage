@@ -8,6 +8,7 @@ Element.prototype.appendAfter = function (element) {
 },false;
 
 
+
 function Navigation(param) {
 
     /* Variable*/
@@ -15,6 +16,8 @@ function Navigation(param) {
 
     /* Pages */
     var menu = new Menu();
+    descriptionMap = new JourJDetail();
+
 
     this.Pages = {
 
@@ -29,10 +32,11 @@ function Navigation(param) {
 
 
     var init = function(){
+
         var menuEl = menu.getElement();
         menuEl.appendBefore(workspace);
 
-
+        descriptionMap.init();
         menu.init();
 
     };
