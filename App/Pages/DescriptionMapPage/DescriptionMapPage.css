@@ -26,8 +26,7 @@
     background-color: #724823;
     left: 0;
     pointer-events: visible;
-    background-repeat: no-repeat;
-    background-size: contain;
+
 }
 
 .panel-description .content-description{
@@ -53,3 +52,23 @@
     width: 60px;
 
 }
+
+
+
+
+
+
+/* Detail */
+.description-detail{
+    width: 100%;
+    color: white;
+}
+.description-detail .presentation-detail{
+ width: 100%;
+
+}
+
+
+
+
+

@@ -17,7 +17,7 @@ function JourJ(param) {
         bMairie.getElement().onclick =  function() {
             clickBulle({
                     nom: "Mairie",
-                image:"./Assets/Detail/Mairie_Talant.jpg",
+                id:"descritption-mairie",
                 latLng:{lat: 47.335986, lng: 5.005116}
                 });
         };
@@ -28,7 +28,7 @@ function JourJ(param) {
         bEglise.getElement().onclick =  function() {
             clickBulle({
                 nom: "Eglise",
-                image:"./Assets/Detail/EgliseTalant.jpg",
+                id:"descritption-eglise",
                 latLng:{lat: 47.335742, lng: 5.003973}
             });
         };
@@ -40,7 +40,7 @@ function JourJ(param) {
         bVinHonneur.getElement().onclick =  function() {
             clickBulle({
                 nom: "Vin d'honneur",
-                image:"./Assets/Detail/PontDePany.jpg",
+                id:"descritption-vinhonneur",
                 latLng:{lat: 47.293900, lng: 4.810942}
 
             });
@@ -53,7 +53,7 @@ function JourJ(param) {
         bSoiree.getElement().onclick =  function() {
             clickBulle({
                 nom: "Soirée de mariage",
-                image:"./Assets/Detail/PontDePany.jpg",
+                id:"descritption-soiree",
                 latLng:{lat: 47.293900, lng: 4.810942}
             });
         };
@@ -63,6 +63,7 @@ function JourJ(param) {
         bDodo.getElement().onclick =  function() {
             clickBulle({
                 nom: "Dodo (Hotels)",
+                id:"descritption-dodo",
                 image:"./Assets/Detail/ChatChienDort.jpg"
             });
         };
@@ -72,7 +73,7 @@ function JourJ(param) {
         bBrunch.getElement().onclick =  function() {
             clickBulle({
                 nom: "Brunch",
-                image:"./Assets/Detail/PontDePany.jpg",
+                id:"descritption-brunch",
                 latLng:{lat: 47.293900, lng: 4.810942}
             });
         };

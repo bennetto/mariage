@@ -56,8 +56,20 @@ function DescriptionMapPage(param) {
 
 
     var marker;
+    var elementDetail;
     /* print or clos fct */
     var constructHtml = function(param){
+
+        if(elementDetail)
+        {
+            panelDescription.removeChild(elementDetail);
+            elementDetail = null;
+        }
+        
+        var  importHtml = document.querySelector("#"+param.id);
+        elementDetail = importHtml.import.querySelector('.description-detail').cloneNode(true);
+
+        panelDescription.appendChild(elementDetail);
 
 
         map.setCenter({lat: 47.2991637, lng: 4.9291713});
@@ -66,17 +78,8 @@ function DescriptionMapPage(param) {
         var title = panelDescription.querySelector(".title");
         title.innerText = param.nom;
 
-        if(param.image)
-        {
-            panelDescription.style.backgroundImage = "url("+param.image+")";
-        }else{
-            panelDescription.style.backgroundImage = "";
-        }
 
-        if(marker)
-        {
-            marker.setMap(null);
-        }
+
 
         if(param.latLng)
         {
@@ -108,10 +111,26 @@ function DescriptionMapPage(param) {
         tl .to(panelMaps,1,{x:width,ease: Power2.easeInOut},"-=1")
             .to(panelDescription,1,{x:-width,ease: Power2.easeInOut,onComplete:endClose},"-=1");
 
+
+        if(marker)
+        {
+            marker.setMap(null);
+            marker= null;
+        }
     };
     btnBack.onclick = self.close;
 
     var endClose = function(){
+
+
+
+        if(elementDetail)
+        {
+            panelDescription.removeChild(elementDetail);
+            elementDetail = null;
+        }
+
+
         if(callBackFct)
             callBackFct();
 
