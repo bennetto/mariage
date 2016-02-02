@@ -128,7 +128,26 @@ function JourJ(param) {
 
     var clickBulle = function(param){
 
-        descriptionMap.print(param);
+        bulles.forEach(function(bulle){
+           bulle.stopAnimate(true);
+        });
+
+        lines.forEach(function(line){
+            line.remove();
+        });
+
+        descriptionMap.print(param,function(){
+            lines.forEach(function(line){
+                line.init();
+            });
+
+            bulles.forEach(function(bulle){
+                bulle.animate();
+            });
+
+
+
+        });
     };
 
     this.close = function() {

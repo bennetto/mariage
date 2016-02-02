@@ -117,9 +117,15 @@ function Bulle(param){
         }
     };
 
-    this.stopAnimate = function(){
+    this.stopAnimate = function(pasReturnPositionInitial){
         self.animateActivate = false;
-        TweenLite.to(bulleContainer, 1, {x:0,y:0,rotation:0,ease: Sine.easeInOut} )
+
+
+
+        if(!pasReturnPositionInitial)
+            TweenLite.to(bulleContainer, 1, {x:0,y:0,rotation:0,ease: Sine.easeInOut} )
+        else
+            TweenLite.killTweensOf(bulleContainer);
 
     };
 

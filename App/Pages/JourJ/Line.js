@@ -28,12 +28,13 @@ var self = this;
 
     function refresh() {
         if(activate) {
-            window.requestAnimationFrame(refresh);
+
 
             var positionBulle1 = bulle1.getPosition();
             var positionBulle2 = bulle2.getPosition();
 
             path.setAttribute('d',"M "+positionBulle1.x+" "+positionBulle1.y+" "+positionBulle2.x+" "+positionBulle2.y+" ");
+            window.requestAnimationFrame(refresh);
         }
     }
 
