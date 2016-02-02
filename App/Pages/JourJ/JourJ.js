@@ -16,7 +16,8 @@ function JourJ(param) {
         bulles.push(bMairie);
         bMairie.getElement().onclick =  function() {
             clickBulle({
-                    nom: "Mairie"
+                    nom: "Mairie",
+                image:"./Assets/Detail/Mairie_Talant.jpg"
                 });
         };
 
@@ -25,7 +26,8 @@ function JourJ(param) {
         bulles.push(bEglise);
         bEglise.getElement().onclick =  function() {
             clickBulle({
-                nom: "Eglise"
+                nom: "Eglise",
+                image:"./Assets/Detail/EgliseTalant.jpg"
             });
         };
 
@@ -33,7 +35,8 @@ function JourJ(param) {
         bulles.push(bVinHonneur);
         bVinHonneur.getElement().onclick =  function() {
             clickBulle({
-                nom: "Vin d'honneur"
+                nom: "Vin d'honneur",
+                image:"./Assets/Detail/PontDePany.jpg"
             });
         };
 
@@ -41,7 +44,8 @@ function JourJ(param) {
         bulles.push(bSoiree);
         bSoiree.getElement().onclick =  function() {
             clickBulle({
-                nom: "Soirée de mariage"
+                nom: "Soirée de mariage",
+                image:"./Assets/Detail/PontDePany.jpg"
             });
         };
 
@@ -49,7 +53,8 @@ function JourJ(param) {
         bulles.push(bDodo);
         bDodo.getElement().onclick =  function() {
             clickBulle({
-                nom: "Dodo (Hotels)"
+                nom: "Dodo (Hotels)",
+                image:"./Assets/Detail/ChatChienDort.jpg"
             });
         };
 
@@ -57,7 +62,8 @@ function JourJ(param) {
         bulles.push(bBrunch);
         bBrunch.getElement().onclick =  function() {
             clickBulle({
-                nom: "Brunch"
+                nom: "Brunch",
+                image:"./Assets/Detail/PontDePany.jpg"
             });
         };
 

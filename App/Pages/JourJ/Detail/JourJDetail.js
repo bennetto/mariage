@@ -64,6 +64,12 @@ function JourJDetail(param) {
         var title = panelDescription.querySelector(".title");
         title.innerText = param.nom;
 
+        if(param.image)
+        {
+            panelDescription.style.backgroundImage = "url("+param.image+")";
+        }else{
+            panelDescription.style.backgroundImage = "";
+        }
 
 
     };

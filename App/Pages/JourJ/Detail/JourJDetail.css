@@ -26,6 +26,8 @@
     background-color: #724823;
     left: 0;
     pointer-events: visible;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .panel-description .content-description{
