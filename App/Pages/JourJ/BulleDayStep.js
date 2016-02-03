@@ -20,6 +20,7 @@ function BulleDayStep(param) {
     var text = document.createElement('p');
     text.className = "bulle-text";
     text.innerText = param.text;
+    text.textContent = param.text;
 
     text.style.color = "white";
     bulleCenter.appendChild(text);
@@ -28,6 +29,7 @@ function BulleDayStep(param) {
     var textHeure = document.createElement('p');
     textHeure.className = "bulle-text-heure";
     textHeure.innerText = param.heure;
+    textHeure.textContent = param.heure;
 
     textHeure.style.color = "black";
     bulleContainer.appendChild(textHeure);

@@ -88,6 +88,8 @@ function DescriptionMapPage(param) {
 
         var title = panelDescription.querySelector(".title");
         title.innerText = param.nom;
+        title.textContent = param.nom;
+
 
 
 

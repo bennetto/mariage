@@ -121,13 +121,8 @@ function JourJ(param) {
         aide = document.createElement("div");
         aide.className = "aide";
         aide.innerText="Pour plus d'information cliquez sur une bulle";
+        aide.textContent = "Pour plus d'information cliquez sur une bulle";
         workspace.appendChild(aide);
-
-
-
-
-
-
 
     };
 

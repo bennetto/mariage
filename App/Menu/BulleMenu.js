@@ -17,6 +17,7 @@ function BulleMenu(param) {
     var text = document.createElement('p');
     text.className = "bulle-text";
     text.innerText = param.text;
+    text.textContent = param.text;
 
     text.style.color = "white";
 
