@@ -16,9 +16,49 @@
     pointer-events: visible;
 
     color: white;
+
 }
 
 
+
+.panel-message .conteneur{
+    height: 100%;
+    width: 100%;
+
+    display: table;
+}
+
+.panel-message .message-block-cell{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.panel-message .message-block{
+    display: inline-block;
+
+}
+.panel-message .title-message{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.panel-message textarea{
+    border-radius: 20px;
+}
+
+
+.panel-message .btn-send{
+    background-color: #2EA58F;
+    border-radius: 20px;
+    color: #724823;
+    font-size: 30px;
+    width: 200px;
+    height: 50px;
+    margin-left: auto;
+
+
+}
 
 /* panel contact*/
 .panel-contact{

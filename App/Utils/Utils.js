@@ -2,10 +2,19 @@ var Utils = new function (){
 
 
 
+    this.post = function(url,data){
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.send(data);
+
+    };
+
     var FilLoaded = [];
 
     this.loadHtmlSync = function(url) {
-
 
         var htmlFile = FilLoaded[url];
         if(htmlFile)

@@ -13,6 +13,11 @@ function ContactPage(param) {
     var panelContact = element.querySelector('.panel-contact');
 
     var btnBack = element.querySelector(".back-button");
+    var btnSend = element.querySelector(".btn-send");
+    btnSend.onclick = function(){
+
+
+    };
 
 
     var callBackFct;

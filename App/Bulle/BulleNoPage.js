@@ -1,6 +1,5 @@
 function BulleNoPage(param) {
 
-
     Bulle.call(this,param);
     /* private */
     var self = this;
