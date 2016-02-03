@@ -18,6 +18,7 @@ function JourJ(param) {
             clickBulle({
                     nom: "Mairie",
                 id:"descritption-mairie",
+                nomHtmlFile:"Mairie",
                 latLng:{lat: 47.335986, lng: 5.005116}
                 });
         };
@@ -29,6 +30,7 @@ function JourJ(param) {
             clickBulle({
                 nom: "Eglise",
                 id:"descritption-eglise",
+                nomHtmlFile:"Eglise",
                 latLng:{lat: 47.335742, lng: 5.003973}
             });
         };
@@ -41,6 +43,7 @@ function JourJ(param) {
             clickBulle({
                 nom: "Vin d'honneur",
                 id:"descritption-vinhonneur",
+                nomHtmlFile:"VinHonneur",
                 latLng:{lat: 47.293900, lng: 4.810942}
 
             });
@@ -54,6 +57,7 @@ function JourJ(param) {
             clickBulle({
                 nom: "Soirée de mariage",
                 id:"descritption-soiree",
+                nomHtmlFile:"Soiree",
                 latLng:{lat: 47.293900, lng: 4.810942}
             });
         };
@@ -64,6 +68,7 @@ function JourJ(param) {
             clickBulle({
                 nom: "Dodo (Hotels)",
                 id:"descritption-dodo",
+                nomHtmlFile:"Dodo",
                 image:"./Assets/Detail/ChatChienDort.jpg"
             });
         };
@@ -74,6 +79,7 @@ function JourJ(param) {
             clickBulle({
                 nom: "Brunch",
                 id:"descritption-brunch",
+                nomHtmlFile:"Brunch",
                 latLng:{lat: 47.293900, lng: 4.810942}
             });
         };

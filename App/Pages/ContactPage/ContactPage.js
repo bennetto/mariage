@@ -6,8 +6,8 @@ function ContactPage(param) {
 
 
     /* Récupération du template html */
-    var importHtml = document.querySelector('#contactPageHtml');
-    var element = importHtml.import.querySelector('.ContactPage-container').cloneNode(true);
+
+    var element = Utils.loadHtmlSync("./App/Pages/ContactPage/ContactPage.html");
 
     var panelMessage = element.querySelector('.panel-message');
     var panelContact = element.querySelector('.panel-contact');

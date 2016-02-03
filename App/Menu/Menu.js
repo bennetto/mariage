@@ -7,8 +7,8 @@ function Menu(param) {
     var tempsEntrePage = 200;
 
     /* Récupération du template html */
-    var importHtml = document.querySelector('#menu-file');
-    var element = importHtml.import.querySelector('.menu').cloneNode(true);
+
+    var element = Utils.loadHtmlSync("./App/Menu/Menu.html");
     
     var bulleMenu = element.querySelector(".main-bulle");
     var ellipse1 = bulleMenu.getElementsByTagName("svg")[0].getElementsByTagName("ellipse")[0];

@@ -6,15 +6,12 @@ function DescriptionMapPage(param) {
 
 
     /* Récupération du template html */
-    var importHtml = document.querySelector('#jourJDetailHtml');
-    var element = importHtml.import.querySelector('.DescriptionMapPage-container').cloneNode(true);
+    var element = Utils.loadHtmlSync("./App/Pages/DescriptionMapPage/DescriptionMapPage.html");
 
     var panelMaps = element.querySelector('.panel-maps');
     var panelDescription = element.querySelector('.panel-description');
 
     var btnBack = element.querySelector(".back-button");
-
-
 
     var callBackFct;
 
@@ -57,6 +54,9 @@ function DescriptionMapPage(param) {
 
 
 
+
+
+
     var marker;
     var elementDetail;
     /* print or clos fct */
@@ -67,11 +67,20 @@ function DescriptionMapPage(param) {
             panelDescription.removeChild(elementDetail);
             elementDetail = null;
         }
-        
-        var  importHtml = document.querySelector("#"+param.id);
-        elementDetail = importHtml.import.querySelector('.description-detail').cloneNode(true);
 
-        panelDescription.appendChild(elementDetail);
+        Utils.loadHtml("./App/Pages/DescriptionMapPage/DetailDescription/"+param.nomHtmlFile+".html",function(el){
+
+            elementDetail = el;
+                panelDescription.appendChild(elementDetail);
+
+        });
+
+
+/*
+        var  importHtml = document.querySelector("#"+param.id);
+        elementDetail = importHtml.import.querySelector('.description-detail').cloneNode(true);*/
+
+
 
 
         map.setCenter({lat: 47.2991637, lng: 4.9291713});
