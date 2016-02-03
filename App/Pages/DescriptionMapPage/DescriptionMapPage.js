@@ -19,7 +19,6 @@ function DescriptionMapPage(param) {
     var callBackFct;
 
 
-
 /* INIT */
     function initMap() {
 
@@ -43,13 +42,16 @@ function DescriptionMapPage(param) {
 
         initMap();
 
-        var width = window.innerWidth;
+        ;
 
         var tInit = new TimelineLite();
 
+        var widthDesc = panelDescription.offsetWidth;
+        var widthMap = panelMaps.offsetWidth;
+
         /* initialisation position */
-        tInit .set(panelMaps,{x:width})
-            .set(panelDescription,{x:-width});
+        tInit .set(panelMaps,{x:widthMap})
+            .set(panelDescription,{x:-widthDesc});
     };
 
 
@@ -104,12 +106,13 @@ function DescriptionMapPage(param) {
     };
 
     this.close = function(){
-        var width = window.innerWidth;
+        var widthDesc = panelDescription.offsetWidth;
+        var widthMap = panelMaps.offsetWidth;
 
         var tl = new TimelineLite();
 
-        tl .to(panelMaps,1,{x:width,ease: Power2.easeInOut},"-=1")
-            .to(panelDescription,1,{x:-width,ease: Power2.easeInOut,onComplete:endClose},"-=1");
+        tl .to(panelMaps,1,{x:widthMap,ease: Power2.easeInOut},"-=1")
+            .to(panelDescription,1,{x:-widthDesc,ease: Power2.easeInOut,onComplete:endClose},"-=1");
 
 
         if(marker)
