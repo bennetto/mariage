@@ -14,7 +14,7 @@ function DescriptionMapPage(param) {
 
     var btnBack = element.querySelector(".back-button");
 
-    var elementInit = false;
+
 
     var callBackFct;
 
@@ -36,7 +36,7 @@ function DescriptionMapPage(param) {
 
 
     this.init = function(){
-        elementInit = true;
+
 
         element.appendAfter(workspace);
 

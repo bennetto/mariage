@@ -17,15 +17,7 @@ function Navigation(param) {
     /* Pages */
     var menu = new Menu();
     descriptionMap = new DescriptionMapPage();
-
-
-    this.Pages = {
-
-        jourJ: JourJ,
-        listeMariage:ListeMariage,
-        photoPage : PhotoPage,
-        vouNousPage : VousNousPage
-    };
+    contactPage = new ContactPage();
 
     var body = document.getElementsByTagName("body")[0];
     var workspace = document.getElementById("workspace");
@@ -37,6 +29,7 @@ function Navigation(param) {
         menuEl.appendBefore(workspace);
 
         descriptionMap.init();
+        contactPage.init();
         menu.init();
 
     };

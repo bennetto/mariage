@@ -1,0 +1,70 @@
+
+.ContactPage-container{
+    position: absolute;
+    height:100%;
+    width: 100%;
+    pointer-events: none;
+
+}
+
+.panel-message{
+    position: absolute;
+    height:100%;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.5);
+    right:0;
+    pointer-events: visible;
+
+    color: white;
+}
+
+
+
+/* panel contact*/
+.panel-contact{
+    position: absolute;
+    height:100%;
+    width: 40%;
+    background-color: #724823;
+    left: 0;
+    pointer-events: visible;
+
+    color: white;
+}
+.panel-contact .back-button{
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    height: 60px;
+    width: 60px;
+
+}
+
+.panel-contact-content{
+    text-align: center;
+    vertical-align: middle;
+    top:150px;
+    position: absolute;
+    width: 100%;
+}
+.info-contact-container{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.panel-contact .title{
+    top: 50px;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+
+}

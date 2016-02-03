@@ -89,6 +89,8 @@
     height: 100px;
     width: 200px;
     right: 0;
+    pointer-events: visible;
+    cursor: pointer;
 }
 
 .menu .content-menu-contact{
@@ -96,6 +98,8 @@
     position: fixed;
     height: 100px;
     width: 200px;
+    pointer-events: visible;
+    cursor: pointer;
 
 }
 

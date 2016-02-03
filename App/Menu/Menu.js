@@ -33,6 +33,12 @@ function Menu(param) {
     var bMenuVN;
     var bMenuList;
     var bMenuPhoto;
+
+
+    contentMenuContact.onclick = function(){
+        contactPage.print();
+    };
+
     /* Function pulic */
     this.init = function(){
 
@@ -82,6 +88,8 @@ function Menu(param) {
             GlobalNavigation.navigateTo(new PhotoPage()
             );
         };
+
+
 
 
         self.firtsAnimate();
