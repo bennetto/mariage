@@ -16,9 +16,7 @@
     pointer-events: visible;
 
     color: white;
-
 }
-
 
 
 .panel-message .conteneur{
@@ -56,8 +54,7 @@
     width: 200px;
     height: 50px;
     margin-left: auto;
-
-
+    cursor: pointer;
 }
 
 /* panel contact*/
@@ -79,7 +76,6 @@
 
     height: 60px;
     width: 60px;
-
 }
 
 .panel-contact-content{
@@ -89,6 +85,7 @@
     position: absolute;
     width: 100%;
 }
+
 .info-contact-container{
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;

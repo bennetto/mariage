@@ -109,6 +109,9 @@ function DescriptionMapPage(param) {
         callBackFct = callback;
 
 
+        //google analitic
+        ga('send',param.nom);
+
        constructHtml(param);
 
         var tl = new TimelineLite();

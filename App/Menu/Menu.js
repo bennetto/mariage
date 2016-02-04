@@ -42,6 +42,9 @@ function Menu(param) {
     /* Function pulic */
     this.init = function(){
 
+        //google analitic
+        ga('send','Home');
+
         contentMainBulle.onclick = function(){
             goToMainMenu();
             GlobalNavigation.navigateTo();
@@ -134,6 +137,9 @@ function Menu(param) {
     var goToMainMenu = function(){
         if(!modeFullscrenne)
         {
+            //google analitic
+            ga('send','Home');
+
             bMenuJour.goToHome();
             bMenuList.goToHome();
             bMenuPhoto.goToHome();

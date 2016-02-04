@@ -7,6 +7,9 @@ function VousNousPage(param) {
 
     var bNoPage;
     this.init = function() {
+
+        ga('send',"VousNous");
+
         gbulles = [];
         bNoPage = new BulleNoPage({text:"ICI ce trouvera un arbre généalogique et qui sait peux-être autre chose.",size:400,background:"#028c7e"});
         workspace.appendChild(bNoPage.getElement());

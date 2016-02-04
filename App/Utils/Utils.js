@@ -2,13 +2,35 @@ var Utils = new function (){
 
 
 
-    this.post = function(url,data){
+    this.post = function(url,data,callback){
 
         var xhr = new XMLHttpRequest();
 
         xhr.open("POST", url, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                if(callback)
+                    callback();
+            }
+        };
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.send(data);
+
+    };
+
+    this.get = function(url,callback){
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                if(callback)
+                    callback();
+            }
+        };
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.send();
 
     };
 

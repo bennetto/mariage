@@ -13,10 +13,20 @@ function ContactPage(param) {
     var panelContact = element.querySelector('.panel-contact');
 
     var btnBack = element.querySelector(".back-button");
+    btnBack.onclick = self.close;
+
     var btnSend = element.querySelector(".btn-send");
     btnSend.onclick = function(){
 
+        var msg = element.querySelector(".message-value");
 
+        var data =  {
+            "sender": "Test",
+            "message": msg.value
+        };
+        Utils.post("http://api.dev.benetjulie.love/mariage/contact/",data);
+
+        self.close();
     };
 
 
@@ -26,6 +36,12 @@ function ContactPage(param) {
 /* INIT */
 
     this.init = function(){
+
+        Utils.get("http://api.dev.benetjulie.love/mariage/contact/",function(value){
+
+            console.debug("hhu : "+ value);
+
+        });
 
 
         element.appendAfter(workspace);
@@ -46,7 +62,7 @@ function ContactPage(param) {
 
     this.print = function(callback){
         callBackFct = callback;
-
+        ga('send','contact');
 
         var tl = new TimelineLite();
         tl .to(panelMessage,1,{x:0,ease: Power2.easeInOut},"-=1")
@@ -63,7 +79,7 @@ function ContactPage(param) {
             .to(panelContact,1,{x:-widthContact,ease: Power2.easeInOut,onComplete:endClose},"-=1");
 
     };
-    btnBack.onclick = self.close;
+
 
     var endClose = function(){
 

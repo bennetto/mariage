@@ -7,6 +7,9 @@ function ListeMariage(param) {
 
     var bNoPage;
     this.init = function() {
+
+        ga('send',"Listemariage");
+
         gbulles = [];
         bNoPage = new BulleNoPage({text:"La liste de mariage arriveras plus tard. Quand on l'auras faite :D.",size:400,background:"#028c7e"});
         workspace.appendChild(bNoPage.getElement());

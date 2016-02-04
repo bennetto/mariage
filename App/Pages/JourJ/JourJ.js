@@ -10,6 +10,10 @@ function JourJ(param) {
     var svgContainer;
 
     this.init = function() {
+
+        //google analitic
+        ga('send',"JourJ");
+
         bulles = [];
         lines = [];
         var bMairie = new BulleDayStep({text:"Mairie",heure:"15h30",size:200,background:"#028c7e",positionLine:1});
