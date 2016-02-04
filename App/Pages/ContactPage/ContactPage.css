@@ -43,6 +43,19 @@
 
 .panel-message textarea{
     border-radius: 20px;
+    padding: 10px;
+}
+
+.panel-message .nom-value{
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+
+}
+.panel-message .title-value{
+    text-align: left;
 }
 
 

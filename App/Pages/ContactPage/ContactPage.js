@@ -13,15 +13,16 @@ function ContactPage(param) {
     var panelContact = element.querySelector('.panel-contact');
 
     var btnBack = element.querySelector(".back-button");
-    btnBack.onclick = self.close;
+
 
     var btnSend = element.querySelector(".btn-send");
     btnSend.onclick = function(){
 
         var msg = element.querySelector(".message-value");
+        var nom = element.querySelector(".nom-value");
 
         var data =  {
-            "sender": "Test",
+            "sender": nom.value,
             "message": msg.value
         };
         Utils.post("http://api.dev.benetjulie.love/mariage/contact/",data);
@@ -80,7 +81,7 @@ function ContactPage(param) {
 
     };
 
-
+    btnBack.onclick = self.close;
     var endClose = function(){
 
 

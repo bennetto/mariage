@@ -9,6 +9,7 @@ function NoSItePage(param) {
     this.init = function() {
 
         //google analitic
+
         ga('send','SiteEnConstruction');
 
         gbulles = [];
