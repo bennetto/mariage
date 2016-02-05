@@ -1,0 +1,103 @@
+
+.confirmation-container{
+    position: absolute;
+    height:100%;
+    width: 100%;
+    pointer-events: none;
+
+}
+
+.panel-right{
+    position: absolute;
+    height:100%;
+    width: 40%;
+    background-color: #028c7e;
+    right:0;
+    pointer-events: visible;
+
+    color: white;
+}
+
+
+/* panel contact*/
+.panel-left{
+    position: absolute;
+    height:100%;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+    pointer-events: visible;
+
+    color: white;
+}
+.panel-left.back-button{
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    height: 60px;
+    width: 60px;
+}
+
+
+
+/* HOME */
+.panel-right .btn-home{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    height:200px;
+    width:200px;
+    border-radius: 200px;
+
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgba(0,0,0,0.2);
+    line-height: 200px;
+    font-size: 25px;
+}
+
+.panel-right .title-panel{
+
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.panel-right .title-value-add{
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+
+}
+
+.panel-right input{
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+
+}
+
+.panel-right textarea{
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.panel-right .btn-add{
+    position: absolute;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 20px;
+}

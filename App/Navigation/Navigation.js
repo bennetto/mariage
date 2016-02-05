@@ -18,6 +18,8 @@ function Navigation(param) {
     var menu = new Menu();
     descriptionMap = new DescriptionMapPage();
     contactPage = new ContactPage();
+    confirmationPage = new ConfirmationPage();
+
 
     var body = document.getElementsByTagName("body")[0];
     var workspace = document.getElementById("workspace");
@@ -30,6 +32,7 @@ function Navigation(param) {
 
         descriptionMap.init();
         contactPage.init();
+        confirmationPage.init();
         menu.init();
 
     };

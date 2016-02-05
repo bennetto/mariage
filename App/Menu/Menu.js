@@ -39,6 +39,10 @@ function Menu(param) {
         contactPage.print();
     };
 
+    contentMenuSecret.onclick = function(){
+        confirmationPage.print();
+    };
+
     /* Function pulic */
     this.init = function(){
 

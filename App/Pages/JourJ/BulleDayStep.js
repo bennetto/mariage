@@ -68,10 +68,11 @@ function BulleDayStep(param) {
         param.offsetPosition = {x:0,y:0};
 
         // cacul aléatoire de la position vertical des bulles sauf pour la premiére bulle pour pas quelle s'entrechoque avec le menu
-        var y = 1/2;
+        var y = 3/4;
+
         if(param.positionLine != 1)
         {
-            y = Math.random()*2/4 + 0.30;
+            y = Math.random()*2/4 + 0.40;
         }
 
         param.position = {x:param.positionLine/12,y:y};
