@@ -18,17 +18,25 @@ function ConfirmationPage(param) {
 
     var btnBack = element.querySelector(".back-button");
     var btnHome = element.querySelector(".btn-home");
-    var btnAdd = element.querySelector(".btn-add");
+    var btnAdd = element.querySelector("#btn-add");
     btnAdd.onclick = function(){
         addPersonne();
         self.goToAdd();
     };
 
+    var btnEndAdd = element.querySelector("#btn-add-end");
+    btnEndAdd.onclick = function(){
+        self.goToEnd();
+    };
+
+    btnEndAdd.style.display = "none";
 
     var callBackFct;
 
 
     var addPersonne = function(){
+        btnEndAdd.style.display = "block";
+
         var nom = document.getElementById("value-nom");
         var prenom = document.getElementById("value-prenom");
         var isvient = document.getElementById("value-info");
@@ -42,13 +50,6 @@ function ConfirmationPage(param) {
             isVient:isvient.checked,
             info:info.value
         });
-
-        nom.value = "";
-        prenom.value = "";
-        isvient.checked = false;
-        info.value = "";
-
-
     };
 
     /* INIT */
@@ -74,6 +75,8 @@ function ConfirmationPage(param) {
 
     var personnes;
     this.print = function(callback){
+        btnEndAdd.style.display = "none";
+        
         currentPanelRight = panelHome;
         callBackFct = callback;
         ga('send','contact');
@@ -85,6 +88,19 @@ function ConfirmationPage(param) {
             .to(currentPanelRight,1,{x:0,ease: Power2.easeInOut},"-=1");
     };
 
+    var cleatValueAdd = function(){
+
+        var nom = document.getElementById("value-nom");
+        var prenom = document.getElementById("value-prenom");
+        var isvient = document.getElementById("value-info");
+        var info = document.getElementById("value-info");
+
+        nom.value = "";
+        prenom.value = "";
+        isvient.checked = false;
+        info.value = "";
+    };
+
     this.goToAdd = function(){
         var widthRight = currentPanelRight.offsetWidth;
 
@@ -94,7 +110,9 @@ function ConfirmationPage(param) {
 
 
         var tl = new TimelineLite();
-        tl .to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut})
+        tl .to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
+                cleatValueAdd();
+        }})
             .to(panelAdd,1,{x:0,ease: Power2.easeInOut});
 
         currentPanelRight = panelAdd;
