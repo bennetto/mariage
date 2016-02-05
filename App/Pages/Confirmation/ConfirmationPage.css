@@ -85,6 +85,21 @@
 
 }
 
+.panel-right input.check{
+    width: inherit;
+
+    display: inline-block;
+    margin-right: 20px;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+}
+
+.panel-right .check-title{
+    display: inline-block;
+    font-size: 20px;
+}
+
 .panel-right textarea{
     border-radius: 20px;
     padding: 10px;
