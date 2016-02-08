@@ -36,7 +36,7 @@
 
 .message-block{
     display: inline-block;
-
+    max-width:450px;
 }
 .panel-message .title-message{
     font-size: 30px;
