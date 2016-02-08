@@ -38,9 +38,6 @@ function ContactPage(param) {
 
     this.init = function(){
 
-        panelContact.style.display = "none";
-        panelMessage.style.display = "none";
-
         element.appendAfter(workspace);
 
 
@@ -52,6 +49,10 @@ function ContactPage(param) {
         /* initialisation position */
         tInit .set(panelMessage,{x:widthMessage})
             .set(panelContact,{x:-widthContact});
+
+
+        panelContact.style.display = "none";
+        panelMessage.style.display = "none";
     };
 
     var marker;
