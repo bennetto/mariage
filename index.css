@@ -81,11 +81,11 @@ svg{
 
 
 .back-button{
-
     position: absolute;
-    top: 20px;
-    left: 20px;
-
-    height: 60px;
-    width: 60px;
+    top: 0px;
+    left: 0px;
+    height: 100px;
+    width: 100px;
+    background: url("./Assets/svg/ic_arrow_back_white.svg") no-repeat center;
+    z-index: 1000;
 }
