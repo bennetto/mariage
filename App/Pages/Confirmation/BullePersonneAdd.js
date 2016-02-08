@@ -3,7 +3,7 @@ function BullePersonneAdd(personne,param) {
         param = {};
 
     param.size = 200;
-    param.background = "#028c7e";
+
 
     Bulle.call(this,param);
     /* private */

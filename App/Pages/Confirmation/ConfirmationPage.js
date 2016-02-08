@@ -56,7 +56,14 @@ function ConfirmationPage(param) {
         };
         personnes.push(personne);
 
-        var bulle = new BullePersonneAdd(personne);
+
+        var background;
+        if(isvient.checked)
+            background =  "#028c7e";
+        else
+            background = "#724823";
+
+        var bulle = new BullePersonneAdd(personne,{background:background});
         panelLeft.appendChild(bulle.getElement());
         bulle.goToInit();
         bulle.goToIn();
@@ -100,6 +107,9 @@ function ConfirmationPage(param) {
             .set(panelAdd,{x:widthRight})
             .set(panelEnd,{x:widthRight});
 
+        //cache button
+        btnEndAdd.style.display = "none";
+        //cache panel
         panelEnd.style.display = "none";
         panelHome.style.display = "none";
         panelAdd.style.display = "none";
@@ -163,6 +173,7 @@ function ConfirmationPage(param) {
     this.goToEnd = function(){
         var widthRight = currentPanelRight.offsetWidth;
 
+        btnEndAdd.style.display = "none";
         panelEnd.style.display = "block";
 
         var tl = new TimelineLite();
@@ -192,10 +203,22 @@ function ConfirmationPage(param) {
 
 
     var endClose = function(){
+
+        //cache tous les panel
         panelEnd.style.display = "none";
         panelHome.style.display = "none";
         panelAdd.style.display = "none";
         panelLeft.style.display = "none";
+        btnEndAdd.style.display = "none";
+
+        //delete bulle
+        while (bullesPersonne.length >0)
+        {
+            var b = bullesPersonne.shift();
+            b.stopAnimate();
+            panelLeft.removeChild(b.getElement());
+        }
+
 
         if(callBackFct)
             callBackFct();
