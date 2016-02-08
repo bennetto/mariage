@@ -41,32 +41,20 @@ function JourJ(param) {
 
 
 
-        var bVinHonneur = new BulleDayStep({text:"Vin d'honeur",heure:"18h30",size:200,background:"#028c7e",positionLine:5});
-        bulles.push(bVinHonneur);
-        bVinHonneur.getElement().onclick =  function() {
-            clickBulle({
-                nom: "Vin d'honneur",
-                id:"descritption-vinhonneur",
-                nomHtmlFile:"VinHonneur",
-                latLng:{lat: 47.293900, lng: 4.810942}
-
-            });
-        };
 
 
-
-        var bSoiree = new BulleDayStep({text:"Soirée de mariage",heure:"23h30",size:200,background:"#028c7e",positionLine:7});
+        var bSoiree = new BulleDayStep({text:"Réception",heure:"18h30",size:200,background:"#028c7e",positionLine:5});
         bulles.push(bSoiree);
         bSoiree.getElement().onclick =  function() {
             clickBulle({
-                nom: "Soirée de mariage",
+                nom: "Réception",
                 id:"descritption-soiree",
                 nomHtmlFile:"Soiree",
                 latLng:{lat: 47.293900, lng: 4.810942}
             });
         };
 
-        var bDodo = new BulleDayStep({text:"Dodo (Hotels)",heure:"Au plus tard :D",size:200,background:"#724823",positionLine:9});
+        var bDodo = new BulleDayStep({text:"Dodo (Hotels)",heure:"Au plus tard :D",size:200,background:"#724823",positionLine:7});
         bulles.push(bDodo);
         bDodo.getElement().onclick =  function() {
             clickBulle({
@@ -77,7 +65,7 @@ function JourJ(param) {
             });
         };
 
-        var bBrunch = new BulleDayStep({text:"Brunch",heure:"11h30",size:200,background:"#724823",positionLine:11});
+        var bBrunch = new BulleDayStep({text:"Brunch",heure:"11h30",size:200,background:"#724823",positionLine:9});
         bulles.push(bBrunch);
         bBrunch.getElement().onclick =  function() {
             clickBulle({
@@ -92,12 +80,9 @@ function JourJ(param) {
         var line1 = new Line(bMairie,bEglise,{size:5,color:"#028c7e"});
         lines.push(line1);
 
-        var line2 = new Line(bEglise,bVinHonneur,{size:5,color:"#028c7e"});
+        var line2 = new Line(bEglise,bSoiree,{size:5,color:"#028c7e"});
         lines.push(line2);
-
-        var line3 = new Line(bVinHonneur,bSoiree,{size:5,color:"#028c7e"});
-        lines.push(line3);
-
+        
         var line4 = new Line(bSoiree,bDodo,{size:5,color:"#028c7e"});
         lines.push(line4);
 

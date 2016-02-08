@@ -167,15 +167,15 @@ function ConfirmationPage(param) {
 
         var nbPersonne = personnes.length+1;
 
-        document.getElementById("title-panel-add").innerText = "Personne numéros"+nbPersonne;
+        document.getElementById("title-panel-add").innerText = "Invité n° "+nbPersonne;
         panelAdd.style.display = "block";
 
         var tl = new TimelineLite();
-        tl.to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
+        tl.to(currentPanelRight,0.8,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
                 cleatValueAdd();
                 panelHome.style.display = "none";
         }})
-            .to(panelAdd,1,{x:0,ease: Power2.easeInOut});
+            .to(panelAdd,0.8,{x:0,ease: Power2.easeInOut});
 
         currentPanelRight = panelAdd;
     };
@@ -187,10 +187,10 @@ function ConfirmationPage(param) {
         panelEnd.style.display = "block";
 
         var tl = new TimelineLite();
-        tl .to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
+        tl .to(currentPanelRight,0.8,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
                 panelAdd.style.display = "none";
         }})
-            .to(panelEnd,1,{x:0,ease: Power2.easeInOut});
+            .to(panelEnd,0.8,{x:0,ease: Power2.easeInOut});
 
         currentPanelRight = panelEnd;
     };
