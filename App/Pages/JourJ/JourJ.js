@@ -82,7 +82,7 @@ function JourJ(param) {
 
         var line2 = new Line(bEglise,bSoiree,{size:5,color:"#028c7e"});
         lines.push(line2);
-        
+
         var line4 = new Line(bSoiree,bDodo,{size:5,color:"#028c7e"});
         lines.push(line4);
 

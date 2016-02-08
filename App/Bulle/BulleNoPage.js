@@ -35,7 +35,7 @@ function BulleNoPage(param) {
         param.scale = 1;
         param.offsetPosition = {x:0,y:0};
 
-        param.position = {x:1/2,y:1/2};
+        param.position = {x:1/2,y:6/10};
 
         self.refresh(true);
 
