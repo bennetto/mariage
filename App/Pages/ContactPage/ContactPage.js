@@ -25,7 +25,7 @@ function ContactPage(param) {
             "sender": nom.value,
             "message": msg.value
         };
-        Utils.post("http://api.dev.benetjulie.love/mariage/contact/",data);
+        Utils.post("http://api.dev.benetjulie.love/mariage/contact/",JSON.stringify(data));
 
         self.close();
     };
@@ -38,12 +38,8 @@ function ContactPage(param) {
 
     this.init = function(){
 
-        Utils.get("http://api.dev.benetjulie.love/mariage/contact/",function(value){
-
-            console.debug("hhu : "+ value);
-
-        });
-
+        panelContact.style.display = "none";
+        panelMessage.style.display = "none";
 
         element.appendAfter(workspace);
 
@@ -65,6 +61,9 @@ function ContactPage(param) {
         callBackFct = callback;
         ga('send','contact');
 
+        panelContact.style.display = "block";
+        panelMessage.style.display = "block";
+
         var tl = new TimelineLite();
         tl .to(panelMessage,1,{x:0,ease: Power2.easeInOut},"-=1")
             .to(panelContact,1,{x:0,ease: Power2.easeInOut},"-=1");
@@ -83,7 +82,8 @@ function ContactPage(param) {
 
     btnBack.onclick = self.close;
     var endClose = function(){
-
+        panelContact.style.display = "none";
+        panelMessage.style.display = "none";
 
         if(callBackFct)
             callBackFct();

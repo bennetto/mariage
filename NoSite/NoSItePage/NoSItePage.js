@@ -12,7 +12,7 @@ function NoSItePage(param) {
 
 
         gbulles = [];
-        bNoPage = new BulleNoPage({text:"Site du mariage de\nBen&Julie \nen cours de construction. \n\nIl ouvrira le 8 février. ",size:400,background:"#028c7e"});
+        bNoPage = new BulleNoPage({text:"Site du mariage de\nBen&Julie \nen cours de construction. \n\nIl ouvrira le 15 février. ",size:400,background:"#028c7e"});
         workspace.appendChild(bNoPage.getElement());
         bNoPage.goToInit();
     };

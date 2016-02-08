@@ -119,3 +119,24 @@
     background-color: rgba(0,0,0,0.5);
     border-radius: 20px;
 }
+
+
+
+
+
+.bulle-personne-add
+{
+    position:fixed;
+    cursor: pointer;
+
+}
+
+.bulle-personne-add .bulle-text
+{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 20px;
+}

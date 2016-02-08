@@ -24,6 +24,12 @@ function ConfirmationPage(param) {
         self.goToAdd();
     };
 
+    var btnConfInvit  = element.querySelector("#confInvit");
+    btnConfInvit.onclick  =function(){
+        saveConfInvit();
+        self.close();
+    };
+
     var btnEndAdd = element.querySelector("#btn-add-end");
     btnEndAdd.onclick = function(){
         self.goToEnd();
@@ -39,17 +45,41 @@ function ConfirmationPage(param) {
 
         var nom = document.getElementById("value-nom");
         var prenom = document.getElementById("value-prenom");
-        var isvient = document.getElementById("value-info");
+        var isvient = document.getElementById("value-check");
         var info = document.getElementById("value-info");
 
-
-
-        personnes.push({
+        var personne= {
             nom:nom.value,
             prenom:prenom.value,
             isVient:isvient.checked,
             info:info.value
-        });
+        };
+        personnes.push(personne);
+
+        var bulle = new BullePersonneAdd(personne);
+        panelLeft.appendChild(bulle.getElement());
+        bulle.goToInit();
+        bulle.goToIn();
+
+
+        bullesPersonne.push(bulle);
+    };
+
+
+    var saveConfInvit = function(){
+
+        var mot = document.getElementById("value-mot");
+        var mail = document.getElementById("value-mail");
+
+        var data = {
+            personnes:personnes,
+            mot:mot.value,
+            mail:mail.value
+        };
+
+
+
+        Utils.post("http://api.dev.benetjulie.love/mariage/confirmation/",JSON.stringify(data));
     };
 
     /* INIT */
@@ -69,19 +99,30 @@ function ConfirmationPage(param) {
             .set(panelHome,{x:widthRight})
             .set(panelAdd,{x:widthRight})
             .set(panelEnd,{x:widthRight});
+
+        panelEnd.style.display = "none";
+        panelHome.style.display = "none";
+        panelAdd.style.display = "none";
+        panelLeft.style.display = "none";
+
     };
 
     var currentPanelRight;
 
     var personnes;
+    var bullesPersonne;
     this.print = function(callback){
-        btnEndAdd.style.display = "none";
-        
+
+        panelHome.style.display = "block";
+        panelLeft.style.display = "block";
+
         currentPanelRight = panelHome;
+
         callBackFct = callback;
         ga('send','contact');
 
         personnes = [];
+        bullesPersonne = [];
 
         var tl = new TimelineLite();
         tl .to(panelLeft,1,{x:0,ease: Power2.easeInOut},"-=1")
@@ -92,7 +133,7 @@ function ConfirmationPage(param) {
 
         var nom = document.getElementById("value-nom");
         var prenom = document.getElementById("value-prenom");
-        var isvient = document.getElementById("value-info");
+        var isvient = document.getElementById("value-check");
         var info = document.getElementById("value-info");
 
         nom.value = "";
@@ -107,11 +148,12 @@ function ConfirmationPage(param) {
         var nbPersonne = personnes.length+1;
 
         document.getElementById("title-panel-add").innerText = "Personne numéros"+nbPersonne;
-
+        panelAdd.style.display = "block";
 
         var tl = new TimelineLite();
         tl .to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
                 cleatValueAdd();
+                panelHome.style.display = "none";
         }})
             .to(panelAdd,1,{x:0,ease: Power2.easeInOut});
 
@@ -121,8 +163,12 @@ function ConfirmationPage(param) {
     this.goToEnd = function(){
         var widthRight = currentPanelRight.offsetWidth;
 
+        panelEnd.style.display = "block";
+
         var tl = new TimelineLite();
-        tl .to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut})
+        tl .to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
+                panelAdd.style.display = "none";
+        }})
             .to(panelEnd,1,{x:0,ease: Power2.easeInOut});
 
         currentPanelRight = panelEnd;
@@ -146,6 +192,10 @@ function ConfirmationPage(param) {
 
 
     var endClose = function(){
+        panelEnd.style.display = "none";
+        panelHome.style.display = "none";
+        panelAdd.style.display = "none";
+        panelLeft.style.display = "none";
 
         if(callBackFct)
             callBackFct();
