@@ -63,7 +63,15 @@ function ConfirmationPage(param) {
         else
             background = "#724823";
 
-        var bulle = new BullePersonneAdd(personne,{background:background});
+
+        var nbPers =personnes.length-1;
+        var position  ={};
+
+        position.y = (Math.trunc(nbPers/3))/4 +1/5;
+        position.x = (Math.trunc(nbPers%3))/5 +1/10;
+
+
+        var bulle = new BullePersonneAdd(personne,{positionInit:position,background:background});
         panelLeft.appendChild(bulle.getElement());
         bulle.goToInit();
         bulle.goToIn();
@@ -152,6 +160,8 @@ function ConfirmationPage(param) {
         info.value = "";
     };
 
+
+
     this.goToAdd = function(){
         var widthRight = currentPanelRight.offsetWidth;
 
@@ -161,7 +171,7 @@ function ConfirmationPage(param) {
         panelAdd.style.display = "block";
 
         var tl = new TimelineLite();
-        tl .to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
+        tl.to(currentPanelRight,1,{x:widthRight,ease: Power2.easeInOut,onComplete:function(){
                 cleatValueAdd();
                 panelHome.style.display = "none";
         }})

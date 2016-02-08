@@ -2,7 +2,7 @@ function BullePersonneAdd(personne,param) {
     if(!param)
         param = {};
 
-    param.size = 200;
+    param.size = 150;
 
 
     Bulle.call(this,param);
@@ -40,7 +40,7 @@ function BullePersonneAdd(personne,param) {
         param.scale = 1;
         param.offsetPosition = {x:0,y:0};
 
-        param.position = {x:1/4,y:1/4};
+        param.position = {x:param.positionInit.x,y:param.positionInit.y};
 
         self.refresh(true);
 
