@@ -37,6 +37,14 @@ function Navigation(param) {
 
     };
 
+    window.onresize = function(){
+        menu.refresh();
+
+
+    };
+
+
+
     var oldPage;
  var timeOut;
     this.navigateTo = function(page){

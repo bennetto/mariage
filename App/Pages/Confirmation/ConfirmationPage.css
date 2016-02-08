@@ -59,6 +59,7 @@
     background-color: rgba(0,0,0,0.2);
     line-height: 200px;
     font-size: 25px;
+    cursor: pointer;
 }
 
 .panel-right .title-panel{
@@ -118,6 +119,7 @@
     padding-right: 30px;
     background-color: rgba(0,0,0,0.5);
     border-radius: 20px;
+    cursor: pointer;
 }
 
 

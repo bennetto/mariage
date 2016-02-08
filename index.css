@@ -88,4 +88,5 @@ svg{
     width: 100px;
     background: url("./Assets/svg/ic_arrow_back_white.svg") no-repeat center;
     z-index: 1000;
+    cursor: pointer;
 }

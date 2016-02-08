@@ -97,9 +97,24 @@ function Menu(param) {
         };
 
 
-
-
         self.firtsAnimate();
+    };
+
+
+    this.refresh = function(){
+
+        bMenuJour.refresh(false);
+        bMenuVN.refresh(false);
+        bMenuList.refresh(false);
+        bMenuPhoto.refresh(false);
+
+        if(modeFullscrenne)
+        {
+            self.AnimateToFullScreen();
+        }else{
+            self.AnimateToMenu();
+        }
+
     };
 
     this.firtsAnimate = function(){

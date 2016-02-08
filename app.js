@@ -24,7 +24,8 @@ window.onload = function() {
     head = document.getElementsByName("head");
     GlobalNavigation = new Navigation();
 
-
 };
+
+
 
 
