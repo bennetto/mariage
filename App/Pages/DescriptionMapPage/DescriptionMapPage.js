@@ -14,6 +14,7 @@ function DescriptionMapPage(param) {
     var btnBack = element.querySelector(".back-button");
 
     var callBackFct;
+    var isClose = true;
 
 
 /* INIT */
@@ -23,6 +24,11 @@ function DescriptionMapPage(param) {
         mapGoogle.className="mapGoogle";
 
         map = new google.maps.Map(mapGoogle, {
+            zoomControl: true,
+            mapTypeControl: true,
+            scaleControl: true,
+            streetViewControl: true,
+            rotateControl: true,
 
             scrollwheel:true
         });
@@ -33,14 +39,18 @@ function DescriptionMapPage(param) {
 
 
     this.init = function(){
-
+        isClose = true;
 
         element.appendAfter(workspace);
 
         initMap();
 
-        ;
+        iniPanel();
+    };
 
+
+
+    var iniPanel = function(){
         var tInit = new TimelineLite();
 
         var widthDesc = panelDescription.offsetWidth;
@@ -49,12 +59,8 @@ function DescriptionMapPage(param) {
         /* initialisation position */
         tInit .set(panelMaps,{x:widthMap})
             .set(panelDescription,{x:-widthDesc});
+
     };
-
-
-
-
-
 
 
     var marker;
@@ -107,7 +113,7 @@ function DescriptionMapPage(param) {
 
     this.print = function(param,callback){
         callBackFct = callback;
-
+        isClose = false;
 
         //google analitic
         ga('send',param.nom);
@@ -137,20 +143,26 @@ function DescriptionMapPage(param) {
     };
     btnBack.onclick = self.close;
 
+    this.refresh = function(){
+
+        if(isClose)
+        {
+            iniPanel();
+        }
+
+    };
+
+
     var endClose = function(){
-
-
-
+        isClose = true;
         if(elementDetail)
         {
             panelDescription.removeChild(elementDetail);
             elementDetail = null;
         }
 
-
         if(callBackFct)
             callBackFct();
-
     };
 
     this.getElement = function(){

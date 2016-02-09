@@ -174,6 +174,14 @@ function JourJ(param) {
         });
     };
 
+
+    this.refresh = function(){
+        bulles.forEach(function(bulle){
+            bulle.refresh();
+
+        });
+    };
+
     this.getElement = function(){
         return element;
 

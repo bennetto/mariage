@@ -72,7 +72,7 @@ function BulleDayStep(param) {
 
         if(param.positionLine != 1)
         {
-            y = Math.random()*2/4 + 0.40;
+            y = Math.random()*2/4 + 0.33;
         }
 
         param.position = {x:param.positionLine/10,y:y};

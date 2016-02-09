@@ -39,7 +39,10 @@ function Navigation(param) {
 
     window.onresize = function(){
         menu.refresh();
+        descriptionMap.refresh();
 
+        if(oldPage.refresh)
+            oldPage.refresh();
 
     };
 
