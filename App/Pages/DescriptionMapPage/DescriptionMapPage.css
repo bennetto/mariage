@@ -50,13 +50,29 @@
 .description-detail{
     width: 100%;
     color: white;
+    height:100%;
 }
+
 .description-detail .presentation-detail{
  width: 100%;
 
 }
 
+.text-detail{
+    padding: 20px;
+}
 
 
 
+.container-dodo{
+    display: table;
+}
+.row-dodo{
+    display: table-row;
+}
+
+.listHotel{
+    height: 100%;
+    overflow: auto;
+}
 

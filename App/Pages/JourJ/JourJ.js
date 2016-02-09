@@ -20,7 +20,7 @@ function JourJ(param) {
         bulles.push(bMairie);
         bMairie.getElement().onclick =  function() {
             clickBulle({
-                    nom: "Mairie",
+                    nom: "Passage devant le maire !",
                 id:"descritption-mairie",
                 nomHtmlFile:"Mairie",
                 latLng:{lat: 47.335986, lng: 5.005116}
@@ -32,7 +32,7 @@ function JourJ(param) {
         bulles.push(bEglise);
         bEglise.getElement().onclick =  function() {
             clickBulle({
-                nom: "Eglise",
+                nom: "Cérémonie religieuse",
                 id:"descritption-eglise",
                 nomHtmlFile:"Eglise",
                 latLng:{lat: 47.335742, lng: 5.003973}

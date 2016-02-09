@@ -77,6 +77,11 @@ function DescriptionMapPage(param) {
         Utils.loadHtml("./App/Pages/DescriptionMapPage/DetailDescription/"+param.nomHtmlFile+".html",function(el){
 
             elementDetail = el;
+
+            var list = el.getElementsByClassName("listHotel");
+            if(list && list.length>0)
+                new Dodo(list[0],map);
+
                 panelDescription.appendChild(elementDetail);
 
         });

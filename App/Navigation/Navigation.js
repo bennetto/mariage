@@ -7,8 +7,6 @@ Element.prototype.appendAfter = function (element) {
     element.parentNode.insertBefore(this, element.nextSibling);
 },false;
 
-
-
 function Navigation(param) {
 
     /* Variable*/
@@ -43,13 +41,12 @@ function Navigation(param) {
 
         if(oldPage.refresh)
             oldPage.refresh();
-
     };
 
 
 
     var oldPage;
- var timeOut;
+    var timeOut;
     this.navigateTo = function(page){
 
         clearTimeout(timeOut);
