@@ -23,15 +23,16 @@ function DescriptionMapPage(param) {
         var mapGoogle = document.createElement("div");
         mapGoogle.className="mapGoogle";
 
-        map = new google.maps.Map(mapGoogle, {
-            zoomControl: true,
-            mapTypeControl: true,
-            scaleControl: true,
-            streetViewControl: true,
-            rotateControl: true,
+        if(google)
+            map = new google.maps.Map(mapGoogle, {
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: true,
+                streetViewControl: true,
+                rotateControl: true,
 
-            scrollwheel:true
-        });
+                scrollwheel:true
+            });
 
 
         panelMaps.appendChild(map.getDiv());
@@ -105,7 +106,7 @@ function DescriptionMapPage(param) {
 
 
 
-        if(param.latLng)
+        if(param.latLng && google)
         {
             marker = new google.maps.Marker({
                 position: param.latLng,

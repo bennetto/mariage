@@ -76,3 +76,24 @@
     overflow: auto;
 }
 
+
+.container-listHotel{
+    height: 100%;
+}
+.hotel{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.imgHotel{
+    float: left;
+    max-height: 100px;
+    max-width: 100px;
+}
+.descHotel{
+    margin-left: 150px;
+    font-size: 13px;
+}
+
+.nomHotel{
+    font-size: 20px;
+}
