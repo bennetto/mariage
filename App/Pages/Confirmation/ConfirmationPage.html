@@ -31,8 +31,26 @@
                     <input id="value-nom" type="text"></input>
 
 
-                    <input class="check" id="value-check" type="checkbox"/>
-                    <div class="check-title">Présent au mariage</div>
+                    <div style="margin-bottom: 20px">
+                        <div class="title-value-add">Présence : </div>
+
+                        <div>
+                            <div class="check-title">Mariage : </div>
+                            <input class="check" name="isVient" type="radio" value="true"/>
+                            <div class="check-title">Oui</div>
+                            <input class="check" name="isVient" type="radio" value="false"/>
+                            <div class="check-title">Non</div>
+                        </div>
+
+
+                        <div>
+                            <div class="check-title">Brunch : </div>
+                            <input class="check" name="isVientBrunch" type="radio" value="true"/>
+                            <div class="check-title">Oui</div>
+                            <input class="check" name="isVientBrunch" type="radio" value="false"/>
+                            <div class="check-title">Non</div>
+                        </div>
+                    </div>
 
                     <div class="title-value-add">Informations utiles (allergie, ...)</div>
                     <textarea id="value-info" rows="10" cols="50"></textarea>

@@ -45,20 +45,25 @@ function ConfirmationPage(param) {
 
         var nom = document.getElementById("value-nom");
         var prenom = document.getElementById("value-prenom");
-        var isvient = document.getElementById("value-check");
+
         var info = document.getElementById("value-info");
+
+        var isvient =document.querySelector('input[name="isVient"]:checked').value;
+        var isvientBrunch =document.querySelector('input[name="isVientBrunch"]:checked').value;
+
 
         var personne= {
             nom:nom.value,
             prenom:prenom.value,
-            isVient:isvient.checked,
+            isVient:isvient,
+            isvientBrunch:isvientBrunch,
             info:info.value
         };
         personnes.push(personne);
 
 
         var background;
-        if(isvient.checked)
+        if(isvient)
             background =  "#028c7e";
         else
             background = "#724823";
@@ -152,11 +157,13 @@ function ConfirmationPage(param) {
         var nom = document.getElementById("value-nom");
         var prenom = document.getElementById("value-prenom");
         var isvient = document.getElementById("value-check");
+        var isvientBrunch = document.getElementById("value-check-brunch");
         var info = document.getElementById("value-info");
 
         nom.value = "";
         prenom.value = "";
         isvient.checked = false;
+        isvientBrunch.checked = false;
         info.value = "";
     };
 
