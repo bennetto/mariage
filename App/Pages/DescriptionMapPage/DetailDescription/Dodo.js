@@ -47,6 +47,23 @@ function Dodo(container,map) {
 
 
             container.appendChild(cont);
+
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode( { 'address': hotel.adresse}, function(results, status) {
+
+                if(results && results.length>0){
+
+                    var marker = new google.maps.Marker({
+                        position: results[0].geometry.location,
+                        map: map,
+                        title: 'test'
+                    });
+                }
+             });
+
+
+
         });
 
 

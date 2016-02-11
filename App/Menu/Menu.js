@@ -66,7 +66,7 @@ function Menu(param) {
         };
 
         /* Jour j*/
-        bMenuJour = new BulleMenu({text:"Jour J",size:200,background:"#028c7e",positionMenu:2});
+        bMenuJour = new BulleMenu({text:"Jour J 11 juin 2016",size:200,background:"#028c7e",positionMenu:2});
         workspaceBulle.appendChild(bMenuJour.getElement());
         bMenuJour.goToInit();
         bMenuJour.getElement().onclick = function(){
