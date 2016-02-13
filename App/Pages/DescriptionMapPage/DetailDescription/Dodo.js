@@ -11,9 +11,14 @@ function Dodo(container,map) {
         container.removeChild(container.firstChild);
     }
 
+    var markers = [];
+    this.print = function(){
 
-    var addHotelInContainer = function(){
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+        markers = [];
+        var labelIndex = -1;
+        var labelIndex2 = 0;
         hotels.forEach(function(hotel){
             var cont = hotelContainer.cloneNode(true);
 
@@ -21,8 +26,8 @@ function Dodo(container,map) {
             img.src = "./Assets/Hotels/"+hotel.img;
 
             var nom = cont.getElementsByClassName("nomHotel")[0];
-            nom.innerText = hotel.nom;
-            nom.textContent = hotel.nom;
+            nom.innerText = labels[labelIndex++ % labels.length]+" - "+hotel.nom;
+            nom.textContent = labels[labelIndex % labels.length]+" - "+hotel.nom;
 
             var desc = cont.getElementsByClassName("descriptionHotel")[0];
             desc.innerText = hotel.desc;
@@ -36,7 +41,6 @@ function Dodo(container,map) {
             tmp.innerText = hotel.temps +" min";
             tmp.textContent = hotel.temps+" min";
 
-
             var num = cont.getElementsByClassName("numHotel")[0];
             num.innerText = hotel.tel ;
             num.textContent = hotel.tel;
@@ -44,32 +48,32 @@ function Dodo(container,map) {
             var site = cont.getElementsByClassName("siteHotel")[0];
             site.href = hotel.site;
 
-
-
             container.appendChild(cont);
 
             var geocoder = new google.maps.Geocoder();
 
-            geocoder.geocode( { 'address': hotel.adresse}, function(results, status) {
-
+            geocoder.geocode({ 'address': hotel.adresse}, function(results, status) {
                 if(results && results.length>0){
-
                     var marker = new google.maps.Marker({
                         position: results[0].geometry.location,
                         map: map,
-                        title: 'test'
+                        label: labels[labelIndex2++ % labels.length]
                     });
+                    markers.push(marker);
                 }
              });
-
-
-
         });
-
-
-
     };
-    addHotelInContainer();
+
+
+    this.remove = function(){
+        while (markers.length>0)
+        {
+            markers[markers.length - 1].setMap(null);
+            markers.pop();
+        }
+        markers = null;
+    };
 }
 
 

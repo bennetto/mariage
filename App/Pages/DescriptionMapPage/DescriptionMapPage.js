@@ -21,157 +21,156 @@ function DescriptionMapPage(param) {
     function initMap() {
 
         var mapGoogle = document.createElement("div");
-        mapGoogle.className="mapGoogle";
+        mapGoogle.className = "mapGoogle";
 
-        if(google)
+
+        if (google) {
             map = new google.maps.Map(mapGoogle, {
                 zoomControl: true,
                 mapTypeControl: true,
                 scaleControl: true,
                 streetViewControl: true,
                 rotateControl: true,
-
-                scrollwheel:true
+                scrollwheel: true
             });
 
-
-        panelMaps.appendChild(map.getDiv());
-    };
-
-
-    this.init = function(){
-        isClose = true;
-
-        element.appendAfter(workspace);
-
-        initMap();
-
-        iniPanel();
-    };
+            panelMaps.appendChild(map.getDiv());
+        };
+    }
 
 
 
-    var iniPanel = function(){
-        var tInit = new TimelineLite();
+        this.init = function () {
+            isClose = true;
 
-        var widthDesc = panelDescription.offsetWidth;
-        var widthMap = panelMaps.offsetWidth;
+            element.appendAfter(workspace);
 
-        /* initialisation position */
-        tInit .set(panelMaps,{x:widthMap})
-            .set(panelDescription,{x:-widthDesc});
+            initMap();
 
-    };
+            iniPanel();
+        };
 
 
-    var marker;
-    var elementDetail;
-    /* print or clos fct */
-    var constructHtml = function(param){
+        var iniPanel = function () {
+            var tInit = new TimelineLite();
 
-        if(elementDetail)
-        {
-            panelDescription.removeChild(elementDetail);
-            elementDetail = null;
-        }
+            var widthDesc = panelDescription.offsetWidth;
+            var widthMap = panelMaps.offsetWidth;
 
-        Utils.loadHtml("./App/Pages/DescriptionMapPage/DetailDescription/"+param.nomHtmlFile+".html",function(el){
+            /* initialisation position */
+            tInit.set(panelMaps, {x: widthMap})
+                .set(panelDescription, {x: -widthDesc});
 
-            elementDetail = el;
+        };
 
-            var list = el.getElementsByClassName("listHotel");
-            if(list && list.length>0)
-                new Dodo(list[0],map);
+
+        var marker;
+        var elementDetail;
+        var dodo;
+        /* print or clos fct */
+        var constructHtml = function (param) {
+
+            if (elementDetail) {
+                panelDescription.removeChild(elementDetail);
+                elementDetail = null;
+            }
+
+            Utils.loadHtml("./App/Pages/DescriptionMapPage/DetailDescription/" + param.nomHtmlFile + ".html", function (el) {
+
+                elementDetail = el.cloneNode(true);
+
+                var list = elementDetail.getElementsByClassName("listHotel");
+
+                if (list && list.length > 0) {
+                    dodo = new Dodo(list[0], map);
+                    dodo.print();
+                }
 
                 panelDescription.appendChild(elementDetail);
-
-        });
-
-
-/*
-        var  importHtml = document.querySelector("#"+param.id);
-        elementDetail = importHtml.import.querySelector('.description-detail').cloneNode(true);*/
-
-
-
-
-        map.setCenter({lat: 47.2991637, lng: 4.9291713});
-        map.setZoom(12);
-
-        var title = panelDescription.querySelector(".title");
-        title.innerText = param.nom;
-        title.textContent = param.nom;
-
-
-
-
-
-        if(param.latLng && google)
-        {
-            marker = new google.maps.Marker({
-                position: param.latLng,
-                map: map,
-                title: 'Mairie de Talant'
             });
+
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({'address': "794 Rue de Bourgogne, 21410 Sainte-Marie-sur-Ouche"}, function (results, status) {
+                if (results && results.length > 0) {
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(11);
+                }
+            });
+
+            var title = panelDescription.querySelector(".title");
+            title.innerText = param.nom;
+            title.textContent = param.nom;
+
+            if (param.latLng && google){
+                marker = new google.maps.Marker({
+                    position: param.latLng,
+                    map: map
+                });
+            }
+
+        };
+
+
+        this.print = function (param, callback) {
+            callBackFct = callback;
+
+            if(isClose) {
+                isClose = false;
+
+                //google analitic
+                ga('send', param.nom);
+
+                constructHtml(param);
+
+                var tl = new TimelineLite();
+                tl.to(panelMaps, 1, {x: 0, ease: Power2.easeInOut}, "-=1")
+                    .to(panelDescription, 1, {x: 0, ease: Power2.easeInOut}, "-=1");
+            }
+        };
+
+        this.close = function () {
+            var widthDesc = panelDescription.offsetWidth;
+            var widthMap = panelMaps.offsetWidth;
+
+            var tl = new TimelineLite();
+
+            tl.to(panelMaps, 1, {x: widthMap, ease: Power2.easeInOut}, "-=1")
+                .to(panelDescription, 1, {x: -widthDesc, ease: Power2.easeInOut, onComplete: endClose}, "-=1");
+
+
+            if (marker) {
+                marker.setMap(null);
+                marker = null;
+            }
+        };
+        btnBack.onclick = self.close;
+
+        this.refresh = function () {
+
+            if (isClose) {
+                iniPanel();
+            }
+
+        };
+
+
+        var endClose = function () {
+            isClose = true;
+            if (elementDetail) {
+                panelDescription.removeChild(elementDetail);
+                elementDetail = null;
+            }
+
+            if (dodo) {
+                dodo.remove();
+                dodo = null;
+            }
+
+            if (callBackFct)
+                callBackFct();
+        };
+
+        this.getElement = function () {
+            return element;
         }
-    };
-
-
-    this.print = function(param,callback){
-        callBackFct = callback;
-        isClose = false;
-
-        //google analitic
-        ga('send',param.nom);
-
-       constructHtml(param);
-
-        var tl = new TimelineLite();
-        tl .to(panelMaps,1,{x:0,ease: Power2.easeInOut},"-=1")
-            .to(panelDescription,1,{x:0,ease: Power2.easeInOut},"-=1");
-    };
-
-    this.close = function(){
-        var widthDesc = panelDescription.offsetWidth;
-        var widthMap = panelMaps.offsetWidth;
-
-        var tl = new TimelineLite();
-
-        tl .to(panelMaps,1,{x:widthMap,ease: Power2.easeInOut},"-=1")
-            .to(panelDescription,1,{x:-widthDesc,ease: Power2.easeInOut,onComplete:endClose},"-=1");
-
-
-        if(marker)
-        {
-            marker.setMap(null);
-            marker= null;
-        }
-    };
-    btnBack.onclick = self.close;
-
-    this.refresh = function(){
-
-        if(isClose)
-        {
-            iniPanel();
-        }
-
-    };
-
-
-    var endClose = function(){
-        isClose = true;
-        if(elementDetail)
-        {
-            panelDescription.removeChild(elementDetail);
-            elementDetail = null;
-        }
-
-        if(callBackFct)
-            callBackFct();
-    };
-
-    this.getElement = function(){
-        return element;
     }
-}

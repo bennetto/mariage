@@ -60,6 +60,7 @@
 
 .text-detail{
     padding: 20px;
+    font-family: "Segoe Print";
 }
 
 
@@ -84,10 +85,19 @@
     display: inline-block;
     margin-bottom: 10px;
 }
-.imgHotel{
+
+.imgHotel-container{
     float: left;
-    max-height: 100px;
-    max-width: 100px;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 100px;
+    border-color: rgba(0,0,0,0.1);
+    border-width: 5px;
+    border-style: solid;
+}
+.imgHotel{
+    height: 100px;
 }
 .descHotel{
     margin-left: 150px;
@@ -96,4 +106,9 @@
 
 .nomHotel{
     font-size: 20px;
+}
+
+.descHotel-txt{
+    font-family:Segoe Print ;
+
 }

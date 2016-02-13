@@ -3,6 +3,11 @@
     src: url('Assets/Fonts/segoesc.ttf');
 }
 
+@font-face {
+    font-family: "Segoe Print";
+    src: url('Assets/Fonts/segoepr.ttf');
+}
+
 
 html{
     font-family:Segoe Script;
