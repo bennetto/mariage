@@ -79,7 +79,7 @@ function Dodo(container,map) {
 
 var hotels = [
     {
-        img:"LeSpuller.png",
+        img:"LeSpuller.PNG",
         nom:"Logis Hôtel Le Spuller",
         desc:"",
         adresse:"42 Rue Ferdinand Mercusot, 21540 Sombernon",

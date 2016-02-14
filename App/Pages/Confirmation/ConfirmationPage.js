@@ -72,8 +72,8 @@ function ConfirmationPage(param) {
         var nbPers =personnes.length-1;
         var position  ={};
 
-        position.y = (Math.trunc(nbPers/3))/4 +1/5;
-        position.x = (Math.trunc(nbPers%3))/5 +1/10;
+        position.y = (Math.floor(nbPers/3))/4 +1/5;
+        position.x = (Math.floor(nbPers%3))/5 +1/10;
 
 
         var bulle = new BullePersonneAdd(personne,{positionInit:position,background:background});

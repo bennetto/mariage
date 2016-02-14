@@ -6,6 +6,9 @@ function VousNousPage(param) {
     /* public */
 
     var bNous;
+    var bJulie;
+
+
     this.init = function() {
 
         ga('send',"VousNous");
@@ -13,31 +16,48 @@ function VousNousPage(param) {
         gbulles = [];
 
         bNous = new BullePersonne({size:200,background:"#028c7e",positionInit:{x:1/2,y:1/2},image:"nous.jpg"});
-        workspace.appendChild(bNous.getElement());
-        bNous.goToInit();
-        bNous.goToIn();
+        gbulles.push(bNous);
+
+
+        bJulie = new BullePersonne({size:200,background:"#028c7e",positionInit:{x:3/4,y:1/2},image:"Julie.JPG"});
+        gbulles.push(bJulie);
+
+        gbulles.forEach(function(bulle){
+            workspace.appendChild(bulle.getElement());
+            bulle.goToInit();
+            bulle.goToIn();
+        });
 
 
 
 
     };
     this.close = function() {
-        if(bNous)
-            bNous.goToOut(function(){
-                for(var i= 0;i < workspace.children.length;i++)
-                {
-                    if(workspace.children[i] == bNous.getElement()) {
-                        workspace.removeChild(bNous.getElement());
+
+        gbulles.forEach(function(bulle){
+            if(bulle)
+                bulle.goToOut(function(){
+                    for(var i= 0;i < workspace.children.length;i++)
+                    {
+                        if(workspace.children[i] == bulle.getElement()) {
+                            workspace.removeChild(bulle.getElement());
+                        }
                     }
-                }
-            });
+                });
+        });
+
+
+
     };
 
     this.refresh = function(){
-        if(bNous && bNous.refresh)
-        {
-            bNous.refresh();
-        }
+        gbulles.forEach(function(bulle){
+            if(bulle && bulle.refresh)
+            {
+                bulle.refresh();
+            }
+        });
+
     };
 
     this.getElement = function(){
