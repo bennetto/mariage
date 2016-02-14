@@ -88,7 +88,7 @@ var hotels = [
         site:"http://www.logishotels.com/fr/hotel/hotel-le-spuller-165510?partid=661"
     },
     {
-        img:"",
+        img:"hotel.png",
         nom:"Le Bellevue",
         desc:"",
         adresse:"30, rue de la Libération 21540 Sombernon",
@@ -124,13 +124,49 @@ var hotels = [
         site:"http://www.hotel-dijon-castel-burgond.com/"
     },
     {
-        img:"",
+        img:"Ibis_DijonGare.PNG",
         nom:"Hôtel Ibis Dijon Gare",
         desc:"",
         adresse:"15A Avenue Albert 1er, 21000 Dijon",
         tel:"03 80 43 01 12",
         temps:"20",
         site:"http://www.hotel-ibisgare-dijon.fr/"
+    },
+    {
+        img:"Campanile_DijonNord.PNG",
+        nom:"Hôtel Campanile Dijon Nord",
+        desc:"",
+        adresse:"ZAC de la Toison d'Or, Allée Alfred Nobel, 21100 Dijon",
+        tel:"03 80 74 41 00",
+        temps:"20",
+        site:"http://www.campanile.com/fr/hotels/campanile-dijon-nord-toison-dor"
+    },
+    {
+        img:"PremiereClasse.PNG",
+        nom:"Hôtel Première Classe Dijon Nord",
+        desc:"",
+        adresse:"6 Rue des Ardennes, 21000 Dijon",
+        tel:"03 80 70 12 88",
+        temps:"20",
+        site:"http://www.premiereclasse.com/fr/hotels/premiere-classe-dijon-nord"
+    },
+    {
+        img:"BandB_DijonCentre.PNG",
+        nom:"Hôtel B&B Dijon Centre",
+        desc:"",
+        adresse:"5 Rue du Château, 21000 Dijon",
+        tel:"0 892 70 75 06",
+        temps:"20",
+        site:"http://www.hotel-bb.com/fr/hotels/dijon-centre.htm"
+    },
+    {
+        img:"BandB_DijonNord.PNG",
+        nom:"Hôtel B&B Dijon Nord",
+        desc:"",
+        adresse:"1 Rue des Ardennes, 21000 Dijon",
+        tel:"0 892 70 75 06",
+        temps:"20",
+        site:"http://www.hotel-bb.com/fr/hotels/dijon-nord.htm"
     }
 
 

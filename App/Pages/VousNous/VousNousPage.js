@@ -27,6 +27,13 @@ function VousNousPage(param) {
             });
     };
 
+    this.refresh = function(){
+        if(bNoPage && bNoPage.refresh)
+        {
+            bNoPage.refresh();
+        }
+    };
+
     this.getElement = function(){
         return element;
 

@@ -11,7 +11,7 @@ function ListeMariage(param) {
         ga('send',"Listemariage");
 
         gbulles = [];
-        bNoPage = new BulleNoPage({text:"La liste de mariage arriveras plus tard. Quand on l'auras faite :D.",size:400,background:"#028c7e"});
+        bNoPage = new BulleNoPage({text:"En guise de cadeau de mariage nous organiserons une cagnotte enfin de partir en voyage de noces à l'autre bout du monde!",size:400,background:"#028c7e"});
         workspace.appendChild(bNoPage.getElement());
         bNoPage.goToInit();
     };
@@ -26,6 +26,13 @@ function ListeMariage(param) {
                 }
             });
     };
+    this.refresh = function(){
+        if(bNoPage && bNoPage.refresh)
+        {
+            bNoPage.refresh();
+        }
+    };
+    
 
     this.getElement = function(){
         return element;

@@ -66,7 +66,7 @@ function Menu(param) {
         };
 
         /* Jour j*/
-        bMenuJour = new BulleMenu({text:"Jour J 11 juin 2016",size:200,background:"#028c7e",positionMenu:2});
+        bMenuJour = new BulleMenu({text:"Le 11 juin 2016",size:200,background:"#028c7e",positionMenu:2});
         workspaceBulle.appendChild(bMenuJour.getElement());
         bMenuJour.goToInit();
         bMenuJour.getElement().onclick = function(){
@@ -77,7 +77,7 @@ function Menu(param) {
 
 
         /*Liste mariage*/
-        bMenuList = new BulleMenu({text:"Liste de mariage",size:200,background:"#724823",positionMenu:3});
+        bMenuList = new BulleMenu({text:"Voyage de noces",size:200,background:"#724823",positionMenu:3});
         workspaceBulle.appendChild(bMenuList.getElement());
         bMenuList.goToInit();
         bMenuList.getElement().onclick = function(){

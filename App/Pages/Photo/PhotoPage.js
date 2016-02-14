@@ -11,7 +11,7 @@ function PhotoPage(param) {
         ga('send',"Photo");
 
         gbulles = [];
-        bNoPage = new BulleNoPage({text:"Aprés le mariage il y auras ICI une zone de partage de photo.",size:400,background:"#028c7e"});
+        bNoPage = new BulleNoPage({text:"Après le mariage il y aura ici une zone de partage de photos.",size:400,background:"#028c7e"});
         workspace.appendChild(bNoPage.getElement());
         bNoPage.goToInit();
     };
@@ -25,6 +25,13 @@ function PhotoPage(param) {
                     }
                 }
             });
+    };
+
+    this.refresh = function(){
+        if(bNoPage && bNoPage.refresh)
+        {
+            bNoPage.refresh();
+        }
     };
 
     this.getElement = function(){

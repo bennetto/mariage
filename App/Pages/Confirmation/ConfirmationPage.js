@@ -99,7 +99,7 @@ function ConfirmationPage(param) {
 
 
 
-        Utils.post("http://api.dev.benetjulie.love/mariage/confirmation/",JSON.stringify(data));
+        Utils.post(urlServer+"/mariage/confirmation/",JSON.stringify(data));
     };
 
     /* INIT */

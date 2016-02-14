@@ -39,7 +39,7 @@ function Navigation(param) {
         menu.refresh();
         descriptionMap.refresh();
 
-        if(oldPage.refresh)
+        if(oldPage && oldPage.refresh)
             oldPage.refresh();
     };
 

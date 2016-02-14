@@ -56,6 +56,9 @@ function BulleNoPage(param) {
         });
     };
 
+
+
+
     this.refreshSpec = function()
     {
         text.style.height = param.size+"px";

@@ -25,7 +25,7 @@ function ContactPage(param) {
             "sender": nom.value,
             "message": msg.value
         };
-        Utils.post("http://api.dev.benetjulie.love/mariage/contact/",JSON.stringify(data));
+        Utils.post(urlServer+"/mariage/contact/",JSON.stringify(data));
 
         self.close();
     };
