@@ -49,10 +49,6 @@ function ListeMariage(param) {
         }
     };
     this.refresh = function(){
-
-        var maxHeight = window.innerHeight;
-        img.style.top = maxHeight +"px";
-
         if(bNoPage && bNoPage.refresh)
         {
             bNoPage.refresh();

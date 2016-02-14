@@ -162,9 +162,10 @@ function ConfirmationPage(param) {
 
         nom.value = "";
         prenom.value = "";
-        isvient.checked = false;
-        isvientBrunch.checked = false;
         info.value = "";
+        //isvient.checked = false;
+        //isvientBrunch.checked = false;
+
     };
 
 

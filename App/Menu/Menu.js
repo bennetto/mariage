@@ -56,7 +56,7 @@ function Menu(param) {
 
 
         /* vous + nous*/
-        bMenuVN = new BulleMenu({text:"Vous + nous",size:200,background:"#028c7e",positionMenu:1});
+        bMenuVN = new BulleMenu({text:"Nous",size:200,background:"#028c7e",positionMenu:1});
         workspaceBulle.appendChild(bMenuVN.getElement());
         bMenuVN.goToInit();
         bMenuVN.getElement().onclick = function(){
