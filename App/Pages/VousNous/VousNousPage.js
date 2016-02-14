@@ -5,32 +5,38 @@ function VousNousPage(param) {
 
     /* public */
 
-    var bNoPage;
+    var bNous;
     this.init = function() {
 
         ga('send',"VousNous");
 
         gbulles = [];
-        bNoPage = new BulleNoPage({text:"ICI ce trouvera un arbre généalogique et qui sait peux-être autre chose.",size:400,background:"#028c7e"});
-        workspace.appendChild(bNoPage.getElement());
-        bNoPage.goToInit();
+
+        bNous = new BullePersonne({size:200,background:"#028c7e",positionInit:{x:1/2,y:1/2},image:"nous.jpg"});
+        workspace.appendChild(bNous.getElement());
+        bNous.goToInit();
+        bNous.goToIn();
+
+
+
+
     };
     this.close = function() {
-        if(bNoPage)
-            bNoPage.goToOut(function(){
+        if(bNous)
+            bNous.goToOut(function(){
                 for(var i= 0;i < workspace.children.length;i++)
                 {
-                    if(workspace.children[i] == bNoPage.getElement()) {
-                        workspace.removeChild(bNoPage.getElement());
+                    if(workspace.children[i] == bNous.getElement()) {
+                        workspace.removeChild(bNous.getElement());
                     }
                 }
             });
     };
 
     this.refresh = function(){
-        if(bNoPage && bNoPage.refresh)
+        if(bNous && bNous.refresh)
         {
-            bNoPage.refresh();
+            bNous.refresh();
         }
     };
 
