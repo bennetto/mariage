@@ -1,16 +1,16 @@
 @font-face {
-    font-family: "Segoe Script";
+    font-family: "Segoe Script perso";
     src: url('Assets/Fonts/segoesc.ttf');
 }
 
 @font-face {
-    font-family: "Segoe Print";
+    font-family: "Segoe Print perso";
     src: url('Assets/Fonts/segoepr.ttf');
 }
 
 
 html{
-    font-family:Segoe Script,Segoe Print;
+    font-family:Segoe Script perso,Segoe Script;
     overflow: hidden;
 }
 
@@ -84,7 +84,7 @@ body{
     padding-right: 10px;
     text-align: center;
     font-size: 25px;
-    font-family: Segoe Print;
+    font-family: Segoe Print perso,Segoe Print;
 }
 
 

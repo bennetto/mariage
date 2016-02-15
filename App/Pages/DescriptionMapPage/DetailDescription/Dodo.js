@@ -66,6 +66,7 @@ function Dodo(container,map) {
     };
 
 
+
     this.remove = function(){
         while (markers.length>0)
         {

@@ -66,10 +66,10 @@
 
 
 .container-dodo{
-    display: table;
+    display: block;
 }
 .row-dodo{
-    display: table-row;
+    display: block;
 }
 
 .listHotel{
@@ -109,7 +109,7 @@
 }
 
 .descHotel-txt{
-    font-family:Segoe Print ;
+    font-family:Segoe Print perso,Segoe Print ;
     -webkit-user-select: initial;
     -khtml-user-select: initial;
     -moz-user-select: initial;

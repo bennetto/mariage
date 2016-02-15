@@ -87,6 +87,12 @@ function DescriptionMapPage(param) {
                 }
 
                 panelDescription.appendChild(elementDetail);
+
+                setTimeout(function(){
+                    self.refresh();
+                },100);
+
+
             });
 
             var geocoder = new google.maps.Geocoder();
@@ -126,6 +132,8 @@ function DescriptionMapPage(param) {
                 tl.to(panelMaps, 1, {x: 0, ease: Power2.easeInOut}, "-=1")
                     .to(panelDescription, 1, {x: 0, ease: Power2.easeInOut}, "-=1");
             }
+
+
         };
 
         this.close = function () {
@@ -146,6 +154,15 @@ function DescriptionMapPage(param) {
         btnBack.onclick = self.close;
 
         this.refresh = function () {
+
+            if (dodo) {
+               var rowDodo = panelDescription.getElementsByClassName("row-dodo");
+
+                var height = rowDodo[0].offsetHeight + rowDodo[1].offsetHeight;
+
+                rowDodo[2].style.height = "calc(100% - "+height+"px)";
+
+            }
 
             if (isClose) {
                 iniPanel();
