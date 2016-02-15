@@ -21,17 +21,29 @@ function ContactPage(param) {
         var msg = element.querySelector(".message-value");
         var nom = element.querySelector(".nom-value");
 
-        var data =  {
-            "sender": nom.value,
-            "message": msg.value
-        };
-        Utils.post(urlServer+"/mariage/contact/",JSON.stringify(data),function(isOk,reponse){
 
-            if(isOk)
-                self.close();
-            else
-                GlobalNotif.print("Oups!!! Serveur non disponible",5000);
-        });
+        if(nom.value.length == 0 || msg.value.length == 0)
+        {
+            GlobalNotif.print("Veuillez remplir les champs",2000);
+        }
+        else{
+            var data =  {
+                "sender": nom.value.latinise(),
+                "message": msg.value.latinise()
+            };
+            Utils.post(urlServer+"/mariage/contact/",JSON.stringify(data),function(isOk,reponse){
+
+                if(isOk) {
+                    GlobalNotif.print("Message envoyée !!!", 2000);
+                    self.close();
+                }
+                else {
+                    GlobalNotif.print("Oups!!! Serveur non disponible", 5000);
+                }
+            });
+        }
+
+
 
 
     };

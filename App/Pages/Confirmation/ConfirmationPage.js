@@ -98,10 +98,13 @@ function ConfirmationPage(param) {
 
 
         Utils.post(urlServer+"/mariage/confirmation/",JSON.stringify(data),function(isOk,reponse){
-            if(isOk)
+            if(isOk) {
+                GlobalNotif.print("Confirmation envoyée !!!", 2000);
                 self.close();
-            else
-                GlobalNotif.print("Oups!!! Serveur non disponible",5000);
+            }
+            else {
+                GlobalNotif.print("Oups!!! Serveur non disponible", 5000);
+            }
         });
 
     };
