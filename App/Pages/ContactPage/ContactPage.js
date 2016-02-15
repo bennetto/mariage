@@ -25,9 +25,15 @@ function ContactPage(param) {
             "sender": nom.value,
             "message": msg.value
         };
-        Utils.post(urlServer+"/mariage/contact/",JSON.stringify(data));
+        Utils.post(urlServer+"/mariage/contact/",JSON.stringify(data),function(isOk,reponse){
 
-        self.close();
+            if(isOk)
+                self.close();
+            else
+                GlobalNotif.print("Oups!!! Serveur non disponible",5000);
+        });
+
+
     };
 
 

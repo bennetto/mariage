@@ -19,8 +19,8 @@ function VousNousPage(param) {
         gbulles.push(bNous);
 
 
-        bJulie = new BullePersonne({size:200,background:"#028c7e",positionInit:{x:3/4,y:1/2},image:"Julie.JPG"});
-        gbulles.push(bJulie);
+      //  bJulie = new BullePersonne({size:200,background:"#028c7e",positionInit:{x:3/4,y:1/2},image:"Julie.JPG"});
+       // gbulles.push(bJulie);
 
         gbulles.forEach(function(bulle){
             workspace.appendChild(bulle.getElement());

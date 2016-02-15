@@ -103,3 +103,31 @@ svg{
     z-index: 1000;
     cursor: pointer;
 }
+
+
+
+.notif{
+    height:150px;
+    width: 300px;
+    border-bottom-left-radius: 150px;
+    border-bottom-right-radius: 150px;
+    position: absolute;
+    top:0px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
+
+    background-color: #028c7e;
+}
+
+
+.notif .notif-text{
+    color: White;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 10px;
+
+}

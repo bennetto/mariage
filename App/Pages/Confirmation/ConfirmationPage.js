@@ -27,7 +27,6 @@ function ConfirmationPage(param) {
     var btnConfInvit  = element.querySelector("#confInvit");
     btnConfInvit.onclick  =function(){
         saveConfInvit();
-        self.close();
     };
 
     var btnEndAdd = element.querySelector("#btn-add-end");
@@ -98,8 +97,13 @@ function ConfirmationPage(param) {
         };
 
 
+        Utils.post(urlServer+"/mariage/confirmation/",JSON.stringify(data),function(isOk,reponse){
+            if(isOk)
+                self.close();
+            else
+                GlobalNotif.print("Oups!!! Serveur non disponible",5000);
+        });
 
-        Utils.post(urlServer+"/mariage/confirmation/",JSON.stringify(data));
     };
 
     /* INIT */

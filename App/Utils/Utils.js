@@ -8,10 +8,11 @@ var Utils = new function (){
 
         xhr.open("POST", url, true);
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                if(callback)
-                    callback();
+
+            if(callback){
+                callback(xhr.readyState == 4 && xhr.status == 200,xhr.response);
             }
+
         };
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.send(data);
@@ -24,9 +25,8 @@ var Utils = new function (){
 
         xhr.open("GET", url, true);
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                if(callback)
-                    callback();
+            if(callback){
+                callback(xhr.readyState == 4 && xhr.status == 200,xhr.response);
             }
         };
         xhr.setRequestHeader('Content-type', 'application/json');
