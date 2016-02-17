@@ -1,0 +1,11 @@
+.img-voyage{
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    background-image: url("../../../Assets/VOYAGE_NOCES_Final.png");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}

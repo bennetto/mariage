@@ -5,12 +5,22 @@ function ListeMariage(param) {
 
     /* public */
 
+
+    /*
+     position: absolute;
+     z-index: 0;
+     top: 0;
+     background-image: url("Assets/VOYAGE_NOCES_Final.png");
+     background-size: cover;
+     height: 100%;
+     width: 100%;
+     background-repeat: no-repeat;
+     background-position: center;
+     */
+
     var bNoPage;
-    var img = document.createElement("img");
-    img.src="Assets/VOYAGE_NOCES_Final.png";
-    img.style.width ="100%";
-    img.style.position = "absolute";
-    img.style.zIndex = "0";
+    var img = document.createElement("div");
+    img.className = "img-voyage";
 
     this.init = function() {
 
