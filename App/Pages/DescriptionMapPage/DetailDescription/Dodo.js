@@ -22,10 +22,10 @@ function Dodo(container,map) {
         hotels.forEach(function(hotel){
             var cont = hotelContainer.cloneNode(true);
 
-            var img = cont.getElementsByClassName("imgHotel")[0];
+            var img = cont.getElementsByClassName("img-hotel")[0];
             img.src = "./Assets/Hotels/"+hotel.img;
 
-            var nom = cont.getElementsByClassName("nomHotel")[0];
+            var nom = cont.getElementsByClassName("nom-hotel")[0];
             nom.innerText = labels[labelIndex++ % labels.length]+" - "+hotel.nom;
             nom.textContent = labels[labelIndex % labels.length]+" - "+hotel.nom;
 

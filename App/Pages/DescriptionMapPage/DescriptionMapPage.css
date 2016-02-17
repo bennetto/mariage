@@ -72,13 +72,13 @@
     display: block;
 }
 
-.listHotel{
+.list-hotel{
     height: 100%;
     overflow: auto;
 }
 
 
-.container-listHotel{
+.container-list-hotel{
    /* height: 100%;*/
 }
 .hotel{
@@ -86,7 +86,7 @@
     margin-bottom: 10px;
 }
 
-.imgHotel-container{
+.img-hotel-container{
     float: left;
     height: 100px;
     width: 100px;
@@ -96,19 +96,19 @@
     border-width: 5px;
     border-style: solid;
 }
-.imgHotel{
+.img-hotel{
     height: 100px;
 }
-.descHotel{
+.desc-hotel{
     margin-left: 150px;
     font-size: 13px;
 }
 
-.nomHotel{
+.nom-hotel{
     font-size: 20px;
 }
 
-.descHotel-txt{
+.desc-hotel-txt{
     font-family:Segoe Print perso,Segoe Print ;
     -webkit-user-select: initial;
     -khtml-user-select: initial;

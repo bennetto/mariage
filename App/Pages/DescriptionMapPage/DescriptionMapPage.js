@@ -79,7 +79,7 @@ function DescriptionMapPage(param) {
 
                 elementDetail = el.cloneNode(true);
 
-                var list = elementDetail.getElementsByClassName("listHotel");
+                var list = elementDetail.getElementsByClassName("list-hotel");
 
                 if (list && list.length > 0) {
                     dodo = new Dodo(list[0], map);

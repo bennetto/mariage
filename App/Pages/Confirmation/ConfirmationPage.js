@@ -31,6 +31,13 @@ function ConfirmationPage(param) {
 
     var btnEndAdd = element.querySelector("#btn-add-end");
     btnEndAdd.onclick = function(){
+
+        var nom = document.getElementById("value-nom");
+        var prenom = document.getElementById("value-prenom");
+        if(nom.value.length>0 && prenom.value.length>0)
+        {
+            addPersonne();
+        }
         self.goToEnd();
     };
 
@@ -221,7 +228,15 @@ function ConfirmationPage(param) {
 
     };
 
-    btnBack.onclick = self.close;
+    btnBack.onclick = function(){
+        if(currentPanelRight == panelEnd)
+        {
+            saveConfInvit();
+        }else{
+            self.close();
+        }
+
+    };
     btnHome.onclick = self.goToAdd;
 
 
