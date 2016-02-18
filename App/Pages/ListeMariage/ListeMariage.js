@@ -24,10 +24,14 @@ function ListeMariage(param) {
 
     this.init = function() {
 
-        ga('send',"Listemariage");
+
+        ga('send', 'pageview', {
+            page: '/Listemariage',
+            title: 'Listemariage'
+        });
 
         gbulles = [];
-        bNoPage = new BulleNoPage({text:"En guise de cadeau de mariage nous organiserons une cagnotte enfin de partir en voyage de noces à l'autre bout du monde!",size:400,background:"#028c7e"});
+        bNoPage = new BulleNoPage({text:"En guise de cadeau de mariage nous organiserons une cagnotte afin de partir en voyage de noces à l'autre bout du monde!",size:400,background:"#028c7e"});
 
         var maxHeight = window.innerHeight;
         img.style.top = maxHeight +"px";

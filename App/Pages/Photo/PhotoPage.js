@@ -8,7 +8,10 @@ function PhotoPage(param) {
     var bNoPage;
     this.init = function() {
 
-        ga('send',"Photo");
+        ga('send', 'pageview', {
+            page: '/photo',
+            title: 'Photo'
+        });
 
         gbulles = [];
         bNoPage = new BulleNoPage({text:"Après le mariage il y aura ici une zone de partage de photos.",size:400,background:"#028c7e"});

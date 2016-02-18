@@ -82,7 +82,17 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-73342820-1', 'auto');
-    ga('send','init');
+
+ /*   ga('set', {
+        page: '/home',
+        title: 'Home'
+    });
+*/
+    ga('send', 'pageview', {
+        page: '/home',
+        title: 'Home'
+    });
+
 </script>
 
 <script>

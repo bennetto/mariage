@@ -11,7 +11,11 @@ function VousNousPage(param) {
 
     this.init = function() {
 
-        ga('send',"VousNous");
+
+        ga('send', 'pageview', {
+            page: '/nous',
+            title: 'Nous'
+        });
 
         gbulles = [];
 

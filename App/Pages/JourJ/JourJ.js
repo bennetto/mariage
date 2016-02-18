@@ -12,7 +12,12 @@ function JourJ(param) {
     this.init = function() {
 
         //google analitic
-        ga('send',"JourJ");
+        //ga('send',"JourJ");
+
+        ga('send', 'pageview', {
+            page: '/JourJ',
+            title: 'JourJ'
+        });
 
         bulles = [];
         lines = [];
@@ -127,6 +132,12 @@ function JourJ(param) {
         });
 
         descriptionMap.print(param,function(){
+
+            ga('send', 'pageview', {
+                page: '/JourJ',
+                title: 'JourJ'
+            });
+
             lines.forEach(function(line){
                 line.init();
             });

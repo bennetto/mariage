@@ -78,7 +78,12 @@ function ContactPage(param) {
 
     this.print = function(callback){
         callBackFct = callback;
-        ga('send','contact');
+        //ga('send', 'pageview', '/contact');
+
+        ga('send', 'pageview', {
+            page: '/contact',
+            title: 'Contact'
+        });
 
         panelContact.style.display = "block";
         panelMessage.style.display = "block";

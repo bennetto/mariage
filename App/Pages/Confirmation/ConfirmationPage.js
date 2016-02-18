@@ -156,7 +156,12 @@ function ConfirmationPage(param) {
         currentPanelRight = panelHome;
 
         callBackFct = callback;
-        ga('send','contact');
+        //ga('send', 'pageview', '/confirmation');
+
+        ga('send', 'pageview', {
+            page: '/confirmation',
+            title: 'Comfirmation'
+        });
 
         personnes = [];
         bullesPersonne = [];

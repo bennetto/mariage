@@ -123,8 +123,14 @@ function DescriptionMapPage(param) {
             if(isClose) {
                 isClose = false;
 
+
+                ga('send', 'pageview', {
+                    page: '/'+param.nomHtmlFile,
+                    title: param.nomHtmlFile
+                });
+
                 //google analitic
-                ga('send', param.nom);
+                //ga('send', param.nom);
 
                 constructHtml(param);
 

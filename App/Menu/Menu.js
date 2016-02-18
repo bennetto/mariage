@@ -47,7 +47,7 @@ function Menu(param) {
     this.init = function(){
 
         //google analitic
-        ga('send','Home');
+        //ga('send', 'pageview', '/home');
 
         contentMainBulle.onclick = function(){
             goToMainMenu();
@@ -157,7 +157,13 @@ function Menu(param) {
         if(!modeFullscrenne)
         {
             //google analitic
-            ga('send','Home');
+            //ga('send', 'pageview', '/home');
+
+            ga('send', 'pageview', {
+                page: '/home',
+                title: 'Home'
+            });
+
 
             bMenuJour.goToHome();
             bMenuList.goToHome();
