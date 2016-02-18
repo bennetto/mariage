@@ -28,8 +28,8 @@ function ContactPage(param) {
         }
         else{
             var data =  {
-                "sender": nom.value.latinise(),
-                "message": msg.value.latinise()
+                "sender": nom.value,//.latinise(),
+                "message": msg.value
             };
             Utils.post(urlServer+"/mariage/contact/",JSON.stringify(data),function(isOk,reponse){
 
